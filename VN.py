@@ -14,3 +14,13 @@ def compute_VN_time(result,tlist):
         entropy = compute_VN(result, time_index, subsystem_index=0)
         von_neumann_entropy.append(entropy)
     return von_neumann_entropy
+
+def plot_VN(result,tlist,log=0):
+    v = compute_VN_time(result,tlist)
+    plt.figure(figsize=(10, 2))
+    plt.plot(tlist, v)
+    if log == 1:
+        plt.xscale('log')
+    plt.title("VN entropy over time")
+    plt.xlabel("time index")
+    plt.ylabel("VN entropy")

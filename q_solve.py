@@ -1,9 +1,13 @@
-import numpy as np
+import numpy
 import qutip as qt
 import math
 import matplotlib.pyplot as plt
 
-def generate_result(d1 = 10,d2 = 200,w = 0.3, E_spacing = 1.0, Int_strength = 0.03, tmax= 10, ind_nb = 100):
+def test(x):
+    a = numpy.linspace(0,x,10)
+    return a 
+
+def generate_result(d1 = 10,d2 = 200,w = 0.3, E_spacing = 1.0, Int_strength = 0.03, tmax= 10, ind_nb = 100,log=0):
 # Define the Hilbert space dimensions for the two quantum systems
     dim_system_1 = d1  # Dimension of system 1. make both dimensions even
     dim_system_2 = d2  # Dimension of system 2 (changed to 10)
@@ -18,8 +22,8 @@ def generate_result(d1 = 10,d2 = 200,w = 0.3, E_spacing = 1.0, Int_strength = 0.
     # Define random Hermitian matrices as Hamiltonians for system 1 and system 2
     H_system_1 = qt.qeye(dim_system_1) #qt.rand_herm(dim_system_1)  # Random Hermitian matrix for system 1
     energy_spacing = E_spacing  # Adjust as needed
-    diagonal_elements = np.arange(0, dim_system_1) * energy_spacing
-    H_q = qt.Qobj(np.diag(diagonal_elements)) # Create a diagonal matrix with increasing diagonal elements
+    diagonal_elements = numpy.arange(0, dim_system_1) * energy_spacing
+    H_q = qt.Qobj(numpy.diag(diagonal_elements)) # Create a diagonal matrix with increasing diagonal elements
     H_system_2 = qt.rand_herm(dim_system_2)  # Random Hermitian matrix for system 2
 
     # Define initial states for system 1 and system 2
@@ -44,7 +48,17 @@ def generate_result(d1 = 10,d2 = 200,w = 0.3, E_spacing = 1.0, Int_strength = 0.
     H_total = H_system_1_ext + H_system_2_ext + H_interaction
     
     # Define the time settings for the simulation
-    tlist = np.linspace(0, tmax, ind_nb)  # Adjust the time range and step count as needed
+    
+    tlist = numpy.linspace(0, tmax, ind_nb)  # Adjust the time range and step count as needed
+
+    import numpy as np
+
+    if log == 0:
+        tlist = numpy.linspace(0, tmax, ind_nb)  # Linear spacing
+    elif log == 1:
+        tlist = numpy.logspace(numpy.log10(1), numpy.log10(tmax+1), ind_nb)-1  # Logarithmic spacing
+    else:
+        raise ValueError("Invalid value for 'log'. It should be either 0 or 1.")
     
     # Perform time evolution of the combined system
     result = qt.mesolve(H_total, state, tlist, [], [])
