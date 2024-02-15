@@ -42,7 +42,7 @@ def generate_result(d1 = 10,d2 = 200,w = 0.3, E_spacing = 1.0, Int_strength = 0.
     
     # Expand the system Hamiltonians to the full Hilbert space dimensions
     H_system_1_ext = qt.tensor(H_system_1, qt.qeye(dim_system_2))
-    H_system_2_ext = qt.tensor(qt.qeye(dim_system_1), H_system_2)
+    H_system_2_ext = 0.75*qt.tensor(qt.qeye(dim_system_1), H_system_2)
     
     # Define the total Hamiltonian
     H_total = H_system_1_ext + H_system_2_ext + H_interaction
