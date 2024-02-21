@@ -42,7 +42,7 @@ def compute_schmidt_full(result, idx,s=1):
         print("wrong input value")
     return g
 
-def plot_p_overlap_graph(tlist,result,H_total):
+def plot_p_overlap_graph(tlist,result,H_total,w,EI):
     o01 = []
     o02 = []
     o12 = []
@@ -65,4 +65,4 @@ def plot_p_overlap_graph(tlist,result,H_total):
     plt.xlabel("Time")
     plt.ylabel(r"$\sqrt{\vec{pi}} \cdot \sqrt{\vec{pj}}$")
     plt.legend(['overlap Global-Schmidt 1', 'overlap Global-Schmidt 2', 'overlap Schmidt 1-Schmidt 2'])
-
+    plt.savefig(f'overlap_EI_{EI}_w_{w}.png')
