@@ -1,12 +1,19 @@
 ###
-Interesting jupyter notebooks to look at:
-Basic_tools
-Neff_study
-overlap_study
-Energy non-conservation in branching
+Jupyter notebooks (.ipynb) worth looking at:
+-Basic_tools
+-Neff_study
+-overlap_study
+-distrib_video (or simply look at its product, the pre-generated gifs)
 
+In progress/exploratory notebooks:
+-Energy non-conservation in branching
+-Weight_conservation
 
-Basic tools: Has some graphs to verify that a measurement is indeed happening
+The python code (.py) contains functions used repeatedly.
+
+Put explanation in each notebook.
+
+--Basic tools: Has some graphs to verify that a measurement is indeed happening
 
 --Neff_study: Looks at the distribution of the global state over the total hamiltonian spectrum as well as how Neff_schmidt/Neff_total evolves.
 We look at various interaction strengths, which vary the distribution of teh global state over the energy eigenstates. 

@@ -1,8 +1,11 @@
 ###
-Interesting jupyter notebooks to look at:
+Jupyter notebooks worth looking at:
 Basic_tools
 Neff_study
 overlap_study
+distrib_video (or simply look at its product, the pre-generated gifs)
+
+In progress/exploratory notebooks
 Energy non-conservation in branching
 
 
