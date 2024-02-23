@@ -5,6 +5,8 @@ Jupyter notebooks (.ipynb) worth looking at:
 -overlap_study
 -distrib_video (or simply look at its product, the pre-generated gifs)
 
+
+
 In progress/exploratory notebooks:
 -Energy non-conservation in branching
 -Weight_conservation
