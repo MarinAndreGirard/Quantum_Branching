@@ -4,7 +4,6 @@ Jupyter notebooks (.ipynb) worth looking at:
 -Neff_study
 -overlap_study
 -distrib_video (or simply look at its product, the pre-generated gifs)
--test
 
 
 In progress/exploratory notebooks:
