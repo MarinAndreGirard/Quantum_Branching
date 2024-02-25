@@ -4,11 +4,10 @@ Jupyter notebooks (.ipynb) worth looking at:
 -Neff_study
 -overlap_study
 -distrib_video (or simply look at its product, the pre-generated gifs)
-
+-Weight conservation
 
 In progress/exploratory notebooks:
 -Energy non-conservation in branching
--Weight_conservation
 
 The python code (.py) contains functions used repeatedly.
 
@@ -28,6 +27,8 @@ There is also a plot of Neff_schmidt/Neff_tot for w=0.3 and t=100 (long time sca
 --overlap_study: Look at the overlap of Schmidt states with each other as well as with the gobal state. Since the schmidt are orthogonal we look at projections of the probability vector (sqrt of it), the inner product wouldd not work.
 The first set of graphs look at the impact of w, for 0.5, 0.4, 0.3. We see that the global-schmidt overlap for schmidt 1 and 2 converge closer for w = 0.5 than w=0.3. We also see that for w=0.5 the schmidt 1 and 2 overlap is very noisy for w=0.3,0.4 but not w = 0.5. For w = 0.4, 0.3, the schmidt 1 and 2 overlap starts at the same value as global and schmidt 2 as expected, then dips low, before going back up to a value lower than teh other 2 overlaps and oscilating there.
 
+--Weight_conservation: Looks at the probability of being in an eneergy eigenstate evolving in time. I look a that probability for the full global state (fully conserved, so does not evolve in time), for teh schmidt states individually, for the weighted sum of schmidt states, and for teh weighted sum of the schmidt states + the interference contribution.
+There might also be some interesting thing to deducde from looking at how the probability of the 2 schmidt evolve. 
 
 
 
