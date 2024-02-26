@@ -1,10 +1,12 @@
 ###
 Jupyter notebooks (.ipynb) worth looking at:
--Basic_tools
--Neff_study
--overlap_study
--distrib_video (or simply look at its product, the pre-generated gifs)
--Weight conservation
+-Basic_tools: Mostly exploratory, to figure out the tools
+-Neff_study: Used to generate graphs of Neff_schmidt/Neff_total, like Andreas.
+-overlap_study: used to generate graph of the overlape of probability vectors of schmidt states and the global state
+-distrib_video (or simply look at its product, the pre-generated gifs): Used to generate gifs of the evolution of the probabilities of the schmidt states being in an energy eigenstate. Useful to findout what we want to look at.
+-Weight conservation: Used to make graphs of how the probability of being a a few of theses energy eigenstates evolves in time for the two schmidt states (like looking closely at a piece of the gifs). We also check probability conservation, visualizing the quantum interference between the 2 schmidt states.
+-Testing_schmidt_solve: Used to test that the function computing the schmidt states was correct, but also has nice graph loopking at them transforming into stable states over time. 
+
 
 In progress/exploratory notebooks:
 -Energy non-conservation in branching
