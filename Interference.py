@@ -23,7 +23,7 @@ def interference_plot(result,H_total,tlist,start_num=1000,end_num=1010):
 
     # Create an array of integers between start_num and end_num
     arr = np.arange(start_num, end_num + 1)
-
+    arr2 = np.arange(start_num, end_num)
     for i in arr:
         eig = eigenstates_total[i]
         prob=[]
@@ -70,12 +70,14 @@ def interference_plot(result,H_total,tlist,start_num=1000,end_num=1010):
     plt.legend([f'Prob in eigenstate {i}' for i in arr])
     plt.show()
     '''
-
-    for i in arr:
-        p = prob_list3[i-start_num]
-        if p[2]>1e-6:
-            k = i-start_num
-            break
+    k=0
+    b = 0
+    for i in arr2:
+        if prob_list[i-start_num+1][0]>b:
+            b=prob_list[i-start_num+1][0]
+            k=i-start_num+1
+        #if prob_list3[i-start_num+1][2]>prob_list3[i-start_num][2]:
+        #    k=i-start_num+1
 
     i = k
     j=start_num+k
@@ -85,7 +87,6 @@ def interference_plot(result,H_total,tlist,start_num=1000,end_num=1010):
     for idx in range(len(tlist)-1):
         interf.append(np.sqrt(s_val_0[idx]*s_val_1[idx])*(2*np.real(np.vdot(eig,compute_schmidt_full(result,idx+1,1)))*np.real(np.vdot(eig,compute_schmidt_full(result,idx+1,2)))+2*np.imag(np.vdot(eig,compute_schmidt_full(result,idx+1,1)))*np.imag(np.vdot(eig,compute_schmidt_full(result,idx+1,2)))))
         #interf.append(np.sqrt(s_val_0[idx]*s_val_1[idx])*(np.vdot(eig,compute_schmidt_full(result,idx+1,1))*(np.vdot(eig,compute_schmidt_full(result,idx+1,2)).conjugate()) + np.vdot(eig,compute_schmidt_full(result,idx+1,2))*(np.vdot(eig,compute_schmidt_full(result,idx+1,1)).conjugate())))
-    print(interf)
 
     weighted = np.multiply(prob_list[i], s_val_0[0:len(tlist)-1])+np.multiply(prob_list2[i], s_val_1[0:len(tlist)-1])
     weighted_plus_interf = weighted + interf
