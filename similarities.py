@@ -32,12 +32,11 @@ def cos_similarity_btw_s1_s2_plot(s1_list,s2_list,tlist):
 
 
 def metric_similarity_btw_s1_s2_plot(s1_list,s2_list,tlist):
-
     similarities = []
     for idx in range(len(tlist)-1):
         d=0
         for i in range(len(s1_list[idx])):
-            d = d + 1-abs(s1_list[idx][i]-s2_list[idx][i])
+            d = d + s1_list[idx][i]+s2_list[idx][i]-abs(s1_list[idx][i]-s2_list[idx][i])
         similarities.append(d/2)
     plt.figure(figsize=(10, 6))
     plt.plot(tlist[0:len(tlist)-1], similarities)
