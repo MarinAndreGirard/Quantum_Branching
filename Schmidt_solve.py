@@ -97,3 +97,21 @@ def compute_schmidt_states(result, time_index, subsystem_index=0, trigger=0):
     else:
         return schmidt_values
 
+
+def plot_schmidt_value_time(result,tlist):
+
+    s_val_0=[]
+    s_val_1=[]
+    t_ind = range(len(tlist))
+    for idx in t_ind:
+        ss, se, sv = compute_schmidt_states_new(result, idx)
+        s_val_0.append(sv[0])
+        s_val_1.append(sv[1])
+
+    plt.figure(figsize=(10, 5))
+    plt.plot(tlist,s_val_0, marker='+')
+    plt.plot(tlist,s_val_1, marker='+')
+    plt.title('Evolution of Top 2 Eigenvalues Over Time')
+    plt.xlabel('Time')
+    plt.ylabel('Eigenvalue Magnitude')
+

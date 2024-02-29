@@ -90,6 +90,8 @@ def interference_plot(result,H_total,tlist,start_num=1000,end_num=1010):
 
     weighted = np.multiply(prob_list[i], s_val_0[0:len(tlist)-1])+np.multiply(prob_list2[i], s_val_1[0:len(tlist)-1])
     weighted_plus_interf = weighted + interf
+    plt.figure(figsize=(10, 6))
+    plt.xscale('linear')
     plt.plot(tlist[0:len(tlist)-1], weighted)
     plt.plot(tlist[0:len(tlist)-1], weighted_plus_interf)
     plt.plot(tlist[0:len(tlist)-1], prob_list3[i][0:99])
