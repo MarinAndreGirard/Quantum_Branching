@@ -105,9 +105,8 @@ def make_gif_distribs2(H_total,result,EI):
 
 
 
-def update_plot_new(frames,result,eigenstates_total,eigenenergies_total,EI,w):
+def update_plot_new(frames,result,eigenstates_total,eigenenergies_total,EI,w,env):
     # Clear previous plot
-    print(result.states[1])
     plt.clf()
     frames = frames+1
     state = compute_schmidt_full(result,frames,1)
@@ -116,21 +115,25 @@ def update_plot_new(frames,result,eigenstates_total,eigenenergies_total,EI,w):
     energy_coeff2=[abs(np.vdot(state2, eigenstate)) ** 2 for eigenstate in eigenstates_total]
     plt.plot(eigenenergies_total,energy_coeff);
     plt.plot(eigenenergies_total,energy_coeff2);
-    plt.title(f"Plot of the probability that Schmidt1 and 2 are in the energy eigenstates for EI={EI} and w={w}")
+    plt.title(f"Plot of the probability that Schmidt1 and 2 are in the energy eigenstates for EI={EI} and w={w} and env={env}")
     plt.xlabel("Eigenenergies of H_total")
     plt.ylabel("Probabilities")
     plt.legend(["Schmidt1","Schmidt2"])
     plt.ylim(0, 0.25)
 
-def make_gif_distribs1s2_new(EI,w,result,eigenstates_total,eigenenergies_total):
+def make_gif_distribs1s2_new(EI,w,result,eigenstates_total,eigenenergies_total,env,d1,d2,E_spacing,tmax,ind_nb):
+    print(env)
     # Create a figure
     fig = plt.figure(figsize=(10, 5))
 
     # Create the animation
-    ani = FuncAnimation(fig, update_plot_new,fargs=(result,eigenstates_total,eigenenergies_total,EI,w), frames=99, interval=100)
-
+    ani = FuncAnimation(fig, update_plot_new,fargs=(result,eigenstates_total,eigenenergies_total,EI,w,env), frames=99, interval=100)
     # Save the animation as a GIF
-    ani.save(f'Gifs/distrib_schmidt1_2_over_energy_spectrum_EI_{EI}_w_{w}.gif', writer='pillow')
+    if env!=[0]:
+        e=env[0:2]
+        ani.save(f'Gifs/distrib_schmidt1_2_over_energy_spectrum_EI_{EI}_w_{w}_env_{e}_d1_{d1}_d2_{d2}_Espace_{E_spacing}_tmax_{tmax}_ind_nb_{ind_nb}.gif', writer='pillow')
+    else:
+        ani.save(f'Gifs/distrib_schmidt1_2_over_energy_spectrum_EI_{EI}_w_{w}_env_NA_d1_{d1}_d2_{d2}_Espace_{E_spacing}_tmax_{tmax}_ind_nb_{ind_nb}.gif', writer='pillow')        
     plt.close()
 
 
