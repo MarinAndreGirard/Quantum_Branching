@@ -103,3 +103,35 @@ def make_gif_distribs2(H_total,result,EI):
     ani.save('distrib_schmidt2_over_energy_spectrum.gif', writer='pillow')
 
 
+
+
+def update_plot_new(frames,result,eigenstates_total,eigenenergies_total,EI,w):
+    # Clear previous plot
+    print(result.states[1])
+    plt.clf()
+    frames = frames+1
+    state = compute_schmidt_full(result,frames,1)
+    state2 = compute_schmidt_full(result,frames,2)
+    energy_coeff=[abs(np.vdot(state, eigenstate)) ** 2 for eigenstate in eigenstates_total]
+    energy_coeff2=[abs(np.vdot(state2, eigenstate)) ** 2 for eigenstate in eigenstates_total]
+    plt.plot(eigenenergies_total,energy_coeff);
+    plt.plot(eigenenergies_total,energy_coeff2);
+    plt.title(f"Plot of the probability that Schmidt1 and 2 are in the energy eigenstates for EI={EI} and w={w}")
+    plt.xlabel("Eigenenergies of H_total")
+    plt.ylabel("Probabilities")
+    plt.legend(["Schmidt1","Schmidt2"])
+    plt.ylim(0, 0.25)
+
+def make_gif_distribs1s2_new(EI,w,result,eigenstates_total,eigenenergies_total):
+    # Create a figure
+    fig = plt.figure(figsize=(10, 5))
+
+    # Create the animation
+    ani = FuncAnimation(fig, update_plot_new,fargs=(result,eigenstates_total,eigenenergies_total,EI,w), frames=99, interval=100)
+
+    # Save the animation as a GIF
+    ani.save(f'Gifs/distrib_schmidt1_2_over_energy_spectrum_EI_{EI}_w_{w}.gif', writer='pillow')
+    plt.close()
+
+
+
