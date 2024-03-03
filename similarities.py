@@ -48,23 +48,32 @@ def time_cos_similarity_plot(result,tlist):
     #need to that the schmidt states become stable over time
     #to do that, we get a list of ss[0] vectors over time and check that as timer goes, they change less and less.
     se0_list=[]
+    se1_list=[]    
     for i in range(len(tlist)-1):
         ss, se, sv = compute_schmidt_states_new(result, i+1)
-        se = np.abs(se[0]).flatten()
-        se0_list.append(se)
+        se1 = np.abs(se[0]).flatten()
+        #print(f"i{i}se{se}")
+        se0_list.append(se1)
+        se2 = np.abs(se[1]).flatten()
+        se1_list.append(se2)
     # Calculate the similarity between ss[0] vectors at different time indices
-        step = 1
+        step = 2
     similarities = []
+    similarities2 = []
     for i in range(len(tlist)-step-1):
         d = 1-distance.cosine(se0_list[i], se0_list[i+step])
         similarities.append(d)
+        d1= 1-distance.cosine(se1_list[i], se1_list[i+step])
+        similarities2.append(d1)
 
     # Plot the similarity over time
     plt.figure(figsize=(10, 6))
     plt.plot(tlist[0:len(tlist)-step-1], similarities)
+    plt.plot(tlist[0:len(tlist)-step-1], similarities2)
     plt.xlabel('Time')
     plt.ylabel('Similarity')
     plt.title(f'Evolution of Similarity between environment schmidt 0 with itself a little before. Step size {step}')
+    plt.legend(["Env Schmidt 0", "Env Schmidt 1"])
 
 
     plt.show()
