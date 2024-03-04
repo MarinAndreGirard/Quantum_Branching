@@ -65,4 +65,4 @@ def plot_p_overlap_graph(tlist,result,H_total,w,EI):
     plt.xlabel("Time")
     plt.ylabel(r"$\sqrt{\vec{pi}} \cdot \sqrt{\vec{pj}}$")
     plt.legend(['overlap Global-Schmidt 1', 'overlap Global-Schmidt 2', 'overlap Schmidt 1-Schmidt 2'])
-    plt.savefig(f'overlap_EI_{EI}_w_{w}.png')
+    plt.savefig(f'Graphs/overlap_EI_{EI}_w_{w}.png')

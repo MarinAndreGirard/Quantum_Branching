@@ -101,7 +101,8 @@ def time_cos_similarity_plot(result,tlist):
     plt.ylabel('Similarity')
     plt.title(f'Evolution of Similarity between environment schmidt 0 with itself a little before. Step size {step}')
     plt.legend(["Env Schmidt 0", "Env Schmidt 1"])
-
+    plt.savefig(f'Graphs/time_similarity_graph_EI={EI}_w_{w}.png')
+    
 
     plt.show()
 
@@ -117,7 +118,7 @@ def similarity_btw_s1_s2_plot_compare_w(d1,d2,w, E_spacing, EI,tmax=10,ind_nb=10
     for w in w_vec:
         result, tlist, H_q, H_system_2, H_system_1_ext, H_system_2_ext, H_interaction, H_total, ket_0, ket_1, initial_state_system_2 = generate_result(d1,d2,w, E_spacing, Int_strength, tmax, ind_nb,0)
         eigenenergies_total, eigenstates_total = H_total.eigenstates()
-        plot_VN(result,tlist)
+        #plot_VN(result,tlist)
         s1_list,s2_list=probs_schmidt_in_energy_eigenstates(result,eigenenergies_total,eigenstates_total,tlist,EI,w)
         similarities = []
         for idx in range(len(tlist)-1):
@@ -129,4 +130,5 @@ def similarity_btw_s1_s2_plot_compare_w(d1,d2,w, E_spacing, EI,tmax=10,ind_nb=10
         plt.ylabel('cosine similarity')
         plt.title('Evolution of similarity between schmidt 1 and schmidt 2')
         plt.legend(['0.1','0.2','0.3','0.4','0.5','0.6','0.7','0.8','0.9'])
+    plt.savefig(f'Graphs/similarity_graph_s1_s2_w_vector_EI={EI}.png')
     plt.show()
