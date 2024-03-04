@@ -31,6 +31,7 @@ def cos_similarity_btw_s1_s2_plot(s1_list,s2_list,tlist):
     plt.xlabel('Time')
     plt.ylabel('cosine similarity')
     plt.title('Evolution of similarity between schmidt 1 and schmidt 2')
+    
 
 
 def metric_similarity_btw_s1_s2_plot(s1_list,s2_list,tlist):
@@ -66,8 +67,8 @@ def time_cos_similarity_plot_new(result,tlist,H_total,EI,w,step=1):
     plt.xlabel('Time')
     plt.ylabel('Similarity')
     plt.title(f'Evolution of Similarity between environment schmidt 0 with itself a little before. Step size {step}')
-    plt.legend(["Env Schmidt 0", "Env Schmidt 1"])
-
+    plt.legend(["Schmidt 1", "Schmidt 1"])
+    plt.savefig(f'Graphs/time_cos_similarity_graph_EI={EI}_w_{w}.png')
 
     plt.show()
 
@@ -101,7 +102,7 @@ def time_cos_similarity_plot(result,tlist):
     plt.ylabel('Similarity')
     plt.title(f'Evolution of Similarity between environment schmidt 0 with itself a little before. Step size {step}')
     plt.legend(["Env Schmidt 0", "Env Schmidt 1"])
-    plt.savefig(f'Graphs/time_similarity_graph_EI={EI}_w_{w}.png')
+    
     
 
     plt.show()
