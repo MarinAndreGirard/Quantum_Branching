@@ -24,7 +24,7 @@ def generate_result(d1 = 10,d2 = 200,w = 0.3, E_spacing = 1.0, Int_strength = 0.
     energy_spacing = E_spacing  # Adjust as needed
     diagonal_elements = numpy.arange(0, dim_system_1) * energy_spacing
     H_q = qt.Qobj(numpy.diag(diagonal_elements)) # Create a diagonal matrix with increasing diagonal elements
-    H_system_2 = qt.rand_herm(dim_system_2)  # Random Hermitian matrix for system 2
+    H_system_2 = qt.rand_herm(dim_system_2,1)  # Random Hermitian matrix for system 2
 
     # Define initial states for system 1 and system 2
     initial_state_system_1 = (math.sqrt(w)*ket_0 + math.sqrt(1-w)*ket_1).unit()
@@ -37,7 +37,7 @@ def generate_result(d1 = 10,d2 = 200,w = 0.3, E_spacing = 1.0, Int_strength = 0.
     ### BASIC SIMU
     interaction_strength = Int_strength  # Adjust as needed
     #H_interaction = interaction_strength * (qt.rand_herm(dim_total)) #note here the interaction mat is fully random. 
-    H_interaction = interaction_strength * qt.tensor(H_q, qt.rand_herm(dim_system_2))  
+    H_interaction = interaction_strength * qt.tensor(H_q, qt.rand_herm(dim_system_2,1))  
     #not a full rd matrix will make things non-zero in terms in which it was not nonzero in the sstem 1 basis
     
     # Expand the system Hamiltonians to the full Hilbert space dimensions
@@ -82,7 +82,7 @@ def generate_result_envi_superpo(d1 = 10,d2 = 200,w = 0.3, E_spacing = 1.0, Int_
     energy_spacing = E_spacing  # Adjust as needed
     diagonal_elements = numpy.arange(0, dim_system_1) * energy_spacing
     H_q = qt.Qobj(numpy.diag(diagonal_elements)) # Create a diagonal matrix with increasing diagonal elements
-    H_system_2 = qt.rand_herm(dim_system_2)  # Random Hermitian matrix for system 2
+    H_system_2 = qt.rand_herm(dim_system_2,1)  # Random Hermitian matrix for system 2
 
     # Define initial states for system 1 and system 2
     initial_state_system_1 = (math.sqrt(w)*ket_0 + math.sqrt(1-w)*ket_1).unit()
@@ -101,7 +101,7 @@ def generate_result_envi_superpo(d1 = 10,d2 = 200,w = 0.3, E_spacing = 1.0, Int_
     ### BASIC SIMU
     interaction_strength = Int_strength  # Adjust as needed
     #H_interaction = interaction_strength * (qt.rand_herm(dim_total)) #note here the interaction mat is fully random. 
-    H_interaction = interaction_strength * qt.tensor(H_q, qt.rand_herm(dim_system_2))  
+    H_interaction = interaction_strength * qt.tensor(H_q, qt.rand_herm(dim_system_2,1))  
     #not a full rd matrix will make things non-zero in terms in which it was not nonzero in the sstem 1 basis
     
     # Expand the system Hamiltonians to the full Hilbert space dimensions
