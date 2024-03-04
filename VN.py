@@ -21,6 +21,8 @@ def plot_VN(result,tlist,log=0):
     plt.plot(tlist, v)
     if log == 1:
         plt.xscale('log')
+    else:
+        plt.xscale('linear')
     plt.title("VN entropy over time")
     plt.xlabel("time index")
     plt.ylabel("VN entropy")

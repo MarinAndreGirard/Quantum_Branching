@@ -2,9 +2,11 @@ import numpy as np
 import qutip as qt
 import math
 import matplotlib.pyplot as plt
+from q_solve import generate_result
 from Schmidt_solve import compute_schmidt_full
 from Schmidt_solve import compute_schmidt_states_new
 from scipy.spatial import distance
+from VN import plot_VN
 
 def probs_schmidt_in_energy_eigenstates(result,eigenenergies_total, eigenstates_total,tlist,EI,w):
     prob_list1 = []
@@ -101,4 +103,30 @@ def time_cos_similarity_plot(result,tlist):
     plt.legend(["Env Schmidt 0", "Env Schmidt 1"])
 
 
+    plt.show()
+
+
+def similarity_btw_s1_s2_plot_compare_w(d1,d2,w, E_spacing, EI,tmax=10,ind_nb=100):
+    #defining all quantities used in the simulation
+    d1, d2 = 10, 200
+    E_spacing = 1.0
+    Int_strength = 0.03
+
+    w_vec=[0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9]
+
+    for w in w_vec:
+        result, tlist, H_q, H_system_2, H_system_1_ext, H_system_2_ext, H_interaction, H_total, ket_0, ket_1, initial_state_system_2 = generate_result(d1,d2,w, E_spacing, Int_strength, tmax, ind_nb,0)
+        eigenenergies_total, eigenstates_total = H_total.eigenstates()
+        plot_VN(result,tlist)
+        s1_list,s2_list=probs_schmidt_in_energy_eigenstates(result,eigenenergies_total,eigenstates_total,tlist,EI,w)
+        similarities = []
+        for idx in range(len(tlist)-1):
+            d = 1-distance.cosine(s1_list[idx], s2_list[idx])
+            similarities.append(d)
+            
+        plt.plot(tlist[0:len(tlist)-1], similarities)
+        plt.xlabel('Time')
+        plt.ylabel('cosine similarity')
+        plt.title('Evolution of similarity between schmidt 1 and schmidt 2')
+        plt.legend(['0.1','0.2','0.3','0.4','0.5','0.6','0.7','0.8','0.9'])
     plt.show()
