@@ -105,6 +105,32 @@ def interference_plot(result,H_total,tlist,start_num=1000,end_num=1010):
     plt.show()
 
 
+def total_interference(tlist,result,eigenstates_total,eigenenergies_total,EI,w):
+    interference_list=[]
+        
+
+    for idx in range(len(tlist)-1):
+        ss, se, sv = compute_schmidt_states_new(result, idx)
+        s_val_0 = sv[0]
+        s_val_1 = sv[1]
+
+        state = result.states[idx+1].full()
+        state1 = compute_schmidt_full(result,idx+1,1)
+        state2 = compute_schmidt_full(result,idx+1,2)
+        p=[abs(np.vdot(state, eigenstate)) ** 2 for eigenstate in eigenstates_total]
+        p1=[abs(np.vdot(state1, eigenstate)) ** 2 for eigenstate in eigenstates_total]
+        p2=[abs(np.vdot(state2, eigenstate)) ** 2 for eigenstate in eigenstates_total]
+        interference = [abs(np.sqrt(s_val_0*s_val_1)*(2*np.real(np.vdot(eig,state1))*np.real(np.vdot(eig,state2))+2*np.imag(np.vdot(eig,state1))*np.imag(np.vdot(eig,state2)))) for eig in eigenstates_total]
+        interference = np.sum(interference)
+        interference_list.append(interference)  
+    plt.plot(tlist[0:len(tlist)-1], interference_list)
+    plt.title(f"Plot of the total absolute interference between Schmidts 1 and 2 over time for EI={EI}, w={w}")
+    plt.xlabel("Time")
+    plt.ylabel("Interference (sum of probability difference with the global state)")
+    plt.show()
+
+
+
 #What this graph tells me is that somehow the sum of the probabilities of the 2 worlds being in  
 #an energy eigenstate is not conserved over time.
 
