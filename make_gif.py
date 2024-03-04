@@ -4,8 +4,8 @@ from q_solve import generate_result
 from matplotlib.animation import FuncAnimation
 from IPython.display import HTML
 from PIL import Image
-from overlap import compute_schmidt_full
-
+#from overlap import compute_schmidt_full
+from Schmidt_solve import compute_schmidt_full
 
 def compute_schmidt_2(result,idx,s=1):
     if s==1:
@@ -158,6 +158,8 @@ def make_gif_distribs1s2_new(EI,w,result,eigenstates_total,eigenenergies_total,e
     else:
         ani.save(f'Gifs/distrib_schmidt1_2_over_energy_spectrum_EI_{EI}_w_{w}_env_NA_d1_{d1}_d2_{d2}_Espace_{E_spacing}_tmax_{tmax}_ind_nb_{ind_nb}.gif', writer='pillow')        
     plt.close()
+'''
+def plot_strd_time(EI,w,result,eigenstates_total,eigenenergies_total,env,d1,d2,E_spacing,tmax,ind_nb):
+    for i in range(len(tlist)-1):
 
-
-
+'''
