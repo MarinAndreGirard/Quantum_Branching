@@ -44,6 +44,31 @@ def metric_similarity_btw_s1_s2_plot(s1_list,s2_list,tlist):
     plt.ylabel('similarity metric')
     plt.title('Evolution of similarity between schmidt 1 and schmidt 2')
 
+def time_cos_similarity_plot_new(result,tlist,H_total,EI,w,step=1):
+    eigenenergies_total, eigenstates_total = H_total.eigenstates() 
+    p1, p2 = probs_schmidt_in_energy_eigenstates(result,eigenenergies_total, eigenstates_total,tlist,EI,w)
+    p1 = np.sqrt(p1)
+    p2 = np.sqrt(p2)
+    similarities = []
+    similarities2 = []
+    for i in range(len(tlist)-step-1):
+        d = 1-distance.cosine(p1[i], p1[i+step])
+        similarities.append(d)
+        d1= 1-distance.cosine(p2[i], p2[i+step])
+        similarities2.append(d1)
+
+    # Plot the similarity over time
+    plt.figure(figsize=(10, 6))
+    plt.plot(tlist[0:len(tlist)-step-1], similarities)
+    plt.plot(tlist[0:len(tlist)-step-1], similarities2)
+    plt.xlabel('Time')
+    plt.ylabel('Similarity')
+    plt.title(f'Evolution of Similarity between environment schmidt 0 with itself a little before. Step size {step}')
+    plt.legend(["Env Schmidt 0", "Env Schmidt 1"])
+
+
+    plt.show()
+
 def time_cos_similarity_plot(result,tlist):
     #need to that the schmidt states become stable over time
     #to do that, we get a list of ss[0] vectors over time and check that as timer goes, they change less and less.
@@ -57,7 +82,7 @@ def time_cos_similarity_plot(result,tlist):
         se2 = np.abs(se[1]).flatten()
         se1_list.append(se2)
     # Calculate the similarity between ss[0] vectors at different time indices
-        step = 2
+        step = 1
     similarities = []
     similarities2 = []
     for i in range(len(tlist)-step-1):
