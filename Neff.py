@@ -77,7 +77,7 @@ def plot_Neff_schmidt_Neff_tot_characterize(d1=10,d2=200,w=[0.1,0.2,0.3,0.4], E_
         for wi in w:  
             for EIi in EI:
                 print(f'wi_{wi}_EI_{EIi}')           
-                result, tlist, H_q, H_system_2, H_system_1_ext, H_system_2_ext, H_interaction, H_total, ket_0, ket_1, initial_state_system_2 = generate_result(d1,d2,wi, E_spacing, EIi, tmax, ind_nb,0)
+                result, tlist, H_q, H_system_2, H_system_1_ext, H_system_2_ext, H_interaction, H_total, ket_0, ket_1, initial_state_system_2 = generate_result(d1,d2,wi, E_spacing, EIi, tmax, ind_nb,1)
                 eigenenergies_total, eigenstates_total = H_total.eigenstates()
                 print("generated")
                 p=[(abs(np.vdot(result.states[1], eigenstate)) ** 2) ** 2 for eigenstate in eigenstates_total]
@@ -103,7 +103,7 @@ def plot_Neff_schmidt_Neff_tot_characterize(d1=10,d2=200,w=[0.1,0.2,0.3,0.4], E_
         for EIi in EI:
             for wi in w: 
                 print(f'wi{wi}_EI_{EIi}') 
-                result, tlist, H_q, H_system_2, H_system_1_ext, H_system_2_ext, H_interaction, H_total, ket_0, ket_1, initial_state_system_2 = generate_result_envi_superpo(d1,d2,wi, E_spacing, EIi, tmax, ind_nb,0,env)
+                result, tlist, H_q, H_system_2, H_system_1_ext, H_system_2_ext, H_interaction, H_total, ket_0, ket_1, initial_state_system_2 = generate_result_envi_superpo(d1,d2,wi, E_spacing, EIi, tmax, ind_nb,1,env)
                 eigenenergies_total, eigenstates_total = H_total.eigenstates() 
                 print("generated")
                 p=[(abs(np.vdot(result.states[1], eigenstate)) ** 2) ** 2 for eigenstate in eigenstates_total]
