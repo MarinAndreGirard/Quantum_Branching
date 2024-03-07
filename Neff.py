@@ -66,6 +66,7 @@ def plot_Neff_schmidt_Neff_tot(H_total, result,tlist,EI,log=True):
     plt.xlabel("Time")
     plt.ylabel("Neff_schmidt/Neff_tot")
     plt.legend(['Schmidt 1', 'Schmidt 2'])
+    plt.ylim([10**-1,10**2])  # Set the yscale bounds here
     plt.savefig(f'Graphs/Neff_schmidt_Neff_tot_{EI}.png')
 
 
@@ -127,19 +128,20 @@ def plot_Neff_schmidt_Neff_tot_characterize(d1=10,d2=200,w=[0.1,0.2,0.3,0.4], E_
 
 
     fig, axs = plt.subplots(len(w), len(EI), figsize=(10, 2*len(w)), sharex=True, sharey=True)
-
+    plt.title(f"Graph of Neff_schmidt/Neff_tot over time for w={w}, EI={EI}, env={env}", fontsize=10)
+            
     for i in range(len(w)):
         for j in range(len(EI)):
             axs[i, j].plot(tlist[0:len(tlist) - 1], delta_list_1[i*len(EI) + j])
             axs[i, j].plot(tlist[0:len(tlist) - 1], delta_list_2[i*len(EI) + j])
-            axs[i, j].set_title(f"Graph of Neff_schmidt/Neff_tot over time for w={w[i]}, EI={EI[j]}, env={env}", fontsize=5)
+            #axs[i, j].set_title(f"Graph of Neff_schmidt/Neff_tot over time for w={w[i]}, EI={EI[j]}, env={env}", fontsize=5)
             axs[i, j].set_xlabel("Time", fontsize=6)
-            axs[i, j].set_ylabel("Neff_schmidt/Neff_tot", fontsize=8)
-            axs[i, j].legend(['Schmidt 1', 'Schmidt 2'])
+            axs[i, j].set_ylabel("Neff_schmidt/Neff_tot", fontsize=6)
             axs[i, j].set_yscale("log")  # Set y-axis to logarithmic scale
             axs[i, j].set_xscale("log")  # Set y-axis to logarithmic scale
+            axs[i, j].set_ylim([10**-1,10**2])  # Set y-axis limits
 
-
+    plt.legend(['Schmidt 1', 'Schmidt 2'])
     plt.tight_layout()
     plt.savefig(f'Graphs/Neff_schmidt_Neff_characterization_EI_{EI},w_{w},env_{env}.png')
     plt.show()

@@ -66,7 +66,7 @@ def time_cos_similarity_plot_new(result,tlist,H_total,EI,w,step=1):
     plt.plot(tlist[0:len(tlist)-step-1], similarities2)
     plt.xlabel('Time')
     plt.ylabel('Similarity')
-    plt.title(f'Evolution of Similarity between environment schmidt 0 with itself a little before. Step size {step}')
+    plt.title(f'Evolution of Similarity between the Schmidt states with themselves {step} steps in the past. EI={EI} w={w}')
     plt.legend(["Schmidt 1", "Schmidt 1"])
     plt.savefig(f'Graphs/time_cos_similarity_graph_EI={EI}_w_{w}.png')
 
