@@ -6,6 +6,7 @@ from IPython.display import HTML
 from PIL import Image
 #from overlap import compute_schmidt_full
 from Schmidt_solve import compute_schmidt_full
+from Schmidt_solve import compute_schmidt_states_new
 
 def compute_schmidt_2(result,idx,s=1):
     if s==1:
@@ -181,6 +182,98 @@ def update_plot_new_zoomed(frames,result,eigenstates_total,eigenenergies_total,E
     # Add clock
     plt.text(0.95, 0.95, f"Frame: {frames}", horizontalalignment='left', verticalalignment='top', transform=plt.gca().transAxes)
 
+def update_plot_pointer(frames,result,eigenstates_int,eigenenergies_int,EI,w,env):
+    # Clear previous plot
+    plt.clf()
+    frames = frames+1
+    
+    state = compute_schmidt_full(result,frames,1) 
+    state2 = state = compute_schmidt_full(result,frames,2)
+    energy_coeff=[abs(np.vdot(state, eigenstate)) ** 2 for eigenstate in eigenstates_int]
+    energy_coeff2=[abs(np.vdot(state2, eigenstate)) ** 2 for eigenstate in eigenstates_int]
+    plt.plot(eigenenergies_int, energy_coeff)
+    plt.plot(eigenenergies_int, energy_coeff2)
+    plt.title(f"Plot of the probability that the schmidts  are in the energy eigenstates of H_int for EI={EI} and w={w} and env={env}")
+    plt.xlabel("Eigenenergies of H_total")
+    plt.ylabel("Probabilities")
+    plt.legend(["Schmidt1", "Schmidt2"])
+    plt.ylim(0, 0.25)
+    #plt.xlim(5, 8)
+
+    # Calculate the mean
+    mean1 = np.sum(np.array(energy_coeff) * np.array(eigenenergies_int))
+    mean2 = np.sum(np.array(energy_coeff2) * np.array(eigenenergies_int))
+    st1_tst1 = np.mean((np.array(energy_coeff) * np.array(eigenenergies_int)-mean1)**2)
+    st1_tst2 = np.mean((np.array(energy_coeff2) * np.array(eigenenergies_int)-mean2)**2)
+    # Add a vertical line at the mean for energy_coeff
+    plt.axvline(x=mean1, color='b', linestyle='--')
+    # Add a vertical line at the mean for energy_coeff2
+    plt.axvline(x=mean2, color='r', linestyle='--')
+    # Add a vertical line at the mean plus one standard deviation for energy_coeff
+    plt.axvline(x=mean1 + st1_tst1, color='g', linestyle='--')
+    # Add a vertical line at the mean minus one standard deviation for energy_coeff
+    plt.axvline(x=mean1 - st1_tst1, color='g', linestyle='--')
+    # Add a vertical line at the mean plus one standard deviation for energy_coeff2
+    plt.axvline(x=mean2 + st1_tst2, color='c', linestyle='--')
+    # Add a vertical line at the mean minus one standard deviation for energy_coeff2
+    plt.axvline(x=mean2 - st1_tst2, color='c', linestyle='--')
+
+    # Add clock
+    plt.text(0.95, 0.95, f"Frame: {frames}", horizontalalignment='left', verticalalignment='top', transform=plt.gca().transAxes)
+
+def update_plot_pointers1(frames,result,eigenstates_int,eigenenergies_int,EI,w,env):
+    # Clear previous plot
+    plt.clf()
+    frames = frames+1
+    state = compute_schmidt_full(result,frames,1) 
+    energy_coeff=[abs(np.vdot(state, eigenstate)) ** 2 for eigenstate in eigenstates_int]
+    plt.plot(eigenenergies_int, energy_coeff)
+    plt.title(f"Plot of the probability that the schmidt state 1 is in the energy eigenstates of H_int for EI={EI} and w={w} and env={env}")
+    plt.xlabel("Eigenenergies of H_total")
+    plt.ylabel("Probabilities")
+    plt.ylim(0, 0.25)
+    #plt.xlim(5, 8)
+
+    # Calculate the mean
+    mean1 = np.sum(np.array(energy_coeff) * np.array(eigenenergies_int))
+    st1_tst1 = np.mean((np.array(energy_coeff) * np.array(eigenenergies_int)-mean1)**2)
+    # Add a vertical line at the mean for energy_coeff
+    plt.axvline(x=mean1, color='b', linestyle='--')
+    # Add a vertical line at the mean plus one standard deviation for energy_coeff
+    plt.axvline(x=mean1 + st1_tst1, color='g', linestyle='--')
+    # Add a vertical line at the mean minus one standard deviation for energy_coeff
+    plt.axvline(x=mean1 - st1_tst1, color='g', linestyle='--')
+    # Add clock
+    plt.text(0.95, 0.95, f"Frame: {frames}", horizontalalignment='left', verticalalignment='top', transform=plt.gca().transAxes)
+
+def update_plot_pointers2(frames,result,eigenstates_int,eigenenergies_int,EI,w,env):
+    # Clear previous plot
+    plt.clf()
+    frames = frames+1
+    
+    state2 = state = compute_schmidt_full(result,frames,2)
+    energy_coeff2=[abs(np.vdot(state2, eigenstate)) ** 2 for eigenstate in eigenstates_int]
+    plt.plot(eigenenergies_int, energy_coeff2)
+    plt.title(f"Plot of the probability that the schmidt state 2  are in the energy eigenstates of H_int for EI={EI} and w={w} and env={env}")
+    plt.xlabel("Eigenenergies of H_total")
+    plt.ylabel("Probabilities")
+    plt.legend(["Schmidt1", "Schmidt2"])
+    plt.ylim(0, 0.25)
+    #plt.xlim(5, 8)
+
+    # Calculate the mean
+    mean2 = np.sum(np.array(energy_coeff2) * np.array(eigenenergies_int))
+    st1_tst2 = np.mean((np.array(energy_coeff2) * np.array(eigenenergies_int)-mean2)**2)
+    # Add a vertical line at the mean for energy_coeff2
+    plt.axvline(x=mean2, color='r', linestyle='--')
+    # Add a vertical line at the mean plus one standard deviation for energy_coeff2
+    plt.axvline(x=mean2 + st1_tst2, color='c', linestyle='--')
+    # Add a vertical line at the mean minus one standard deviation for energy_coeff2
+    plt.axvline(x=mean2 - st1_tst2, color='c', linestyle='--')
+
+    # Add clock
+    plt.text(0.95, 0.95, f"Frame: {frames}", horizontalalignment='left', verticalalignment='top', transform=plt.gca().transAxes)
+
 
 
 
@@ -201,7 +294,7 @@ def make_gif_distribs1s2_new(EI,w,result,eigenstates_total,eigenenergies_total,e
 
 
 def make_gif_distribs1s2_new_zoomed(EI,w,result,eigenstates_total,eigenenergies_total,env,d1,d2,E_spacing,tmax,ind_nb):
-    print(env)
+    
     # Create a figure
     fig = plt.figure(figsize=(10, 5))
 
@@ -214,9 +307,51 @@ def make_gif_distribs1s2_new_zoomed(EI,w,result,eigenstates_total,eigenenergies_
     else:
         ani.save(f'Gifs/zoomed_distrib_schmidt1_2_over_energy_spectrum_EI_{EI}_w_{w}_env_NA_d1_{d1}_d2_{d2}_Espace_{E_spacing}_tmax_{tmax}_ind_nb_{ind_nb}.gif', writer='pillow')        
     plt.close()
-    
-'''
-def plot_strd_time(EI,w,result,eigenstates_total,eigenenergies_total,env,d1,d2,E_spacing,tmax,ind_nb):
-    for i in range(len(tlist)-1):
 
-'''
+
+def make_gif_distrib_pointer(EI,w,result,eigenstates_int,eigenenergies_int,env,d1,d2,E_spacing,tmax,ind_nb):
+    
+    # Create a figure
+    fig = plt.figure(figsize=(10, 5))
+
+    # Create the animation
+    ani = FuncAnimation(fig, update_plot_pointer,fargs=(result,eigenstates_int,eigenenergies_int,EI,w,env), frames=99, interval=100)
+    # Save the animation as a GIF
+    if env!=[0]:
+        e=env[0:2]
+        ani.save(f'Gifs/zoomed_distrib_pointer_over_energy_spectrum_EI_{EI}_w_{w}_env_{e}_d1_{d1}_d2_{d2}_Espace_{E_spacing}_tmax_{tmax}_ind_nb_{ind_nb}.gif', writer='pillow')
+    else:
+        ani.save(f'Gifs/zoomed_distrib_pointer_over_energy_spectrum_EI_{EI}_w_{w}_env_NA_d1_{d1}_d2_{d2}_Espace_{E_spacing}_tmax_{tmax}_ind_nb_{ind_nb}.gif', writer='pillow')        
+    plt.close()
+
+
+def make_gif_distrib_pointer_s1(EI,w,result,eigenstates_int,eigenenergies_int,env,d1,d2,E_spacing,tmax,ind_nb):
+    
+    # Create a figure
+    fig = plt.figure(figsize=(10, 5))
+
+    # Create the animation
+    ani = FuncAnimation(fig, update_plot_pointers1,fargs=(result,eigenstates_int,eigenenergies_int,EI,w,env), frames=99, interval=100)
+    # Save the animation as a GIF
+    if env!=[0]:
+        e=env[0:2]
+        ani.save(f'Gifs/zoomed_distrib_pointers1_over_energy_spectrum_EI_{EI}_w_{w}_env_{e}_d1_{d1}_d2_{d2}_Espace_{E_spacing}_tmax_{tmax}_ind_nb_{ind_nb}.gif', writer='pillow')
+    else:
+        ani.save(f'Gifs/zoomed_distrib_pointers1_over_energy_spectrum_EI_{EI}_w_{w}_env_NA_d1_{d1}_d2_{d2}_Espace_{E_spacing}_tmax_{tmax}_ind_nb_{ind_nb}.gif', writer='pillow')        
+    plt.close()
+    
+
+def make_gif_distrib_pointer_s2(EI,w,result,eigenstates_int,eigenenergies_int,env,d1,d2,E_spacing,tmax,ind_nb):
+    
+    # Create a figure
+    fig = plt.figure(figsize=(10, 5))
+
+    # Create the animation
+    ani = FuncAnimation(fig, update_plot_pointers2,fargs=(result,eigenstates_int,eigenenergies_int,EI,w,env), frames=99, interval=100)
+    # Save the animation as a GIF
+    if env!=[0]:
+        e=env[0:2]
+        ani.save(f'Gifs/zoomed_distrib_pointers2_over_energy_spectrum_EI_{EI}_w_{w}_env_{e}_d1_{d1}_d2_{d2}_Espace_{E_spacing}_tmax_{tmax}_ind_nb_{ind_nb}.gif', writer='pillow')
+    else:
+        ani.save(f'Gifs/zoomed_distrib_pointers2_over_energy_spectrum_EI_{EI}_w_{w}_env_NA_d1_{d1}_d2_{d2}_Espace_{E_spacing}_tmax_{tmax}_ind_nb_{ind_nb}.gif', writer='pillow')        
+    plt.close()
