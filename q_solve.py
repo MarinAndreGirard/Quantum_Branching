@@ -3,10 +3,6 @@ import qutip as qt
 import math
 import matplotlib.pyplot as plt
 
-def test(x):
-    a = numpy.linspace(0,x,10)
-    return a 
-
 def generate_result(d1 = 10,d2 = 200,w = 0.3, E_spacing = 1.0, Int_strength = 0.03, tmax= 10, ind_nb = 100,log=0):
 # Define the Hilbert space dimensions for the two quantum systems
     dim_system_1 = d1  # Dimension of system 1. make both dimensions even
