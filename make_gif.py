@@ -325,33 +325,25 @@ def make_gif_distrib_pointer(EI,w,result,eigenstates_int,eigenenergies_int,env,d
     plt.close()
 
 
-def make_gif_distrib_pointer_s1(EI,w,result,eigenstates_int,eigenenergies_int,env,d1,d2,E_spacing,tmax,ind_nb):
+def make_gif_distrib_pointer_s1(EI,w,result,eigenstates_int,eigenenergies_int,q1,d1,d2,E_spacing,tmax,ind_nb):
     
     # Create a figure
     fig = plt.figure(figsize=(10, 5))
 
     # Create the animation
-    ani = FuncAnimation(fig, update_plot_pointers1,fargs=(result,eigenstates_int,eigenenergies_int,EI,w,env), frames=99, interval=100)
+    ani = FuncAnimation(fig, update_plot_pointers1,fargs=(result,eigenstates_int,eigenenergies_int,EI,w,[0]), frames=99, interval=100)
     # Save the animation as a GIF
-    if env!=[0]:
-        e=env[0:2]
-        ani.save(f'Gifs/zoomed_distrib_pointers1_over_energy_spectrum_EI_{EI}_w_{w}_env_{e}_d1_{d1}_d2_{d2}_Espace_{E_spacing}_tmax_{tmax}_ind_nb_{ind_nb}.gif', writer='pillow')
-    else:
-        ani.save(f'Gifs/zoomed_distrib_pointers1_over_energy_spectrum_EI_{EI}_w_{w}_env_NA_d1_{d1}_d2_{d2}_Espace_{E_spacing}_tmax_{tmax}_ind_nb_{ind_nb}.gif', writer='pillow')        
+    ani.save(f'Gifs/Pointer_gifs/distrib_pointers1_over_energy_spectrum_EI_{EI}_w_{w}_q1_{q1}_d1_{d1}_d2_{d2}_Espace_{E_spacing}_tmax_{tmax}_ind_nb_{ind_nb}.gif', writer='pillow')
     plt.close()
     
 
-def make_gif_distrib_pointer_s2(EI,w,result,eigenstates_int,eigenenergies_int,env,d1,d2,E_spacing,tmax,ind_nb):
+def make_gif_distrib_pointer_s2(EI,w,result,eigenstates_int,eigenenergies_int,q1,d1,d2,E_spacing,tmax,ind_nb):
     
     # Create a figure
     fig = plt.figure(figsize=(10, 5))
 
     # Create the animation
-    ani = FuncAnimation(fig, update_plot_pointers2,fargs=(result,eigenstates_int,eigenenergies_int,EI,w,env), frames=99, interval=100)
+    ani = FuncAnimation(fig, update_plot_pointers2,fargs=(result,eigenstates_int,eigenenergies_int,EI,w,[0]), frames=99, interval=100)
     # Save the animation as a GIF
-    if env!=[0]:
-        e=env[0:2]
-        ani.save(f'Gifs/zoomed_distrib_pointers2_over_energy_spectrum_EI_{EI}_w_{w}_env_{e}_d1_{d1}_d2_{d2}_Espace_{E_spacing}_tmax_{tmax}_ind_nb_{ind_nb}.gif', writer='pillow')
-    else:
-        ani.save(f'Gifs/zoomed_distrib_pointers2_over_energy_spectrum_EI_{EI}_w_{w}_env_NA_d1_{d1}_d2_{d2}_Espace_{E_spacing}_tmax_{tmax}_ind_nb_{ind_nb}.gif', writer='pillow')        
+    ani.save(f'Gifs/Pointer_gifs/distrib_pointers2_over_energy_spectrum_EI_{EI}_w_{w}_q1_{q1}_d1_{d1}_d2_{d2}_Espace_{E_spacing}_tmax_{tmax}_ind_nb_{ind_nb}.gif', writer='pillow')
     plt.close()
