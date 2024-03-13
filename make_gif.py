@@ -275,6 +275,37 @@ def update_plot_pointers2(frames,result,eigenstates_int,eigenenergies_int,EI,w,e
     plt.text(0.95, 0.95, f"Frame: {frames}", horizontalalignment='left', verticalalignment='top', transform=plt.gca().transAxes)
 
 
+def update_plot_interference(frames,result,eigenstates_int,eigenenergies_int,EI,w,env):
+    # Clear previous plot
+    frames = frames+1
+    ss, se, sv = compute_schmidt_states_new(result, frames)
+    s_val_0 = sv[0]
+    s_val_1 = sv[1]
+
+    state = result.states[frames].full()
+    state1 = compute_schmidt_full(result,frames,1)
+    state2 = compute_schmidt_full(result,frames,2)
+    interference = [abs(np.sqrt(s_val_0*s_val_1)*(2*np.real(np.vdot(eig,state1))*np.real(np.vdot(eig,state2))+2*np.imag(np.vdot(eig,state1))*np.imag(np.vdot(eig,state2)))) for eig in eigenstates_int]
+    plt.clf()
+    plt.plot(eigenenergies_int, interference)
+    
+    plt.title(f"Plot of the interference btw s1 and s2 in the energy eigenbasis (H_I) for EI={EI} and w={w} and env={env}")
+    plt.xlabel("Eigenenergies of H")
+    plt.ylabel("Interference")
+    plt.ylim(0, 0.10)
+    #plt.xlim(5, 8)
+
+    # Calculate the mean
+    mean1 = np.sum(np.array(interference) * np.array(eigenenergies_int))
+    st1_tst1 = np.mean((np.array(interference) * np.array(eigenenergies_int)-mean1)**2)
+    # Add a vertical line at the mean for energy_coeff
+    plt.axvline(x=mean1, color='b', linestyle='--')
+    # Add a vertical line at the mean plus one standard deviation for energy_coeff
+    plt.axvline(x=mean1 + st1_tst1, color='g', linestyle='--')
+    # Add a vertical line at the mean minus one standard deviation for energy_coeff
+    plt.axvline(x=mean1 - st1_tst1, color='g', linestyle='--')
+    # Add clock
+    plt.text(0.95, 0.95, f"Frame: {frames}", horizontalalignment='left', verticalalignment='top', transform=plt.gca().transAxes)
 
 
 def make_gif_distribs1s2_new(EI,w,result,eigenstates_total,eigenenergies_total,env,d1,d2,E_spacing,tmax,ind_nb):
@@ -346,4 +377,16 @@ def make_gif_distrib_pointer_s2(EI,w,result,eigenstates_int,eigenenergies_int,q1
     ani = FuncAnimation(fig, update_plot_pointers2,fargs=(result,eigenstates_int,eigenenergies_int,EI,w,[0]), frames=99, interval=100)
     # Save the animation as a GIF
     ani.save(f'Gifs/Pointer_gifs/distrib_pointers2_over_energy_spectrum_EI_{EI}_w_{w}_q1_{q1}_d1_{d1}_d2_{d2}_Espace_{E_spacing}_tmax_{tmax}_ind_nb_{ind_nb}.gif', writer='pillow')
+    plt.close()
+
+
+def make_gif_distrib_interf(EI,w,result,eigenstates_int,eigenenergies_int,q1,d1,d2,E_spacing,tmax,ind_nb):
+    
+    # Create a figure
+    fig = plt.figure(figsize=(10, 5))
+
+    # Create the animation
+    ani = FuncAnimation(fig, update_plot_interference,fargs=(result,eigenstates_int,eigenenergies_int,EI,w,[0]), frames=99, interval=100)
+    # Save the animation as a GIF
+    ani.save(f'Gifs/Pointer_gifs/distrib_interference_over_energy_spectrum_EI_{EI}_w_{w}_q1_{q1}_d1_{d1}_d2_{d2}_Espace_{E_spacing}_tmax_{tmax}_ind_nb_{ind_nb}.gif', writer='pillow')
     plt.close()
