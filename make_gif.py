@@ -231,7 +231,7 @@ def update_plot_pointers1(frames,result,eigenstates_int,eigenenergies_int,EI,w,e
     plt.title(f"Plot of the probability that the schmidt state 1 is in the energy eigenstates of H_int for EI={EI} and w={w} and env={env}")
     plt.xlabel("Eigenenergies of H_total")
     plt.ylabel("Probabilities")
-    plt.ylim(0, 0.25)
+    #plt.ylim(0, 0.25)
     #plt.xlim(5, 8)
 
     # Calculate the mean
@@ -258,7 +258,7 @@ def update_plot_pointers2(frames,result,eigenstates_int,eigenenergies_int,EI,w,e
     plt.xlabel("Eigenenergies of H_total")
     plt.ylabel("Probabilities")
     plt.legend(["Schmidt1", "Schmidt2"])
-    plt.ylim(0, 0.25)
+    #plt.ylim(0, 0.25)
     #plt.xlim(5, 8)
 
     # Calculate the mean
@@ -292,7 +292,7 @@ def update_plot_interference(frames,result,eigenstates_int,eigenenergies_int,EI,
     plt.title(f"Plot of the interference btw s1 and s2 in the energy eigenbasis (H_I) for EI={EI} and w={w} and env={env}")
     plt.xlabel("Eigenenergies of H")
     plt.ylabel("Interference")
-    plt.ylim(0, 0.10)
+    #plt.ylim(0, 0.10)
     #plt.xlim(5, 8)
 
     # Calculate the mean
