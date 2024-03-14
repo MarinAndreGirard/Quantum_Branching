@@ -113,8 +113,99 @@ def plot_p_overlap_graph_characterize(d1=10,d2=200,w=[0.1,0.2,0.3,0.4], E_spacin
             #axs[i, j].set_title(f"Plot of the means and standard dev of the distributions of Schmidt 1 and 2 w={w[i]}, EI={EI[j]}, env={env}", fontsize=5)
             axs[i, j].set_xlabel("Time", fontsize=6)
             axs[i, j].set_ylabel("Overlap", fontsize=8)
-    
+            mean = get_mean_rd_overlap(w[i],EI[j])
+            axs[i, j].axhline(y=mean, color='red', linestyle='--')
+            
     plt.legend(["o01", "o02", "012"])
     plt.tight_layout()
     plt.savefig(f'Graphs/overlap_characterization_EI_{EI},w_{w},env_{env}.png')
     plt.show()
+
+
+#This is the piece of code I used to find the mean overlap between newly initialized eigenstates. But note that this is for a very specific set of parameters
+def get_mean_rd_overlap(w = 0.3,Int_strength = 0.052):
+    d1, d2 = 10, 200
+    E_spacing = 1.0
+    
+    # Create basis states for system 1 and system 2
+    basis_system_1 = [qt.basis(d1, i) for i in range(d1)]
+    basis_system_2 = [qt.basis(d2, i) for i in range(d2)]
+    ket_0 = qt.basis(d1, 3)  # |0> state
+    ket_1 = qt.basis(d1, 7)  # |2> state, int(dim_system_1/2)
+        
+    # Define random Hermitian matrices as Hamiltonians for system 1 and system 2
+    H_system_1 = qt.qeye(d1) #qt.rand_herm(dim_system_1)  # Random Hermitian matrix for system 1
+    energy_spacing = E_spacing  # Adjust as needed
+    diagonal_elements = np.arange(0, d1) * 1.0
+    H_q = qt.Qobj(np.diag(diagonal_elements)) # Create a diagonal matrix with increasing diagonal elements
+    H_system_2_1 = qt.rand_herm(d2,1)  # Random Hermitian matrix for system 2
+    H_system_2_2 = qt.rand_herm(d2,1)  # Random Hermitian matrix for system 2
+    H_system_2_3 = qt.rand_herm(d2,1)  # Random Hermitian matrix for system 2
+    H_system_2_4 = qt.rand_herm(d2,1)  # Random Hermitian matrix for system 2
+    H_system_2_5 = qt.rand_herm(d2,1)  # Random Hermitian matrix for system 2
+    H_system_2_6 = qt.rand_herm(d2,1)  # Random Hermitian matrix for system 2
+    H_system_2_7 = qt.rand_herm(d2,1)  # Random Hermitian matrix for system 2
+    H_system_2_8 = qt.rand_herm(d2,1)  # Random Hermitian matrix for system 2
+    H_system_2_9 = qt.rand_herm(d2,1)  # Random Hermitian matrix for system 2
+    H_system_2_10 = qt.rand_herm(d2,1)  # Random Hermitian matrix for system 2
+    # Define initial states for system 1 and system 2
+    initial_state_system_1 = (math.sqrt(w)*ket_0 + math.sqrt(1-w)*ket_1).unit()
+    #initial_state_system_2 = qt.rand_ket(dim_system_2)
+    ev1 ,es1 = H_system_2_1.eigenstates()
+    ev2 ,es2 = H_system_2_2.eigenstates()
+    ev3 ,es3 = H_system_2_3.eigenstates()
+    ev4 ,es4 = H_system_2_4.eigenstates()
+    ev5 ,es5 = H_system_2_5.eigenstates()
+    ev6 ,es6 = H_system_2_6.eigenstates()
+    ev7 ,es7 = H_system_2_7.eigenstates()
+    ev8 ,es8 = H_system_2_8.eigenstates()
+    ev9 ,es9 = H_system_2_9.eigenstates()
+    ev10,es10 = H_system_2_10.eigenstates()
+
+    initial_state_system_2_1 = es1[round(d2/2)]
+    initial_state_system_2_2 = es2[round(d2/2)]
+    initial_state_system_2_3 = es3[round(d2/2)]
+    initial_state_system_2_4 = es4[round(d2/2)]
+    initial_state_system_2_5 = es5[round(d2/2)]
+    initial_state_system_2_6 = es6[round(d2/2)]
+    initial_state_system_2_7 = es7[round(d2/2)]
+    initial_state_system_2_8 = es8[round(d2/2)]
+    initial_state_system_2_9 = es9[round(d2/2)]
+    initial_state_system_2_10 = es10[round(d2/2)]
+    #define initial state of full system
+    states=[]
+    states.append(qt.tensor(initial_state_system_1, initial_state_system_2_1))
+    states.append(qt.tensor(initial_state_system_1, initial_state_system_2_2))
+    states.append(qt.tensor(initial_state_system_1, initial_state_system_2_3))
+    states.append(qt.tensor(initial_state_system_1, initial_state_system_2_4))
+    states.append(qt.tensor(initial_state_system_1, initial_state_system_2_5))
+    states.append(qt.tensor(initial_state_system_1, initial_state_system_2_6))
+    states.append(qt.tensor(initial_state_system_1, initial_state_system_2_7))
+    states.append(qt.tensor(initial_state_system_1, initial_state_system_2_8))
+    states.append(qt.tensor(initial_state_system_1, initial_state_system_2_9))
+    states.append(qt.tensor(initial_state_system_1, initial_state_system_2_10))
+
+    interaction_strength = Int_strength  # Adjust as needed
+    H_interaction = interaction_strength * qt.tensor(H_q, qt.rand_herm(d2,1))  
+        
+    H_system_1_ext = qt.tensor(H_system_1, qt.qeye(d2))
+    H_system_2_ext = 0.75*qt.tensor(qt.qeye(d1), H_system_2_1)
+    H_total = H_system_1_ext + H_system_2_ext + H_interaction
+
+    eigenenergies_total, eigenstates_total = H_total.eigenstates() 
+
+    st=[]
+    for s in states:
+        st.append(s.full().squeeze())
+
+    state_0=st[0]
+    p_0=[abs(np.vdot(state_0, eigenstate)) for eigenstate in eigenstates_total]
+    st.pop(0)
+
+    overlap_list=[]
+    for s in st:
+        p = [abs(np.vdot(s, eigenstate)) for eigenstate in eigenstates_total]
+        overlap_list.append(np.dot(p_0, p))
+
+    mean_overlap = np.mean(overlap_list)
+    return mean_overlap

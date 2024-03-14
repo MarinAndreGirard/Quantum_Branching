@@ -158,10 +158,10 @@ def update_plot_new_zoomed(frames,result,eigenstates_total,eigenenergies_total,E
     plt.xlabel("Eigenenergies of H_total")
     plt.ylabel("Probabilities")
     plt.legend(["Schmidt1", "Schmidt2"])
-    plt.ylim(0, 0.01)
-    plt.xlim(-1, 1)
+    plt.ylim(0, 0.02)
+    plt.xlim(0 , 2)
 
-    # Calculate the mean
+    # Calculate the me
     mean1 = np.sum(np.array(energy_coeff) * np.array(eigenenergies_total))
     mean2 = np.sum(np.array(energy_coeff2) * np.array(eigenenergies_total))
     st1_tst1 = np.mean((np.array(energy_coeff) * np.array(eigenenergies_total)-mean1)**2)
