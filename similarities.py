@@ -31,7 +31,7 @@ def cos_similarity_btw_s1_s2_plot(s1_list,s2_list,tlist):
     plt.xlabel('Time')
     plt.ylabel('cosine similarity')
     plt.title('Evolution of similarity between schmidt 1 and schmidt 2')
-    
+
 
 
 def metric_similarity_btw_s1_s2_plot(s1_list,s2_list,tlist):
