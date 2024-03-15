@@ -158,7 +158,7 @@ def update_plot_new_zoomed(frames,result,eigenstates_total,eigenenergies_total,E
     plt.xlabel("Eigenenergies of H_total")
     plt.ylabel("Probabilities")
     plt.legend(["Schmidt1", "Schmidt2"])
-    plt.ylim(0, 0.02)
+    plt.ylim(0, 0.2)
     plt.xlim(0 , 2)
 
     # Calculate the me
