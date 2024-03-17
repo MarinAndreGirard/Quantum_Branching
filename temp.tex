@@ -6,6 +6,23 @@
 \usepackage{graphicx} % Required for inserting images
 \usepackage[margin=2cm]{geometry} % Adjust the value of "2cm" to your desired margin size
 \usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{comment}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
+
+\urlstyle{same}
+
+
+
 
 
 
@@ -19,11 +36,11 @@
 
 \section{Introduction}
 
-\textbf{To run your own simulations varying the parameters, or see other sets of paremeters already simulated see \hyperlink{http://github.com/MarinAndreGirard/Quantum_Branching}}
+\textbf{To run your own simulations varying the parameters, or see other sets of parameters already simulated see this
+\href{http://github.com/MarinAndreGirard/Quantum_Branching}{Git repository}}\\
+We establish the ACL model and then make a section for each of the following questions.
 
-After establishing what we are working with, we make one section for each of the following driving questions
-
-\paragraph{Does Branching dynamics split the energy eigenspace in a particular way?}
+\paragraph{Does Branching dynamics split the energy eigenspace between the branches in a particular way?}
 Do the worlds share it equally? Proportional to their respective probabilities?
 
 \paragraph{Having established that they share the eigenstates weirdly. Why?}
@@ -31,12 +48,11 @@ What drives this dynamics? Does it generalize beyond the ACL model in which we o
 
 \paragraph{Can we get it all from the energy spectrum and the distribution of the global state in it?}
 
-Energy spectrum + state defined in energy basis -> sharing of Hilbert space by worlds -> explain the phenomena we observed
+Energy spectrum + state defined in energy basis $\rightarrow$ sharing of Hilbert space by worlds $\rightarrow$ explain the phenomena we observed
 
-\section{Adapted ACl model}
+\section{Adapted Caldeira-Leggett model}
 
-We consider system $\mathcal{S}$ + environment $\mathcal{E}$ , where the system is a truncated SHO.
-Hamiltonian,
+We consider system $\mathcal{S}$ + environment $\mathcal{E}$ , where the system is a truncated SHO. Hamiltonian,
 \begin{equation}    
     H=H_s\otimes\mathbbm{1}+\mathbbm{1}\otimes H_e+E_IH_I
 \end{equation}
@@ -79,7 +95,17 @@ which is no longer separable, and by its factorizability by $|q_1\rangle$ and $|
 \begin{equation}
     |\psi(t)\rangle=\frac{1}{\sqrt{N}}(s_1|q_1\rangle|E_1(t)\rangle+s_2|q_2\rangle|E_2(t)\rangle)
 \end{equation}
-This means that the Schmidt decomposition of our system+env always has 2 nonzeros schmidt weights at most. Note, $|E_i\rangle=\sum_jc_{ji}(t)|e_j\rangle$.
+This means that the Schmidt decomposition of our system+env always has 2 nonzeros schmidt weights at most. But this decomposition (ie in terms of 2 states $|q_i\rangle |E_j\rangle$) is not immediately the 2 schmidt states. Indeed, Schmidt 1 starts up as $|\psi\rangle$ and evolves to something with most of its weight in a factor in from of $|q_1\rangle|E_1\rangle$. But of note, our pure state starts with nonzero value in 200+200 total eigenstates, the Schmidt states share theses with each other, 200 each. (Need to do a part where we look closer at evolution, see black board image.)
+
+Note, $|E_i\rangle=\sum_jc_{ji}(t)|e_j\rangle$.
+
+
+\begin{comment}
+Note that the weight in from of both states are equal if,
+    \begin{equation}
+        q_1=2(\frac{\sqrt{w}}{\sqrt{1-w}}-1)+q_2\frac{\sqrt{w}}{\sqrt{1-w}}
+    \end{equation}
+\end{comment}
 
 \subsection{Characterizing the spectrum of the Hamiltonian}
 The Hamiltonian who's spectrum we are trying to characterize is composed of 3 parts, $\mathbbm{1}, \mathbbm{1}\otimes H_e,E_IH_q\otimes H_e'$. We are interested in the shape that the distribution of eigenvalues will take. $\mathbbm{1}$ will simply shift that distribution by +1, since it commutes with the other 2. \\
@@ -93,7 +119,7 @@ distribution between $[-R,R]$ bounds.\\
 
 Considering $\mathbbm{1}\otimes H_{e}$, $H_{e}$ has spectrum $\sigma_2=\{\lambda_1,\lambda_2,...\lambda_{d_1}\}$ and the identity is here defined over Hilbert space of dimension $d_1$. This makes  the final spectrum $\sigma_{1,2}={\lambda_1, \lambda_1, ..., \lambda_1, \lambda_2, ...,\lambda_2, \lambda_3, ...}$, where each element of the spectrum is repeated $d_1$ times. The distribution of the spectrum of the first term is then an elevated Wigner semi-circle.
 \begin{equation}
-    f_{env}(E) = \frac{2}{\pi R^2}\sqrt{R^2-E^2} + 10
+    f_{env}(E) = \frac{2}{\pi R^2}\sqrt{R^2-E^2} + d_1
 \end{equation}
 
 Considering $H_q\otimes H_{e}'$, with the spectrum of the random matrix $\sigma_2=\{\lambda_1',\lambda_2',...\lambda_{d_1}'\}$. We get a new spectrum,  $\sigma_{1,2}=0*\sigma_2\bigcup\sigma_2\bigcup2\sigma_2\bigcup ...\bigcup(d_1-1)\sigma_2$ ie $\sigma_{1,2}= \{0,...,0,\lambda_1', \lambda_2', ..., 2\lambda_1', 2\lambda_2',..., (d_1-1)\lambda_1',...\}$. This produces a sum of Wigner semi-circles with $R_i=i*R_1$ for $i=0,1..,d-1$.
@@ -104,7 +130,7 @@ The $\delta_{E,0}d_2$ comes from our SHO having ground state energy $E_0=0$. The
 
 We verify that we do indeed get this in Fig.~(\ref{fig:wigner_sum}). 
 
-\begin{figure}
+\begin{figure}[h]
     \centering
     \includegraphics[scale=0.5]{Figures/Wigner_sum.png}
     \caption{The set of wigner semi-circles who's sum gives us the spectrum of $H_I$}
@@ -121,66 +147,73 @@ With our simulation we can also get them numerically as seen in Fig.~(\ref{fig:s
 
 About Fig.~(\ref{fig:spectra}), it looks like $\sigma_{total}=\sigma_{env}+E_I\sigma_{int} + 1$ (+1 from identity matrix). But that would only be the case if both Hamiltonians where diagonalizable in a common basis, which they are not, being different independant random matrices. Is it still possible to consider the final spectrum as such? I do not see another way to characterize it.\\
 
+{\color{teal} \textbf{The spectra look like they sum, even though the Hamiltonians do not commute}}
+
 If we take the summing of the spectra as a correct approximation, we have characterized the shape of the total spectrum depending on $E_I$. 
 \begin{equation}
-    f_{total}(E) = \frac{2}{\pi R^2}\sqrt{R^2-E^2} + E_I\sum_{j=1}^{d_1-1}\frac{2}{\pi j^2R^2}\sqrt{j^2R^2-E^2} + \delta_{E,0}d_2 + 10\theta(R^2-E^2)
+    f_{total}(E) = \frac{2}{\pi R^2}\sqrt{R^2-E^2} + E_I\sum_{j=1}^{d_1-1}\frac{2}{\pi j^2R^2}\sqrt{j^2R^2-E^2} + \delta_{E,0}d_2 + d_1\theta(R^2-E^2)
 \end{equation}
 $\theta(x)$ is the Heaviside function. For the $H_{rand, d=200}$ $R\approx 10$.\\
 
 Potential change to the model. The identity spectrum does not add anything interesting we could remove it. It might also be beneficial to make the GS of the SHO different from 0. 
 
-\subsection{Characterizing the spectrum of the state}
+\subsubsection{We use bounds on the values of the sum of 2 matrices.}
 
-Could the high differentiation of where they have probabilities be normal? They are not defined on a lot of dog of the space. Is that important at all? Do they have nonzero def on all the same? Are there dog where s1 is defined that s2 is not defined on?  All of this arcs back to understanding the basics….  I don’t really get why they are not defined on all eigenspaces…
+For 2 hermitian matrices $A,B$ such that $A+B=C$. with ordered eigenvalues, we have,
+\begin{equation}
+    c_{i+j-1}\leq a_i+b_j\quad\text{and}\quad c_{n-i-j}\geq a_{n-i}+b_{n-j}
+\end{equation}
+This means for us that
+\begin{equation}
+    f_{total}(E)\leq \frac{2}{\pi R^2}\sqrt{R^2-(E-e)^2} + d_1 + E_I\sum^{d_1-1}_{j=1}\frac{2}{\pi j^2 R^2}\sqrt{j^2R^2-e^2} +\delta_{E,0}d_2
+\end{equation}
 
-\paragraph{Impact of $E_I$: }Varying $E_I$ changes the total energy eigenbasis. 
 
-\paragraph{Impact of $w$: }The $w$ factor is the probabilities, a factor in front of the 2 branches, so changes the importance of each branches when we vary it. This then impact our metrics, as seen in  Fig.~(\ref{fig:simi}).
+\subsection{Characterizing the probability distribution of the global state}
+
+The state, and Schmidts are define as non-zero on only part of the energy eigenspace because of our model. The Hamiltonian has random matrices acting on only the environment subspace, and no self interaction for the system. By starting and staying defined over 2 out of 10 energy eigenstates of the system, the global state is always defined over 1/5th the space (for $d_1=10$). Is that important at all? \\
+
+\begin{figure}[h!]
+  \centering
+  \begin{subfigure}[b]{0.4\linewidth}
+    \includegraphics[width=\linewidth]{Figures/dist_EI0.png}
+    \label{fig:1}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.4\linewidth}
+    \includegraphics[width=\linewidth]{Figures/dist_EI_not_0.png}
+    \label{fig:2}
+  \end{subfigure}
+  \caption{}
+  \label{fig:dist_EI_dep}
+\end{figure}
+
+\paragraph{Impact of $E_I$: }Varying $E_I$ changes the total energy eigenbasis. Taking $E_I=0$ we have as expected a delta, as the environment starts and stays as a total energy eigenstate. As we vary $E_I$, it takes a bell shape and its standard deviation rises. See Fig.~(\ref{fig:dist_EI_dep}), which shows us how an $H_e$ eigenstate is defined in the eigenbasis of $H_e+H_e'$. 
+
+\paragraph{Impact of $w$: }It is a factor in front of the 2 branches, so changes the relative importance of each branches when we vary it.
+
+\section{Does Branching dynamics split the energy eigenspace between the branches in a particular way?}
+This question is motivated by the behavior of $Neff_{schmidt,i}/Neff_{total}=\delta_i$, with $Neff_{state}=\frac{1}{\sum_ip_i^2}$, $p_i$ the probability of finding the state we are considering in total energy eigenstate $i$. See Fig.~(\ref{fig:Neff_andy}). The idea of $Neff$ being to measure the spread of the Schmidts over the energy eigenspace. Neff is maximized by a uniform distribution and minimized by $p_i=1\text{ for }i=a$ for some integer $a$. $\delta_i$ is going to depend on how the distribution of Schmidt $i$ evolves in the energy eigenspace, which is what we want to study.
+
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=0.4]{Figures/Screenshot 2024-02-29 at 14.20.36.png}
-    \caption{Evolution of cosine similarity between s1 and s2 over the whole Hilbert space.}
-    \label{fig:simi}
-\end{figure}
-What Fig.~(\ref{fig:simi}) this tells us is that the probability distribution of s1 and s2 evolve to be more different over time. And importantly that $w$ has an impact on how fast that happens, how high the similarity goes and the stability of the low probability in time.
-
-
-
-
-\section{Does Branching dynamics split the energy eigenspace in a particular way?}
-
-This was spurred by the interesting behavior of $Neff_{schmidt,i}/Neff_{total}=\delta_i$, with $Neff_{state}=\frac{1}{\sum_ip_i^2}$, $p_i$ the probability of finding the state we are considering in total energy eigenstate $i$. See Fig.~(\ref{fig:Neff_andy}). The idea of $Neff$ being to measure the spread of the Schmidts over the energy eigenspace. We see this because Neff is maximized by a uniform distribution and minimized by $p_i=\delta_ai$ for some integer $a$. $\delta_i$ is going to depend on how the Schmidt $i$ evolves in the energy eigenspace, which is what we want to study.
-
-\begin{figure}
-    \centering
     \includegraphics[scale = 0.4]{Figures/Neff_andy.png}
-    \caption{In this specific run, the curves join and stay together. With different parameters, we see the 2 curves stabilize with some distance, positive or negative... the behavior is not yet understood}
+    \caption{In this specific run, the curves join and stay together. With different parameters, we see the 2 curves stabilize with some distance, positive or negative}
     \label{fig:Neff_andy}
 \end{figure}
 
 What we saw looking at the graphs for multiple runs of the simulation with varied parameters, is that sometimes both $\delta_i$'s would match up, sometimes after decoherence $\delta_1>\delta_2$ or $\delta_2>\delta_1$.
 
-To try and characterize it we run the simulation for a number of parameters.
-
 It would be interesting to characterize $Neff$ to understand its behavior. Are there necessary conditions for the convergence of the 2 curves? Why does Neff have different behaviors for different $E_I$, $w$ or the initial environment state? 
 
-
-
-ADD SUPER GRAPH WITH FULL CHARACTERIZATION OF NEFF  
-\begin{figure}
+\begin{figure}[h]
     \centering
-    \includegraphics{}
-    \caption{}
+    \includegraphics[scale=0.4]{Figures/Neff_chara2.png}
+    \caption{Graphs of $\delta$ for varying parameters $E_I$ and $w$. Top left $w=0.1, E_I=0.03$, $\rightarrow$ rising $E_I$, $\downarrow$ rising $w$.}
     \label{fig:characteriazation_Neff}
 \end{figure}
 
-We see in Fig.~(\ref{fig:chacteriazation_Neff}) that $\delta_1$ always starts at 1 since it is the global state at $t=0$. It then varies a little from its base value to some equilibrium value slightly above or under 1. This relfects the fact that the distribution shape of Schmidt 1 stays relatively constant. 
-$\delta_2$ varies in value (from initial to equ) by a factor from 10 to 100.
 
-Whatever i do, i cannot seem to make $\delta_2$ go above $\delta_1$ in the equilibrium regime. That is, unless I inverse the probabilities. 
-Clearly the probability .....
-I was wrong, having high w, did not change it....
-impact of E_spacing.
+We see in Fig.~(\ref{fig:characteriazation_Neff}) that $\delta_1$ always starts at 1 since it is the global state at $t=0$. It then varies a little from its base value to some equilibrium value slightly above or under 1. The fact that $\delta_1$ barely varies comes from the fact that the shape of the distribution of Schmidt 1 also barely varies. $\delta_2$ varies (from initial to equilibrium) by a factor from 10 to 100.
 
 \subsection{Other hints that eigenspace is shared in an interesting way}
 
@@ -202,78 +235,7 @@ Looking at the difference between how things are a little after interaction star
   \label{fig:gif_compare}
 \end{figure}
 
-\subsection{Other metrics to describe the sharing of eigenspace and }
-We want to confirm that there is indeed interesting dynamics to find in the sharing of energy eigenspace+we want the right tool to characterize it.
-
-MAKE A FULL GRAPH OF GRAPHS OF EACH METRIC
-PUT A FEW COMMENTS ON EACH METRIC
-
-
-\paragraph{Mean and standard deviation}
-To characterize the shape of the disrtributions, we look at the variation of the mean and standard deviation of both distributions in time
-MEAN AND SDRD DEV graphs
-Note hte difficulty to characterize their behavior easily.... might be hinting at something....
-What looking at the gifs seems to tell us is that Schmidt 1 starting with the shape of the global state looses, varies a bit in shape when Schmidt 2 goes from uniformly spread to closely resembling the distribution of Schmidt 1. Looking closer at a few eigenstates, Schmidt2 seems to displace Schmidt 1 from some 
-We confirme that by looking at this graph of the means and standard dev.
-
-\paragraph{Overlap of the probability distributions}
-overlap
-
-\paragraph{Interference}
-Interference
-
-\paragraph{Similarity between s1 and s2}
-Similarity between s1 and s2, 2 metrics
-
-\paragraph{Measure of fluctuation in time of the distributions}
-Similarity in time, a sort of measure of fluctuation. Maybe useful to characterize the behaviors of s1 and s2 distribution themselves.
-
-\paragraph{Gifs}
-Gifs of how the distributions of both Schmidts changes in time.
-
-\paragraph{Occupation of the Hilbert space}
-Occupation measure of the hilbert space. 
-
-
-\subsubsection{General characterization of these metrics}
-
-We generally see these metrics vary in unision to the amount of interference between Schmidt 1 and 2.
-we also see an inversiomn in behavior under a change of w to 1-w. 
-
-As double proof of this simple law, is the plots of occupation with w=0.03 and 0.07 (which also have underneath the plots of interference, and we clearly see the same shape.)
-
-
-
-
-
-
-
-
-
-
-
-
-Does Schmidt 1 loose in $\delta$. 
-
-
-Plot of standard deviation. does Schmidt 1 loose in standard deviation? 
-
-
-Plot of occupation
-
-Plot of overlap.
-
-ie maybe make a nice all_at_once thing.
-
-
-
-
-
-
-The distribution of schmidt 1 is "full", ie it starts as the distribution of the global state. As the second Schmidt value goes from 0 to not 0, Schmidt 2 gains in importance, it takes over some of the energy eigenstates on which Schmidt 1 is defined and takes a similar shape (since the shape I think will determine the macro and they both should have essentially the same macro.). So we have 2 distrib of the same shape but not defined over the same space.
-
-
-\subsection{Are probabilities not just shared in an equal manner?}
+\subsection{Are probabilities not just shared following a conservation law?}
 Since we have unitary evolution, wont the probability of being in an energy eigenstate for both Schmidt states just sum up to what it is for the global state? They wont because of interferences.
 
 At some time t:
@@ -290,44 +252,202 @@ Where the leftover are quantum interference terms.
 Interestingly, $\sqrt{s_0s_1}$ is maximal for $s_0=s_1$ at maximal entanglement, which goes against at least my intuition that the  worlds are supposed to be at maximal non-interference then.
 
 We can visualize this interference in Fig.~(\ref{fig:interf1002}) and Fig.~(\ref{fig:total_interference}).
-\begin{figure}
+\begin{figure}[h]
     \centering
     \includegraphics[scale = 0.5]{Figures/Interference_1002.png}
     \caption{In this plot we see the importance of interference effects for the value of probability that a Schmidt has to be in an energy eigenstate. (Chosen for its high interference.)}
     \label{fig:interf1002}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[h]
     \centering
     \includegraphics[scale = 0.5]{Figures/total_interf.png}
     \caption{Graph of the total interference between Schmidt states}
     \label{fig:total_interference}
 \end{figure}
 
-\section{Having established that they share the eigenstates weirdly. Why?}
+\newpage
 
-Is there some comparison to a case of two boxes of gas with the same pressure and temperature but totally distinct microscopic form?
+\subsection{Other metrics to describe the sharing of eigenspace}
+We want to confirm that there is indeed interesting dynamics to find in the sharing of energy eigenspace + we want the right tool to characterize it.
 
-What explains this way of sharing the eigenspace?
-Inrterferences between Schmidt states? 
+\paragraph{Mean and standard deviation}
+To characterize the shape of the distributions, we look at the variation of the mean and standard deviation of both distributions in time. The question is "How do the shapes of the distributions evolve in time?"
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.4]{Figures/mean_sdrd.png}
+    \caption{Graphs of the means and standard deviations of the probability distributions of Schmidt 1 and 2 for parameters $E_I=[0.05,0.06,0.07,0.08]$ and $w$ = [0.2,0.25,0.3,0.35].$\rightarrow$ rising $E_I$, $\downarrow$ rising $w$.}
+    \label{fig:characteriazation_mean_stdr}
+\end{figure}
 
-\paragraph{Explaining the behaviors of our metrics for space sharing.}
+What this confirms is that the shape of the distribution of Schmidt 1 varies little in time, while Schmidt 2 varies much at the beginning.
 
-Could it just be a case of Schmidt 1 and 2 are fighting over the same space and by interference, they displace each other. And that the interference being proportional to sqrt(s1s2), we have that
+\paragraph{Overlap of the probability distributions}
+The overlap is the projected value of the square root of the probability vectors of Schmidt 1 and 2 with themselves and with the global state. The question investigated is "Are Schmidt 1 and 2 defined over the same eigenbasis?". In more detail, they are of course defined in the same Hilbert space, but do they both have high probability in the same eigenbasis? 
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.4]{Figures/overlap_characterize.png}
+    \caption{Graphs of the overlap of the probability distributions of the Schmidt states and the global state. Parameters $w=[0.1,0.2,0.3,0.4], EI=[0.03,0.05,0.07,0.09]$. $\rightarrow$ rising $E_I$, $\downarrow$ rising $w$.}
+    \label{fig:characteriazation_overlap}
+\end{figure}
+The green curve, shows that the Schmidt states start by becoming similar likely as Schmidt 2 catch's up quickly to the shape it is supposed to have, but then give way to each other, do not overlap much in the energy eigenbasis. {\color{teal} The distributions evolve to similar shapes, but do not occupy the same eigenstates.}
 
+
+\paragraph{Occupation of the Hilbert space}
+For the occupation measure of the Hilbert space, we count the number of total energy eigenstates in which Schmidts have probability above a threshold $\epsilon$. {\color{teal}The question investigated is, "Does Schmidt 1 gives some of its space to Schmidt 2?". No}. All we see, is that no the number of eigenbasis states "occupied" by Schmidt 1 does not really change. And for Schmidt 2 we see the expected behavior, knowing that it goes from a uniform distribution to a more concentrated one. \ref{fig:characteriazation_occupation}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.4]{Figures/occupation_charact.png}
+    \caption{Graphs of the occupation of Hilbert space by Schmidt 1 and 2 ($\epsilon=0.001$).Parameters $w=[0.1,0.2,0.3,0.4], EI=[0.03,0.05,0.07,0.09]$. $\rightarrow$ rising $E_I$, $\downarrow$ rising $w$.}
+    \label{fig:characteriazation_occupation}
+\end{figure}
+
+\paragraph{Gifs}
+Gifs of how the distributions of both Schmidts changes in time. Cannot put them in a pdf but we can discuss them here.
+
+The distribution of Schmidt 1 starts as the distribution of the global state. As the second Schmidt value goes from 0 to not 0, Schmidt 2 gains in importance, it takes over some of the energy eigenstates on which Schmidt 1 is defined and takes a similar shape. So we have 2 distributions of the same shape but not defined over the same space.
+
+\subsubsection{General characterization of these metrics}
+
+\paragraph{Interference and $w$}
+We generally see these metrics vary in unison with the amount of interference between Schmidt 1 and 2. We also note an inversion in behavior at equilibrium for a change of w to 1-w. As an example of this law, is the plots of occupation with w=0.03 and 0.07 (which also have underneath the plots of interference, and we clearly see the same shape.) \ref{fig:Occup_interf}
+
+\begin{figure}[h!]
+  \centering
+  \begin{subfigure}[b]{0.4\linewidth}
+    \includegraphics[width=\linewidth]{Figures/occup_interf1.png}
+    \label{fig:1}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.4\linewidth}
+    \includegraphics[width=\linewidth]{Figures/occupe_interf2.png}
+    \label{fig:2}
+  \end{subfigure}
+  \caption{We see that the occupation number varies with total interference. We also see that we have an inversion of equilibrium behavior for w=0.3 and w=0.7}
+  \label{fig:Occup_interf}
+\end{figure}
+{\color{teal} Interference makes sense of the common behavior.}\\
+{\color{teal} Inverting w the probability, inverts teh equilibrium behavior. }
+
+
+\paragraph{General solution}
+The weight in front of both states are equal if,
+\begin{equation}
+    q_1=2(\frac{\sqrt{w}}{\sqrt{1-w}}-1)+q_2\frac{\sqrt{w}}{\sqrt{1-w}}
+\end{equation}
+Then,
+\begin{equation}
+    |\psi(t)\rangle=|q_1\rangle(A)\sum_jc_j(t)|e_j\rangle+|q_2\rangle(A)\sum_jc_j'(t)|e_j\rangle
+\end{equation}
+We can make that happen while keeping $E_I$ and $w$ invariant by changing either the energy between the eigenstates of the SHO, or the states we choose for the superposition (which is what we do in practice). {\color{teal}The idea being that we eliminated the asymmetry between the 2 Schmidt states, which makes $\delta_{1}$ and $\delta_2$ behave the same at equilibrium (as well as other metrics).}\\
+
+We verify this by making a plot of $\delta$ where the curves converge and another where they are inversed while keeping $w=0.41$ and $E_I=0.06$, typically values where we get distinct equilibrium behaviors for Schmidt 1 and 2.
+
+\begin{figure}[h!]
+  \centering
+  \begin{subfigure}[b]{0.4\linewidth}
+    \includegraphics[width=\linewidth]{Figures/Neff_perfect_match_2.png}
+    \caption{For weight difference of 0.01}
+    \label{fig:1}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.4\linewidth}
+    \includegraphics[width=\linewidth]{Figures/g_2.png}
+    \caption{For a weight difference of 10}
+    \label{fig:2}
+  \end{subfigure}
+  \caption{We see a that by making Schmidt 1 and 2 as "important" we can get them to agree on Neff. And we see the opposite happen when we maximize their weight difference.}
+  \label{fig:gif_compare_weight}
+\end{figure}
+
+{\color{teal} See notebook "The same"}\\
+\subsection{Conclusion:}
+{\color{teal} The "energy" of the superimposed states, and their probability (in our case $q_1,q_2,w,(w-1)$) has an impact on the distributions of Schmidts in the energy eigenbasis.}
+
+%{\color{teal} I am still not fully convinced there is "something" to the sharing of energy eigenspace.}
+
+\subsection{Pseudo pointer in the interaction spectrum}
+
+We find an interesting evolution of the distribution in this basis. See Fig.~(\ref{fig:dis_in_HI}). The motivation for looking in this basis was to look for pointer like behavior of converging towards an energy eigenstate of $H_I$. We see that it has a behavior like that, only not so complet.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale = 0.3]{Figures/dist_in_HI.png}
+    \caption{The distribution of Schmidts has the possibility under certain conditions of going from uniformly distributed to ending and staying in this distribution.}
+    \label{fig:dis_in_HI}
+\end{figure}
+
+\subsubsection{Characterizing the behavior of the distributions in the interaction energy basis.}
+
+
+env does not matter
+
+
+
+characterize behavior to see if it is weight dependant. 
+interestingly you can get both to do so by macthing the weihghts. can you get neither to do so?
+
+We look back at the equation,
+\begin{equation}
+    |\psi(t)\rangle=|q_1\rangle(\frac{2+q_1}{\sqrt{w}})\sum_jc_j(t)|e_j\rangle+|q_2\rangle(\frac{2+q_2}{\sqrt{1-w}})\sum_jc_j(t)'|e_j\rangle
+\end{equation}
+
+We have that the eigenstates of $H_e$ are $\{|e_i\rangle\}$, the eigenstates of $H_I$ are $\{|q_i\rangle|A_j\rangle\}$ We can re-write $ |e_j\rangle= \sum_ka_{kj}|A_k\rangle$, meaning,
+\begin{equation}
+    |\psi(t)\rangle=|q_1\rangle(\frac{2+q_1}{\sqrt{w}})\sum_{jk}c_j(t)a_{kj}|A_k\rangle+|q_2\rangle(\frac{2+q_2}{\sqrt{1-w}})\sum_{jk}c_j(t)'a_{kj}|A_k\rangle
+\end{equation}
+
+Which leads to ,
+\begin{equation}
+    P(|s_2(t)\rangle \text{ is in } |A_l\rangle) = |\frac{2+q_2}{\sqrt{1-w}}\sum_{jk}c_j'(t)a_{kj}\delta_{lk}|^2 = |\frac{2+q_2}{\sqrt{1-w}}|^2|\sum_{jl}c_j'(t)a_{lj}|^2
+\end{equation}
+Somehow, we have that $|\sum_{jl}c_j'(t)a_{lj}|^2$ is suppressed for a certain set of $l$'s. The $l$'s that correspind to outside the bounds we can see in Fig.~(\ref{fig:dis_in_HI}). To study this, we need to understand the time evolution of the $c_j(t)$'s.
+
+This is not explained by our numerical or model (at least trivially), since we do see that in principle the $a_{lj}$'s are not zero.
+
+What could explain the supression? Not interferences. For multiple reasons. interferences go to 0 on the out
+
+
+We would like to see how it evolves in the basis of $H_I$
+
+To do that theoretically, we would need to Haussdorf approximate out unitary of non-commuting op.
+
+
+\newpage
+
+
+\section{Having established that they share the eigenstates interestingly. Why?}
+ 
+%Is there some comparison to a case of two boxes of gas with the same pressure and temperature but totally distinct microscopic form?
+
+What explains this way of sharing the eigenspace? Interferences between Schmidt states? \\
+
+{\color{teal} Do the probabilities in individual eigenstates vary less once equilibrium is reached? Do near zeros stay at near zero? Could it be that they spread in the eigenbasis and since they dont have many high probabilities, they dont overlap meaningfully simply by chance?}
 
 \section{Can we get it all from the energy spectrum and the distribution of the global state in it?}
 
-Mad-Dog Everettianism.
-
 Energy spectrum + state defined in energy basis -> sharing of Hilbert space by worlds -> explain the phenomenas we observed
 
-Properties are shared like "this" because the spectrum is like "that"
+%Properties are shared like "this" because the spectrum is like "that"
 
 
 
 \section{Other}
 
+
+\paragraph{Measure of fluctuation in time of the distributions}
+Similarity in time, a sort of measure of fluctuation. Maybe useful to characterize the behaviors of s1 and s2 distribution themselves.\\
+
+Potential selection mechanism for schmidt states that fluctuate less, ie are stable in time?
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{Figures/time_simi.png}
+    \caption{Graphs of the similarity between s1, parameters $E_I=0.06$ and $w=0.3$.}
+    \label{fig:time_simi}
+\end{figure}
+
+\subsection{...}
 
 We have a certain sharing of the Hilbert space under measurement
 This sharing implies certain difference in behavior for quantities such as Neff. And if possible, it would be amazing to recover this sharing from the shape of the spectrum and the distribution of the global state!  mad dog evrietian style.
@@ -341,9 +461,11 @@ So our fundamental object of study is really their distribution in the total ene
 
 Pointer states: found using predicatibility sieve. They are the states that devellope the least entanglement with the environment in a robust manner.
 
+So I guess we dont have pointer states in our case, since we dont have self interaction to vary the system state.
+
 This dynamics of Schmdit basis states towards the pointer states might be worth studying. In the case of no self interaction for the system, the pointer states are eigenstates of the interaction Hamiltonian. Might be interesting to check.
 
-Note the Schmidt basis does not have to be orthogonal.
+Note the Schmidt basis does not have to be orthogonal.  
 we have always orthogonal schmidt basis in our ACL case due to orthogonal system state + no self interaction.
 
 (Andreas Albrecht study of Schmidt states dynamics under measurement:
