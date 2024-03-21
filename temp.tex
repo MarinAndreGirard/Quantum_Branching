@@ -52,7 +52,7 @@ Energy spectrum + state defined in energy basis $\rightarrow$ sharing of Hilbert
 
 \section{Adapted Caldeira-Leggett model}
 
-We consider system $\mathcal{S}$ + environment $\mathcal{E}$ , where the system is a truncated SHO. Hamiltonian,
+To answer these questions, we condier the adapted Caldeira-Leggett model, a system $\mathcal{S}$ + environment $\mathcal{E}$ where the system is a truncated SHO. Its Hamiltonian takes the form,
 \begin{equation}    
     H=H_s\otimes\mathbbm{1}+\mathbbm{1}\otimes H_e+E_IH_I
 \end{equation}
@@ -61,6 +61,7 @@ We choose no self interaction for the truncated SHO, so $H_s=\mathbbm{1}$, and w
 \subsection{Schmidt states and pointer states}
 
 We use Schmidt states as our object of study, since they are known to converge to Pointer states, which are an attempt at defining classical Branches of the wavefunction.
+
 
 Given a system and an environment $\mathcal{S} + \mathcal{E}$ and a pure state defined over both $|\psi(t)\rangle$. It can always be decomposed in its Schmidt basis,
 \begin{equation}
@@ -85,12 +86,69 @@ For $|q_i>$ the eigenstates of $H_q$ and $|e_i>$ the eigenstates of $H_e$, we ch
 \begin{equation}
     |\psi(0)\rangle=(\frac{|q_1\rangle}{\sqrt{w}}+\frac{|q_2\rangle}{\sqrt{1-w}})|e_i\rangle
 \end{equation}
-which is a separable state.
+which is a separable state with,
+\begin{align*}
+    \rho(0)=|\psi(0)\rangle\langle \psi(0)| \\
+    \rho_s(0) = Tr_e[\rho(0)] \\
+    \rho_e(0)= Tr_s[\rho(0)]
+\end{align*}
+We have in the $\{|q_i\rangle\}$ basis,
+\begin{equation}
+    \rho_s(0) = (\frac{|q_1\rangle}{\sqrt{w}}+\frac{|q_2\rangle}{\sqrt{1-w}})(\frac{\langle q_1|}{\sqrt{w}}+\frac{\langle q_2|}{\sqrt{1-w}}) = 
+    \begin{pmatrix}
+        0 & ... & & ... & 0 \\
+        ... & \frac{1}{w} & ... & \frac{1}{\sqrt{w(1-w)}} & ... \\
+        ... & 0 & ... & 0 & ... \\
+        ... & \frac{1}{\sqrt{w(1-w)}} & ... & \frac{1}{(1-w)} & ... \\
+        0 & ... & & ... & 0 \\
+    \end{pmatrix}
+\end{equation}
+In the basis $\{\frac{|q_1\rangle}{\sqrt{w}}+\frac{|q_2\rangle}{\sqrt{1-w},...}$ it is diagonal with only non-zero 1 eigenvalue $\lambda_0=1$.
+After some time evolution,
+\begin{align*}
+    \rho_s(t) = (|q_1\rangle A(t)\sum_jc_j(t)|e_j\rangle+|q_2\rangle B(t)\sum_jc_j'(t)|e_j>)*(...)^{\dagger} \\
+    =\begin{pmatrix}
+        0 & ... & & ... & 0 \\
+        ... & |A(t)|^2\sum_k|c_k(t)|^2 & ... & A(t)B^*(t)\sum_kc_k(t)c_k'^*(t) & ... \\
+        ... & 0 & ... & 0 & ... \\
+        ... & A^*(t)B(t)\sum_kc_k^*(t)c_k'(t) & ... & |B(t)|^2\sum_k|c_k'(t)|^2 & ... \\
+        0 & ... & & ... & 0 \\
+    \end{pmatrix}
+\end{align*}
+It can no longer be diagonalized with only 1 non-zero eigenvalue, it now has 2 non-zero eigenvalues (max). The eigenvectors of this density matrix are the Schmitd states of the system, and take the form,
+\begin{align*}
+    |s_0(t)\rangle = u_1(t)|q_1\rangle + u_2(t)|q_2\rangle\\
+    |s_1(t)\rangle = v_1(t)|q_1\rangle + v_2(t)|q_2\rangle
+\end{align*}
+By unitary evolution our state stay pure and can always be reduced to the superposition of 2 separable states (in this particular bipartide decomposition, and because of the fact that the system has at most 2 non-zero Schmidt values). We can express our $|q_i\rangle$'s from $|s_i\rangle$'s and get the following, 
+\begin{align*}
+    |\psi(t)\rangle = A(t)|q_1\rangle|E_1(t)\rangle+B(t)|q_2\rangle|E_2(t)\rangle \\
+    =A'(t)|s_0\rangle|\mathcal{E}_0(t)\rangle+B'(t)|s_1\rangle|\mathcal{E}_1(t)\rangle
+\end{align*}
+To find $|\mathcal{E}_i(t)\rangle$, we consider $P_i|\psi(t)\rangle$, with $P_i(t)=|s_i(t)\rangle\langle s_i(t)|$ using the orthogonality $\langle s_0|s_1 \rangle=0$. And finding the first nonzero term in $|s_i(t)\rangle$ we isolate the vector $|\mathcal{E}_i(t)\rangle$. \\
+We then define the following objects as the Schmidt states of our system + environment,
+\begin{align*}
+    |S_0(t)\rangle = |s_0\rangle|\mathcal{E}_0(t)\rangle
+    \\
+    |S_1(t)\rangle = |s_1\rangle|\mathcal{E}_1(t)\rangle
+\end{align*}
+They are our primary object of consideration.
+
+
+
+
+\begin{comment}
+    
 
 Then,
 \begin{equation}
     H|\psi(0)\rangle=|q_1\rangle(\frac{2+q_1}{\sqrt{w}})\sum_jc_j|e_j\rangle+|q_2\rangle(\frac{2+q_2}{\sqrt{1-w}})\sum_jc_j'|e_j\rangle
 \end{equation}
+or more generally,
+\begin{equation}
+    |\psi(t)\rangle=|q_1\rangle(\frac{2+q_1}{\sqrt{w}})\sum_jc_j|e_j\rangle+|q_2\rangle(\frac{2+q_2}{\sqrt{1-w}})\sum_jc_j'|e_j\rangle
+\end{equation}
+
 which is no longer separable, and by its factorizability by $|q_1\rangle$ and $|q_2\rangle$, we understand that for all $t$,
 \begin{equation}
     |\psi(t)\rangle=\frac{1}{\sqrt{N}}(s_1|q_1\rangle|E_1(t)\rangle+s_2|q_2\rangle|E_2(t)\rangle)
@@ -98,7 +156,7 @@ which is no longer separable, and by its factorizability by $|q_1\rangle$ and $|
 This means that the Schmidt decomposition of our system+env always has 2 nonzeros schmidt weights at most. But this decomposition (ie in terms of 2 states $|q_i\rangle |E_j\rangle$) is not immediately the 2 schmidt states. Indeed, Schmidt 1 starts up as $|\psi\rangle$ and evolves to something with most of its weight in a factor in from of $|q_1\rangle|E_1\rangle$. But of note, our pure state starts with nonzero value in 200+200 total eigenstates, the Schmidt states share theses with each other, 200 each. (Need to do a part where we look closer at evolution, see black board image.)
 
 Note, $|E_i\rangle=\sum_jc_{ji}(t)|e_j\rangle$.
-
+\end{comment}
 
 \begin{comment}
 Note that the weight in from of both states are equal if,
@@ -133,7 +191,7 @@ We verify that we do indeed get this in Fig.~(\ref{fig:wigner_sum}).
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.5]{Figures/Wigner_sum.png}
-    \caption{The set of wigner semi-circles who's sum gives us the spectrum of $H_I$}
+    \caption{The set of wigner semi-circles who's sum gives us the spectrum of $H_I$. The wider ones are for higher $q_i$'s.}
     \label{fig:wigner_sum}
 \end{figure}
 
@@ -167,6 +225,90 @@ This means for us that
 \begin{equation}
     f_{total}(E)\leq \frac{2}{\pi R^2}\sqrt{R^2-(E-e)^2} + d_1 + E_I\sum^{d_1-1}_{j=1}\frac{2}{\pi j^2 R^2}\sqrt{j^2R^2-e^2} +\delta_{E,0}d_2
 \end{equation}
+
+\subsection{Evolution in energy eigenbasis}
+note that in the basis $\{|q_i\rangle|v_j\rangle\}$ an eigenbasis of $H_{tot}$ the Schmidt states are $|S_i(t)\rangle = |q_1\rangle\sum_k\alpha_k|v_k\rangle + |q_2\rangle\sum_k\beta_k|v_k\rangle$, so defined over $2*d_2$ out of $d_1*d_2$ energy eigenbasis basis states. \\
+In that same basis, the Hamiltonians $H_e$ and $H_I$ take block diagonal form,
+\begin{align*}
+    H_e = \bigotimes^{d_1}_kH_{r}\\
+    H_I = \bigotimes^{d_1}_kE_Iq_kH_{r}'
+\end{align*}
+We note the $d_1$ degeneracy of the spectrum of $H_e$ and the no degeneracy of $H_I$.\\
+
+With this in mind, the time evolution of our global state only depends on 3 different $d_2*d_2$ matrices, $H_r, E_Iq_1H_r', E_Iq_2H_r'$. We can write it,
+\begin{align*}
+    |\psi(t)\rangle = A(t)|q_1\rangle|E_1(t)\rangle+B(t)|q_2\rangle|E_2(t)\rangle\\
+    =|q_1\rangle e^{-it(H_r + E_Iq_1H_r')}|E_1(t)\rangle+|q_2\rangle e^{-it(H_r + E_Iq_2H_r')}|E_2(t)\rangle
+%    |S_0(t)\rangle+|S_1(t)\rangle\\    =e^{-it()}
+\end{align*}
+
+Considering this evolution, we find that $|q_i\rangle e^{-it(H_r + E_Iq_iH_r')}|E_i(t)\rangle = |p_t(t)\rangle$ are pointer states for our Hamiltonian, simply since they stay separable under time evolution. And from the relative weight of $|S_0\rangle$ in $|q_2\rangle$ (and vice versa) goes down over time, we have the convergence of the Schmidt states to the pointer states. \\ 
+
+In practice, the Hilbert space in which the pointer states are defined is $d_2$ dimensional and is $\{|q_1\rangle|v_k\rangle\}$ and $\{|q_2\rangle|v_k\rangle\}$ respectively. We can also individually look at the spectrum of $E_Iq_iH_r'$, which for $i=1$ corresponds to a thin distribution in the energy spectrum, like the blue spectrum in Fig.~(\ref{fig:dis_in_HI}). For $i=2$ it corresponds to one of the wide spectrums of Fig.~(\ref{fig:dis_in_HI}). So Schmidt states converging to pointer states should be visible in their distribution in the interaction energy eigenbasis.
+
+\begin{figure}[h!]
+  \centering
+  \begin{subfigure}[b]{0.49\linewidth}
+    \includegraphics[width=\linewidth]{Figures/HI_distrib_early.png}
+    \label{fig:1}
+    \caption{Distribution before decoherence}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.49\linewidth}
+    \includegraphics[width=\linewidth]{Figures/HI_distrib_late.png}
+    \label{fig:2}
+    \caption{Distribution after decoherence}
+  \end{subfigure}
+  \caption{}
+  \label{fig:dist_EI_dep}
+  \caption{Freeze frame on the distribution of a Schmidt state in the energy eigenbasis of $H_I$ before and after decoherence. We see the distribution converge to that of a pointer state.}
+\end{figure}
+
+
+TODO explain convergence of Schmidt states to pointer states by some perturbation theory. 
+
+This also has deep ramifications. Our Schmidt states converge to living in totally orthogonal subspaces of the Hilbert space. This is visible by the fact that the Schmidt states converge to pointer states. And that theses pointer states can be looked at in the $H_I$ eigenbasis, and they do not share a no-zero term in this basis.
+
+The quantum states of 
+
+!!!!!
+this is a super particular case where the system states define the first term in the total energy eigenbasis. 
+!!!!
+
+\subsection{Perturbation theory}
+
+Need to figure out what I am looking for...
+
+perturbation theory to figure out the spectrum?
+Perturbation theory to explain the convergence?
+Pertubration theory to find an effective Hamiltonian?
+
+The perturbation is as a function of EI.
+A little weird because q1*EI is not really at a smaller scale than the other hamiltonian.
+
+\subsection{Ramification of sharing the total energy eigenstate}
+The branches of the wavefunction loose access to half of the energy eigenbasis. 
+Implication about loss of access to some dimension of the Hilbert space? 
+This is the very special case where the total energy basis states can be written a product states of the system energy basis states and some environment state, AND there being no self interaction of the system.
+But this begs the question. Everytime we are able to define a measurement with this model, then the dimension of our accessible Hilbert space in the totla energy eigenbasis is halfed? (Simple example of no self interaction superposition of state, 2 photons in a cavity.) \\
+Note that post decoherence the branches have a different effective Hamiltonian, ie one made of the sum of 2 block diagonal terms (one of the block diagonal si different for diff branches). So the total Hamiltonian wrt which you loose access to part of the Hilbert space changes after each measurement. This I think, makes the continuous loss of Hilbert space narrative no longer true. 
+
+$H_{tot,1}\rightarrow$ branching of state defined over $2*d_2$ energy eigenstates of $H_{tot}$ leads to 2 worlds $|p_1\rangle$ and $|p_2\rangle$  defined over $d_1$ eigenstates of $H_{tot}$ and evolving under 
+
+
+\subsection{Worlds}
+
+Pointer states as worlds? Because for now I underdtand it as such, and use it as such in this paper.
+See paper saying no.
+
+
+\subsection{Decoherence and pointer states for block diagonal Hamiltonians}
+(Based on App A of subsystems paper)
+$H_{tot}$ is block diagonal. This affords it some nice properties. Notably that its eigenstates can be written as $\{|q_i\rangle|j\rangle\}\forall i\leq d_1,j\leq d_2$. We then get to re-write it,
+\begin{equation}
+    H_{tot}=\sum_k|q_k\rangle \langle q_k|\otimes\sum_lE_{kl}|k\rangle\langle k| = \sum_k|q_k\rangle \langle q_k|\otimes H^{(i)}_e
+\end{equation}
+
+
 
 
 \subsection{Characterizing the probability distribution of the global state}
