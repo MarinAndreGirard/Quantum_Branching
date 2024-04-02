@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.3.2)  31 MAR 2024 18:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.3.2)  1 APR 2024 10:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -384,36 +384,32 @@ LaTeX Font Info:    Trying to load font information for U+bbm on input line 60.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/bbm-macros/ubbm.fd
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
 )
-Underfull \hbox (badness 10000) in paragraph at lines 67--69
 
- []
-
-
-LaTeX Warning: File `Figures/Heat_He.png' not found on input line 73.
+LaTeX Warning: File `Figures/Heat_He.png' not found on input line 65.
 
 
-/Users/maringirard/Dev/Quantum_Branching/temp.tex:73: Package pdftex.def Error: File `Figures/Heat_He.png' not found: using draft setting.
+/Users/maringirard/Dev/Quantum_Branching/temp.tex:65: Package pdftex.def Error: File `Figures/Heat_He.png' not found: using draft setting.
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.73 ...ics[width=\linewidth]{Figures/Heat_He.png}
+l.65 ...ics[width=\linewidth]{Figures/Heat_He.png}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-LaTeX Warning: File `Figures/heat_HI.png' not found on input line 78.
+LaTeX Warning: File `Figures/heat_HI.png' not found on input line 70.
 
 
-/Users/maringirard/Dev/Quantum_Branching/temp.tex:78: Package pdftex.def Error: File `Figures/heat_HI.png' not found: using draft setting.
+/Users/maringirard/Dev/Quantum_Branching/temp.tex:70: Package pdftex.def Error: File `Figures/heat_HI.png' not found: using draft setting.
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.78 ...ics[width=\linewidth]{Figures/heat_HI.png}
+l.70 ...ics[width=\linewidth]{Figures/heat_HI.png}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -424,473 +420,550 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 [1
 
 {/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 109--112
+Underfull \hbox (badness 10000) in paragraph at lines 102--104
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 114--115
+Underfull \hbox (badness 10000) in paragraph at lines 106--107
 
  []
 
-Excluding 'comment' comment. [2] Excluding 'comment' comment.
-
-LaTeX Warning: Reference `fig:dis_in_HI' on page 3 undefined on input line 184.
-
-
-LaTeX Warning: Reference `fig:dis_in_HI' on page 3 undefined on input line 184.
-
-
-LaTeX Warning: File `Figures/HI_distrib_early.png' not found on input line 189.
-
-
-/Users/maringirard/Dev/Quantum_Branching/temp.tex:189: Package pdftex.def Error: File `Figures/HI_distrib_early.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.189 ...\linewidth]{Figures/HI_distrib_early.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: File `Figures/HI_distrib_late.png' not found on input line 194.
-
-
-/Users/maringirard/Dev/Quantum_Branching/temp.tex:194: Package pdftex.def Error: File `Figures/HI_distrib_late.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.194 ...=\linewidth]{Figures/HI_distrib_late.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[3] [4]
-
-LaTeX Warning: File `Figures/Wigner_sum.png' not found on input line 288.
-
-
-/Users/maringirard/Dev/Quantum_Branching/temp.tex:288: Package pdftex.def Error: File `Figures/Wigner_sum.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.288 ...aphics[scale=0.5]{Figures/Wigner_sum.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-Excluding 'comment' comment. Excluding 'comment' comment.
-Underfull \hbox (badness 10000) in paragraph at lines 354--355
+Excluding 'comment' comment.
+Underfull \hbox (badness 10000) in paragraph at lines 113--115
 
  []
 
-[5]
+Excluding 'comment' comment. [2]
+Underfull \hbox (badness 10000) in paragraph at lines 181--183
 
-LaTeX Warning: File `Figures/dist_EI0.png' not found on input line 359.
-
-
-/Users/maringirard/Dev/Quantum_Branching/temp.tex:359: Package pdftex.def Error: File `Figures/dist_EI0.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.359 ...s[width=\linewidth]{Figures/dist_EI0.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+ []
 
 
-LaTeX Warning: File `Figures/dist_EI_not_0.png' not found on input line 363.
+Underfull \hbox (badness 10000) in paragraph at lines 192--196
+
+ []
+
+Excluding 'comment' comment. [3] Excluding 'comment' comment. [4] [5]
+
+LaTeX Warning: Reference `eq:rhos0' on page 6 undefined on input line 335.
 
 
-/Users/maringirard/Dev/Quantum_Branching/temp.tex:363: Package pdftex.def Error: File `Figures/dist_EI_not_0.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.363 ...th=\linewidth]{Figures/dist_EI_not_0.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+LaTeX Warning: Reference `eq:rhost' on page 6 undefined on input line 335.
 
 
-LaTeX Warning: Reference `fig:dist_EI_dep' on page 6 undefined on input line 370.
+LaTeX Warning: Reference `eq:time_evo_global' on page 6 undefined on input line 345.
 
 
-LaTeX Warning: Reference `fig:Neff_andy' on page 6 undefined on input line 375.
+Underfull \hbox (badness 10000) in paragraph at lines 358--360
+
+ []
 
 
-LaTeX Warning: File `Figures/Neff_andy.png' not found on input line 379.
+Underfull \hbox (badness 10000) in paragraph at lines 361--362
+
+ []
 
 
-/Users/maringirard/Dev/Quantum_Branching/temp.tex:379: Package pdftex.def Error: File `Figures/Neff_andy.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.379 ...phics[scale = 0.4]{Figures/Neff_andy.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: File `Figures/Neff_chara2.png' not found on input line 390.
-
-
-/Users/maringirard/Dev/Quantum_Branching/temp.tex:390: Package pdftex.def Error: File `Figures/Neff_chara2.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.390 ...phics[scale=0.4]{Figures/Neff_chara2.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+LaTeX Warning: Reference `eq:se_exp' on page 6 undefined on input line 370.
 
 [6]
 
-LaTeX Warning: Reference `fig:characteriazation_Neff' on page 7 undefined on input line 396.
+LaTeX Warning: Reference `eq:rhos_schmidt' on page 7 undefined on input line 385.
 
 
-LaTeX Warning: Reference `fig:gif_compare' on page 7 undefined on input line 400.
+LaTeX Warning: Reference `eq:rhost' on page 7 undefined on input line 385.
 
 
-LaTeX Warning: File `Figures/g_1.png' not found on input line 405.
+LaTeX Warning: Reference `eq:Schmidt_basic' on page 7 undefined on input line 403.
 
 
-/Users/maringirard/Dev/Quantum_Branching/temp.tex:405: Package pdftex.def Error: File `Figures/g_1.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.405 ...aphics[width=\linewidth]{Figures/g_1.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: File `Figures/g_2.png' not found on input line 410.
-
-
-/Users/maringirard/Dev/Quantum_Branching/temp.tex:410: Package pdftex.def Error: File `Figures/g_2.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.410 ...aphics[width=\linewidth]{Figures/g_2.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+LaTeX Warning: Reference `eq:se_exp' on page 7 undefined on input line 403.
 
 [7]
 
-LaTeX Warning: Reference `fig:interf1002' on page 8 undefined on input line 434.
+LaTeX Warning: Reference `fig:dis_in_HI' on page 8 undefined on input line 446.
 
 
-LaTeX Warning: Reference `fig:total_interference' on page 8 undefined on input line 434.
+LaTeX Warning: Reference `fig:dis_in_HI' on page 8 undefined on input line 446.
 
 
-LaTeX Warning: File `Figures/Interference_1002.png' not found on input line 437.
+LaTeX Warning: File `Figures/HI_distrib_early.png' not found on input line 451.
 
 
-/Users/maringirard/Dev/Quantum_Branching/temp.tex:437: Package pdftex.def Error: File `Figures/Interference_1002.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.437 ...ale = 0.5]{Figures/Interference_1002.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: File `Figures/total_interf.png' not found on input line 444.
-
-
-/Users/maringirard/Dev/Quantum_Branching/temp.tex:444: Package pdftex.def Error: File `Figures/total_interf.png' not found: using draft setting.
+/Users/maringirard/Dev/Quantum_Branching/temp.tex:451: Package pdftex.def Error: File `Figures/HI_distrib_early.png' not found: using draft setting.
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.444 ...cs[scale = 0.5]{Figures/total_interf.png}
+l.451 ...\linewidth]{Figures/HI_distrib_early.png}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[8]
 
-LaTeX Warning: File `Figures/mean_sdrd.png' not found on input line 458.
+LaTeX Warning: File `Figures/HI_distrib_late.png' not found on input line 456.
 
 
-/Users/maringirard/Dev/Quantum_Branching/temp.tex:458: Package pdftex.def Error: File `Figures/mean_sdrd.png' not found: using draft setting.
+/Users/maringirard/Dev/Quantum_Branching/temp.tex:456: Package pdftex.def Error: File `Figures/HI_distrib_late.png' not found: using draft setting.
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.458 ...raphics[scale=0.4]{Figures/mean_sdrd.png}
+l.456 ...=\linewidth]{Figures/HI_distrib_late.png}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-LaTeX Warning: File `Figures/overlap_characterize.png' not found on input line 469.
+LaTeX Warning: File `Figures/Wigner_sum.png' not found on input line 486.
 
 
-/Users/maringirard/Dev/Quantum_Branching/temp.tex:469: Package pdftex.def Error: File `Figures/overlap_characterize.png' not found: using draft setting.
+/Users/maringirard/Dev/Quantum_Branching/temp.tex:486: Package pdftex.def Error: File `Figures/Wigner_sum.png' not found: using draft setting.
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.469 ...le=0.4]{Figures/overlap_characterize.png}
+l.486 ...aphics[scale=0.5]{Figures/Wigner_sum.png}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
+Excluding 'comment' comment. Excluding 'comment' comment. [8]
+Underfull \hbox (badness 10000) in paragraph at lines 577--578
 
-LaTeX Warning: Reference `fig:characteriazation_occupation' on page 9 undefined on input line 477.
-
-
-LaTeX Warning: File `Figures/occupation_charact.png' not found on input line 481.
-
-
-/Users/maringirard/Dev/Quantum_Branching/temp.tex:481: Package pdftex.def Error: File `Figures/occupation_charact.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.481 ...cale=0.4]{Figures/occupation_charact.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: Reference `fig:Occup_interf' on page 9 undefined on input line 494.
+ []
 
 [9]
 
-LaTeX Warning: File `Figures/occup_interf1.png' not found on input line 499.
+LaTeX Warning: File `Figures/dist_EI0.png' not found on input line 582.
 
 
-/Users/maringirard/Dev/Quantum_Branching/temp.tex:499: Package pdftex.def Error: File `Figures/occup_interf1.png' not found: using draft setting.
+/Users/maringirard/Dev/Quantum_Branching/temp.tex:582: Package pdftex.def Error: File `Figures/dist_EI0.png' not found: using draft setting.
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.499 ...th=\linewidth]{Figures/occup_interf1.png}
+l.582 ...s[width=\linewidth]{Figures/dist_EI0.png}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-LaTeX Warning: File `Figures/occupe_interf2.png' not found on input line 503.
+LaTeX Warning: File `Figures/dist_EI_not_0.png' not found on input line 586.
 
 
-/Users/maringirard/Dev/Quantum_Branching/temp.tex:503: Package pdftex.def Error: File `Figures/occupe_interf2.png' not found: using draft setting.
+/Users/maringirard/Dev/Quantum_Branching/temp.tex:586: Package pdftex.def Error: File `Figures/dist_EI_not_0.png' not found: using draft setting.
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.503 ...h=\linewidth]{Figures/occupe_interf2.png}
+l.586 ...th=\linewidth]{Figures/dist_EI_not_0.png}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 521--523
-
- []
+LaTeX Warning: Reference `fig:dist_EI_dep' on page 10 undefined on input line 593.
 
 
-LaTeX Warning: File `Figures/Neff_perfect_match_2.png' not found on input line 529.
+LaTeX Warning: Reference `fig:Neff_andy' on page 10 undefined on input line 598.
 
 
-/Users/maringirard/Dev/Quantum_Branching/temp.tex:529: Package pdftex.def Error: File `Figures/Neff_perfect_match_2.png' not found: using draft setting.
+LaTeX Warning: File `Figures/Neff_andy.png' not found on input line 602.
+
+
+/Users/maringirard/Dev/Quantum_Branching/temp.tex:602: Package pdftex.def Error: File `Figures/Neff_andy.png' not found: using draft setting.
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.529 ...ewidth]{Figures/Neff_perfect_match_2.png}
+l.602 ...phics[scale = 0.4]{Figures/Neff_andy.png}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-LaTeX Warning: File `Figures/g_2.png' not found on input line 534.
+LaTeX Warning: File `Figures/Neff_chara2.png' not found on input line 613.
 
 
-/Users/maringirard/Dev/Quantum_Branching/temp.tex:534: Package pdftex.def Error: File `Figures/g_2.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.534 ...aphics[width=\linewidth]{Figures/g_2.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 542--543
-
- []
-
-
-LaTeX Warning: Reference `fig:dis_in_HI' on page 10 undefined on input line 550.
-
-
-LaTeX Warning: File `Figures/dist_in_HI.png' not found on input line 554.
-
-
-/Users/maringirard/Dev/Quantum_Branching/temp.tex:554: Package pdftex.def Error: File `Figures/dist_in_HI.png' not found: using draft setting.
+/Users/maringirard/Dev/Quantum_Branching/temp.tex:613: Package pdftex.def Error: File `Figures/Neff_chara2.png' not found: using draft setting.
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.554 ...hics[scale = 0.3]{Figures/dist_in_HI.png}
+l.613 ...phics[scale=0.4]{Figures/Neff_chara2.png}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 [10]
 
-LaTeX Warning: Reference `fig:dis_in_HI' on page 11 undefined on input line 583.
-
-[11] [12]
-Underfull \hbox (badness 10000) in paragraph at lines 602--603
-
- []
+LaTeX Warning: Reference `fig:characteriazation_Neff' on page 11 undefined on input line 619.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 618--619
-
- []
+LaTeX Warning: Reference `fig:gif_compare' on page 11 undefined on input line 623.
 
 
-LaTeX Warning: File `Figures/time_simi.png' not found on input line 625.
+LaTeX Warning: File `Figures/g_1.png' not found on input line 628.
 
 
-/Users/maringirard/Dev/Quantum_Branching/temp.tex:625: Package pdftex.def Error: File `Figures/time_simi.png' not found: using draft setting.
+/Users/maringirard/Dev/Quantum_Branching/temp.tex:628: Package pdftex.def Error: File `Figures/g_1.png' not found: using draft setting.
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.625 ...raphics[scale=0.4]{Figures/time_simi.png}
+l.628 ...aphics[width=\linewidth]{Figures/g_1.png}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-Overfull \hbox (122.15617pt too wide) in paragraph at lines 651--654
-[]\OT1/cmr/m/n/10 (Andreas Al-brecht study of Schmidt states dy-nam-ics un-der mea-sure-ment: https://journals.aps.org/prd/abstract/10.1103/PhysRevD.46.5504
- []
+LaTeX Warning: File `Figures/g_2.png' not found on input line 633.
+
+
+/Users/maringirard/Dev/Quantum_Branching/temp.tex:633: Package pdftex.def Error: File `Figures/g_2.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.633 ...aphics[width=\linewidth]{Figures/g_2.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[11]
+
+LaTeX Warning: Reference `fig:interf1002' on page 12 undefined on input line 657.
+
+
+LaTeX Warning: Reference `fig:total_interference' on page 12 undefined on input line 657.
+
+
+LaTeX Warning: File `Figures/Interference_1002.png' not found on input line 660.
+
+
+/Users/maringirard/Dev/Quantum_Branching/temp.tex:660: Package pdftex.def Error: File `Figures/Interference_1002.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.660 ...ale = 0.5]{Figures/Interference_1002.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `Figures/total_interf.png' not found on input line 667.
+
+
+/Users/maringirard/Dev/Quantum_Branching/temp.tex:667: Package pdftex.def Error: File `Figures/total_interf.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.667 ...cs[scale = 0.5]{Figures/total_interf.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[12]
+
+LaTeX Warning: File `Figures/mean_sdrd.png' not found on input line 681.
+
+
+/Users/maringirard/Dev/Quantum_Branching/temp.tex:681: Package pdftex.def Error: File `Figures/mean_sdrd.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.681 ...raphics[scale=0.4]{Figures/mean_sdrd.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `Figures/overlap_characterize.png' not found on input line 692.
+
+
+/Users/maringirard/Dev/Quantum_Branching/temp.tex:692: Package pdftex.def Error: File `Figures/overlap_characterize.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.692 ...le=0.4]{Figures/overlap_characterize.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: Reference `fig:characteriazation_occupation' on page 13 undefined on input line 700.
+
+
+LaTeX Warning: File `Figures/occupation_charact.png' not found on input line 704.
+
+
+/Users/maringirard/Dev/Quantum_Branching/temp.tex:704: Package pdftex.def Error: File `Figures/occupation_charact.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.704 ...cale=0.4]{Figures/occupation_charact.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: Reference `fig:Occup_interf' on page 13 undefined on input line 717.
 
 [13]
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 675.
+LaTeX Warning: File `Figures/occup_interf1.png' not found on input line 722.
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 675.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 675.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 679--680
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 685--687
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 696--698
-
- []
-
-
-LaTeX Warning: Reference `fig:wigner_sum' on page 14 undefined on input line 699.
-
-
-LaTeX Warning: File `Figures/Wigner_sum.png' not found on input line 703.
-
-
-/Users/maringirard/Dev/Quantum_Branching/temp.tex:703: Package pdftex.def Error: File `Figures/Wigner_sum.png' not found: using draft setting.
+/Users/maringirard/Dev/Quantum_Branching/temp.tex:722: Package pdftex.def Error: File `Figures/occup_interf1.png' not found: using draft setting.
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.703 ...aphics[scale=0.5]{Figures/Wigner_sum.png}
+l.722 ...th=\linewidth]{Figures/occup_interf1.png}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-LaTeX Warning: Reference `fig:spectra' on page 14 undefined on input line 708.
+LaTeX Warning: File `Figures/occupe_interf2.png' not found on input line 726.
 
 
-LaTeX Warning: File `Figures/Spectra.png' not found on input line 711.
-
-
-/Users/maringirard/Dev/Quantum_Branching/temp.tex:711: Package pdftex.def Error: File `Figures/Spectra.png' not found: using draft setting.
+/Users/maringirard/Dev/Quantum_Branching/temp.tex:726: Package pdftex.def Error: File `Figures/occupe_interf2.png' not found: using draft setting.
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.711 ...raphics[scale = 0.5]{Figures/Spectra.png}
+l.726 ...h=\linewidth]{Figures/occupe_interf2.png}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-LaTeX Warning: Reference `fig:spectra' on page 14 undefined on input line 716.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 716--717
+Underfull \hbox (badness 10000) in paragraph at lines 744--746
 
  []
+
+
+LaTeX Warning: File `Figures/Neff_perfect_match_2.png' not found on input line 752.
+
+
+/Users/maringirard/Dev/Quantum_Branching/temp.tex:752: Package pdftex.def Error: File `Figures/Neff_perfect_match_2.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.752 ...ewidth]{Figures/Neff_perfect_match_2.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `Figures/g_2.png' not found on input line 757.
+
+
+/Users/maringirard/Dev/Quantum_Branching/temp.tex:757: Package pdftex.def Error: File `Figures/g_2.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.757 ...aphics[width=\linewidth]{Figures/g_2.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 765--766
+
+ []
+
+
+LaTeX Warning: Reference `fig:dis_in_HI' on page 14 undefined on input line 773.
+
+
+LaTeX Warning: File `Figures/dist_in_HI.png' not found on input line 777.
+
+
+/Users/maringirard/Dev/Quantum_Branching/temp.tex:777: Package pdftex.def Error: File `Figures/dist_in_HI.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.777 ...hics[scale = 0.3]{Figures/dist_in_HI.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 723--725
+
+LaTeX Warning: Reference `fig:dis_in_HI' on page 15 undefined on input line 806.
+
+[15] [16]
+Underfull \hbox (badness 10000) in paragraph at lines 825--826
 
  []
 
-[15] (./temp.aux)
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 841.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 841.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 841.
+
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 857.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 863--864
+
+ []
+
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 874--876
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 886--888
+
+ []
+
+[18]
+Underfull \hbox (badness 10000) in paragraph at lines 916--917
+
+ []
+
+
+LaTeX Warning: File `Figures/time_simi.png' not found on input line 923.
+
+
+/Users/maringirard/Dev/Quantum_Branching/temp.tex:923: Package pdftex.def Error: File `Figures/time_simi.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.923 ...raphics[scale=0.4]{Figures/time_simi.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (122.15617pt too wide) in paragraph at lines 949--952
+[]\OT1/cmr/m/n/10 (Andreas Al-brecht study of Schmidt states dy-nam-ics un-der mea-sure-ment: https://journals.aps.org/prd/abstract/10.1103/PhysRevD.46.5504
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 973.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 973.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 973.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 977--978
+
+ []
+
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 983--985
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 994--996
+
+ []
+
+
+LaTeX Warning: Reference `fig:wigner_sum' on page 20 undefined on input line 997.
+
+
+LaTeX Warning: File `Figures/Wigner_sum.png' not found on input line 1001.
+
+
+/Users/maringirard/Dev/Quantum_Branching/temp.tex:1001: Package pdftex.def Error: File `Figures/Wigner_sum.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1001 ...phics[scale=0.5]{Figures/Wigner_sum.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: Reference `fig:spectra' on page 20 undefined on input line 1006.
+
+
+LaTeX Warning: File `Figures/Spectra.png' not found on input line 1009.
+
+
+/Users/maringirard/Dev/Quantum_Branching/temp.tex:1009: Package pdftex.def Error: File `Figures/Spectra.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1009 ...aphics[scale = 0.5]{Figures/Spectra.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: Reference `fig:spectra' on page 20 undefined on input line 1014.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1014--1015
+
+ []
+
+[20]
+Underfull \hbox (badness 10000) in paragraph at lines 1021--1023
+
+ []
+
+[21] (./temp.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -904,21 +977,21 @@ Package rerunfilecheck Warning: File `temp.out' has changed.
 
 Package rerunfilecheck Info: Checksums for `temp.out':
 (rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  2352ED31D95058B9D5C153AD54B6F479;7954.
+(rerunfilecheck)             After:  94AF47EE4E9E8C21F17605DA7EA9F69F;11019.
  ) 
 Here is how much of TeX's memory you used:
- 12315 strings out of 476025
- 209968 string characters out of 5790018
- 1868388 words of memory out of 5000000
- 32466 multiletter control sequences out of 15000+600000
+ 12387 strings out of 476025
+ 210931 string characters out of 5790018
+ 1873388 words of memory out of 5000000
+ 32473 multiletter control sequences out of 15000+600000
  523901 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,14n,77p,770b,554s stack positions out of 10000i,1000n,20000p,200000b,200000s
- </Users/maringirard/Library/texlive/2023/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on temp.pdf (15 pages, 279446 bytes).
+ 75i,14n,77p,925b,558s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ </Users/maringirard/Library/texlive/2023/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on temp.pdf (21 pages, 325483 bytes).
 PDF statistics:
- 271 PDF objects out of 1000 (max. 8388607)
- 212 compressed objects within 3 object streams
- 93 named destinations out of 1000 (max. 500000)
+ 379 PDF objects out of 1000 (max. 8388607)
+ 309 compressed objects within 4 object streams
+ 158 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
