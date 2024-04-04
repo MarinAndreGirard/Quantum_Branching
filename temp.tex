@@ -253,13 +253,11 @@ then find the reduced density matrix
 note that it depends on $c_{ij}(t)=\langle \phi_i(t)|\phi_j(t) \rangle$, where, using the fact that the environment drives the environment states into approximately orthogonal states, we have $c_{ij}\approx \delta_{ij}$
 
 
-
-
 Decoherence induced pointer states for our particular block diagonal case are such that they are defined over a limited subspace of the hilbert space. it is usefull to think of the Hilert space in the total energy eigenbasis, since in it, we see that the pointer states are defined in $d_{tot}/d_1=d_2$ energy eigenbasis states. And importantly, 2 pointer states defined with different $|q_i\rangle$ have no energy eigenstate in common (supposing no degeneracy.)
 
 \subsubsection{Decoherence time}
 
-We study a simple case, the limit where the interaction strength dominates. This implies that the blocks in the Hamiltonian are diagonalizable together. We get from this, that $|\mathcal{E}_i\rangle=\frac{1}{\sqrt{d_2}}\sum_ke^{-itE^{(i)}_k}|k\rangle$. (Where we also assumed that we started in a uniformly distributed state). This makes the overlap easier to study,
+We study a simple case, the limit where the interaction strength dominates. This implies that the blocks in the Hamiltonian are diagonalizable together (because of our specific construction). We get from this, that $|\mathcal{E}_i\rangle=\frac{1}{\sqrt{d_2}}\sum_ke^{-itE^{(i)}_k}|k\rangle$. (Where we also assumed that we started in a uniformly distributed state). Of note, is that this implies that our 2 worlds's porbability vecotrs (in total energy eigenspace) will have constant non-zero overlap. Still this makes the state overlap (ie orthogonality in Hilbert space) easier to study,
 \begin{align}
     r(t)=\langle\mathcal{E}_1|\mathcal{E}_2\rangle = \frac{1}{d_2}\sum_ke^{-it(E_k-E_k')}\\
 \end{align}
@@ -270,22 +268,37 @@ We study the case where the energy spectrums of $H_e^{(i)}$ is uniform, $E_k=q_1
     =\frac{1}{d_2^2}(d_2+\sum_{k\neq j}e^{-it(k-j)f})\\
     =\frac{1}{d_2^2}(d_2+2\sum^{d_2}_{k=1}(d_2-k)cos(ktf))\\
 \end{align}
-Where what we end up with is a sum that has terms of higher importance than others (the low k's have a higher weight.). Fully time symmetric as expected of unitary evolution. 
+Where what we end up with is a sum that has terms of higher importance than others (the low $k$'s have a higher weight.). Fully time symmetric as expected of unitary evolution, as well as periodic with period $T_p=\frac{2\pi}{f}$.  
+For $d_2=5$, we get that $\sum^{d_2}_{k=1}(d_2-k)cos(ktf)$ has the form of Fig.~(\ref{fig:r_plot})
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.2]{Figures/r_plot.png}
+    \caption{For $d_2=5$, plot of  $\sum^{d_2}_{k=1}(d_2-k)cos(ktf)$. It would seems reasonable to define the decoherence time the first local minima around 0.}
+    \label{fig:r_plot}
+\end{figure}
 
-For this function, we can look for its poincare recurrence time, but this will not provid us with an accurate esrtiamte of the decoherence time.
-We could look at the $T_{min}$, which minimizes the function, but again decoherence is likely before that.
-
-\paragraph{Decoherence time dependance on $\frac{q_2}{q_1}$:} By time symmetry of the solution, we choose to consider $q_2$ superior to $q_1$ yet keep $f$ positive.
-Suppose we have a $T_{dec}$, such that $|r(T_{dec})|^2=\epsilon$, where $\epsilon$ is choosen to satisfy our decoherence condition. 
-Then varying the difference $q_2-q_1$ rescales time in the above equation, making the decoherence time depend on them as,
+\paragraph{Decoherence time dependence on $q_2$ and $q_1$:} By time symmetry of the solution, we choose to consider $q_2$ superior to $q_1$ and redefine $f\rightarrow-f$ just to keep things positive.
+Suppose we have a $T_{dec}$, such that $|r(T_{dec})|^2=\epsilon$, where $\epsilon$ is choosen to satisfy our decoherence condition, or $T_{dec}$ defined as the time of the first minima around 0 in Fig.~(\ref{fig:r_plot}). Then varying the difference $q_2-q_1$ rescales time in the above equation, making the decoherence time depend on the energy difference $f$ as,
 \begin{equation}
     T_{dec}(f)=\frac{T_{dec}(1)}{f}
 \end{equation}
-This is to interpret as $T_{dec}(q_1,q_2)=\frac{T_dec(q_2'=q_1'+1)}{q_2-q_1}$. We see this as meaning that increasing $q_2$ and leaving $q_1$ unchanged re-scales the decoherence time by their difference. 
-In other words, the decoherence time depends on the scale of energy difference of the Hamiltonian by which each pointer state evolves.... kinda.
+This is to be interpret as $T_{dec}(q_1,q_2)=\frac{T_dec(q_2'=q_1'+1)}{q_2-q_1}$. We see this as meaning that increasing $q_2$ and leaving $q_1$ unchanged re-scales the decoherence time by their difference. 
+So the decoherence time depends on the energy scale difference of the 2 interactions and not the energy ratio or something more complex. Fundamentally this is a trivial result, but we got a spectrum $\rightarrow$ decoherence time type of result. We now want to go to more complex cases, not interaction dominated, with non trivial spectrum (not determined by only 1 variable, the difference in energy scale.). Note again that this decoherence time from the spectrum approach neglects the whole idea that the pointer states are actually defined on totally different eigenstates.
 
-what I find interesting here. depends on energy scal diff, not ratio.
-
+\paragraph{About defining the decoherence time: }We suggest using an $\epsilon$ bound on the overlap of the environment states after which we consider decoherence good. Or, as suggested by the form of the the function represented in Fig.~(\ref{fig:r_plot}), we look for the first minimum. 
+We note the following useful relations,
+\begin{align}
+    \sum^n_{k=1}cos(kx)=\frac{1}{2}+\frac{sin(n+\frac{1}{2})x}{2sin(\frac{x}{2})}\\ 
+    \sum^n_{k=1}kcos(kx)=\frac{d}{dx}(\sum^n_{k=1}sin(kx))=\frac{d}{dx}(\frac{sin(\frac{nx}{2})sin(\frac{(n+1)x}{2})}{sin(\frac{x}{2})})
+\end{align}
+This means that we can write the following,
+\begin{align}
+    |r(t)|^2=\frac{1}{d_2^2}(d_2+2\sum^{d_2}_{k=1}(d_2-k)cos(ktf))\\
+    =\frac{1}{d_2^2}(d_2+2d_2\sum^{d_2}_{k=1}cos(kt')-2\sum^{d_2}_{k=1}kcos(kt'))\\
+    =\frac{1}{d_2^2}(d_2+2d_2(\frac{1}{2}+\frac{sin(d_2+\frac{1}{2})t'}{2sin(\frac{t'}{2})})-2(\frac{d}{dt'}(\frac{sin(\frac{d_2t'}{2})sin(\frac{(d_2+1)t'}{2})}{sin(\frac{t'}{2})})))\\
+\end{align}
+where we used $t'=tf$. 
+Definning the decoherence time as the first minima, we find it analytically, (see mathematica)
 
 
 \paragraph{About the relative importance of the terms of this function: }Note that,
@@ -315,22 +328,15 @@ This has $\Delta'$ grows faster closer to $a=d_2$ than $a=0$, which is again an 
 We can use this formula to get a bound on the error for a certain precision. 
 Note, we care about having to put less of the terms in the sum to 0, because they imply havig a lower $T_0$ for the equation. 
 
-
-
-
-
-
-Note that the ultimate goal would be to use the form of the spectrum distribution to figure out the decoherence time... 
-
 \subsection{Schmidt states in the ACL}
 
-\subsubsection{Schmidt states}
+\subsubsection{System Schmidt states and GLobal Schimdt states}
 
 Given a system and an environment $\mathcal{S} + \mathcal{E}$ and a pure state defined over both $|\psi(t)\rangle$. It can always be decomposed in its Schmidt basis,
 \begin{equation}
     |\psi(t)\rangle = \sum_i \sqrt{p_i(t)}|a_i(t)\rangle|b_i(t)\rangle
 \end{equation}
-The important points being that the sum is over one index, that the sum is over dimension of the smaller of both systems ($\mathcal{S}$ or $\mathcal{E}$) at most, and that the basis itself depends on the state, which implies basis varying in time.
+The important points are that the sum is over one index, that the sum is over dimension of the smaller of both systems ($\mathcal{S}$ or $\mathcal{E}$) at most, and that the basis itself depends on the state, which implies that it varies in time.
 
 While $\rho_s(0)$ Eq.~(\ref{eq:rhos0}) can be diagonalized and have only 1 eigenvalue $\lambda=0$, after some time t, we get $\rho_s(t)$ Eq.~(\ref{eq:rhost}) which now has 2 eigenvalues. This is due to the fact that the environment evolves differently for the 2 states in superposition, we get entanglement between the evolving environment and the state of the system. The eigenvectors of this density matrix are the Schmitd states of the system, and take the form,
 \begin{align}
@@ -356,18 +362,51 @@ We define the following objects as the Schmidt states of our system + environmen
     \\
     |S_2(t)\rangle = |s_2(t)\rangle|s^{(e)}_2(t)\rangle
 \end{align*}
-To find $|s^{(e)}_i\rangle$ we can find $A_i$, $u_i$, $v_i$ and $|\mathcal{E}_i\rangle$ and use them to express it. Diagonalize $\rho_s$ and $\rho_e$, find their eigenvector and associate them to each other by matching their eigenvalue. Or we can do the following (which is implemeted numerically.)\\
+\paragraph{Getting $|s^{(e)}_i\rangle$: }To find $|s^{(e)}_i\rangle$ we can find $A_i$, $u_i$, $v_i$ and $|\mathcal{E}_i\rangle$ and use them to express it. Diagonalize $\rho_s$ and $\rho_e$, find their eigenvector and associate them to each other by matching their eigenvalue. Or we can do the following (which is implemeted numerically.)\\
 
 To find $|s^{(e)}_i(t)\rangle$, we consider $P_i|\psi(t)\rangle$, with $P_i(t)=|s_i(t)\rangle\langle s_i(t)|$ using the orthogonality $\langle s_1|s_2 \rangle=0$. And finding the first nonzero term in $|s_i(t)\rangle$ we isolate the vector $|s^{(e)}_i(t)\rangle$. \\ 
 
+\subsubsection{Decoherence induces convergence of global Schmidt to global pointer states}
 
-\subsubsection{Decoherence induces convergence of Schmidt to pointer states}
+\paragraph{The basic idea is the following:}
 
-Here we explain how $|\vec{S_i}\rangle\approx|p_i\rangle$ for post-decoherence times. Note that the pointer states are defined by their weights in the total energy eigenbasis, the phase associated to each weight is not important to their property of staying separable.
+\begin{itemize}
+    \item \textbf{Schmidt states} are the eigenstates of $\rho_s$
+    \item \textbf{Pointer states} are states of the system such that entanglement between them and the environment does not grow with time.
+    \item Decoherence causes $\rho_s$ to become diagonal in the pointer basis
+\end{itemize}
+Taking all 3 points together, it is obvious that the Schmidt states of the system converge to its pointer states. \\
 
-Potential confusion: Pointer states are states that are stable in their separability, but our Schmidt states as defined above are already separable. Pointer states are stable in their separability \textbf{in a set basis.} Which means that our Schmidt states, are not pointer states by definition.
+What about the global forms of the Schmidt and Pointer states? They are both extended to their global definition in the following way,
+\begin{align}
+    |\psi(t)\rangle = |s_1(t)\rangle|s_1^{(e)}(t)\rangle+|s_2(t)\rangle|s_2^{(e)}(t)\rangle = |S_1(t)\rangle+|S_2(t)\rangle\\
+    |\psi(t)\rangle = |p_1\rangle|p_1^{(e)}(t)\rangle+|p_2\rangle|p_2^{(e)}(t)\rangle = |P_1(t)\rangle+|P_2(t)\rangle
+\end{align}
+At time $t'>T_{dec}$, decoherence diagonalizes the system density matrix in the pointer basis, meaning $|s_i(t')\rangle=|p_i\rangle=cst$. This also implies equality between our global Schmidts and pointers at the time, 
+\begin{align}
+    |\psi(t')\rangle = |s_1(t')\rangle|s_1^{(e)}(t')\rangle+|s_2(t')\rangle|s_2^{(e)}(t')\rangle = |p_1\rangle|s_1^{(e)}(t')\rangle+|p_2\rangle|s_2^{(e)}(t')\rangle\\
+    =|p_1\rangle|p_1^{(e)}(t')\rangle+|p_2\rangle|p_2^{(e)}(t')\rangle\\
+    \implies |s_i^{(e)}(t')\rangle = |p_i^{(e)}(t')\rangle\\
+    \implies |S_i(t')\rangle = |P_i(t')\rangle
+\end{align}
+Note that our global pointer states varies, while our system one is constant. 
 
-By the form of pointer states being $|q_j\rangle|\text{any environment state}\rangle$, we can show that the Schmidt states converge to pointer states simply by showing $|s_i\rangle\rightarrow a_i|q_j\rangle$. This mean that we dont actually care about the form of $|s^{(e)}_i\rangle$ of Eq.~(\ref{eq:se_exp}) and all we are asking is that either $|u_1(t)|$ or $|u_2(t)|$ tends to 0. And vice versa for $v$.
+This is quite obvious, but it means that worlds (if they are our global pointer states) split the total energy eigenspace when the pointer states do. The question becomes, when do the global pointer states do so? 
+
+The definition of being a global pointer state is to stay separable + have the system part be a system pointer state.
+Staying separable means having an evolution of the form, 
+\begin{equation}
+    |P(t)\rangle=|p\rangle|p^{(e)(t)}\rangle
+\end{equation}
+TODO What does this imply mathematically? condition on separability of basis? Condition on Hamiltonian?
+
+\paragraph{To see it more mathematically:} we explain how $|S_i\rangle\approx|p_i\rangle$ for post-decoherence times. Note that the pointer states are defined by their weights in the total energy eigenbasis, the phase associated to each weight is not important to their property of staying separable.
+
+\paragraph{Potential confusion:} Our global pointer states are states that are separable according to our bipartide system+environment separation, but this also seems to match out global Schmidt states, which are also separable by definition. The thing to keep in mind is that Pointer states are stable in their separability, while if we froze our Schmidt state at a certain time and evolved it in time, we would have that the separability doesn't last. (TODO add graphs showing that.)
+
+
+
+By the form of pointer states being $|q_j\rangle|\text{any environment state}\rangle$, we can show that the Schmidt states converge to pointer states simply by showing $|s_i\rangle\rightarrow a_i|q_j\rangle$. This mean that we dont actually care about the form of $|s^{(e)}_i\rangle$ of Eq.~(\ref{eq:se_exp}) and all we are asking is that either $|u_1(t)|$ or $|u_2(t)|$ tends to 0. And vice versa for $v$. This is equivalent to showing that the off
 
 We start at $|u_1(0)|=\frac{1}{\sqrt{w}}$ and $|u_2(0)|=\frac{1}{\sqrt{1-w}}$. 
 
@@ -390,9 +429,9 @@ Matching eq.~(\ref{eq:rhos_schmidt}) and Eq.~(\ref{eq:rhost}), we find the follo
     u_2u_1^*+v_2v_1^*+u_2v_1^*+v_2u_1^* = \sqrt{w-w^2}\langle \mathcal{E}_2(t)|\mathcal{E}_1(t)\rangle\\
 \end{align*}
 
-Supposing from a certain time $t$, we have $\langle \mathcal{E}_1(t)|\mathcal{E}_2(t)\rangle\approx0$. Then we have, that without a complicated balancing act, taking $u_2=v_1=0$ and $u_1=\sqrt{w}$ $v_2=\sqrt{1-w}$ makes the equations work. Does it become the only solution if we add the 2 conditions $|u_1|+|u_2|=|v_1|+|v_2|=1$ and remove the phase of $u_1$ and $v_2$ for not being physical? (8 eqs for 8 unknowns.).
+At a time $T_{dec}$, we have $\langle \mathcal{E}_1(T_{dec})|\mathcal{E}_2(T_{dec})\rangle\approx0$. Then we have solution to this system of equation $u_2=v_1=0$ and $u_1=\sqrt{w}$ $v_2=\sqrt{1-w}$ makes the equations work. It becomes the only solution if we add the 2 conditions $|u_1|+|u_2|=|v_1|+|v_2|=1$ and impose no phases to $u_1$ and $v_2$  (8 eqs for 8 unknowns.). (TODO prove that)\\
 
-Ok, so we see that post decoherence (ie orthogonality of environment states), we have that the Schmidt states are pointer states,
+We thus conclude that the global Schmidt states converge to global pointer states due to decoherence. For $t\geq T_{dec}$,
 \begin{align*}
     |S_1(t)\rangle = |s_1(t)\rangle|s^{(e)}_1(t)\rangle\\
     =|q_1\rangle|\mathcal{E}_1(t)\rangle
@@ -400,26 +439,11 @@ Ok, so we see that post decoherence (ie orthogonality of environment states), we
     |S_2(t)\rangle = |s_2(t)\rangle|s^{(e)}_2(t)\rangle\\
     =|q_2\rangle|\mathcal{E}_2(t)\rangle
 \end{align*}
-We used for this Eq.~(\ref{eq:Schmidt_basic},\ref{eq:se_exp}) (DEAL WITH FACTOR)
+
+This can be trivially summarized to: Schmidt states converge to pointer states because pointer states are the stable eigenstates of the density matrix post decoherence, meaning the Schmidt states (eigenstates of the density matrix) will naturally converge to pointer states by decoherence. The fact that our global Schmidt and pointer states follow the same rule comes from the way that the environment part of theses global states is found. 
 
 
-
-In this part we take for granted that the density matrix of the system and environment converge to diagonals in the pointer basis. Now we need to understand this as the convergence of the Schmdit states to the pointer states. 
-
-    
-What the Schmidt to pointer convergence shows is that it selects a generic pointer state, not a specifically chosen one.
-And from the relative weight of $|S_0\rangle$ in $|q_2\rangle$ (and vice versa) goes down over time, we have the convergence of the Schmidt states to the pointer states. 
-
-orthogonality of $\mathcal{E}_i$ for i 0 and 1 is interestingly not needed to expalin the non-overlap. but it is to explain decoherence??? 
-not needed for overlap, because non-overlap is due to s0 and s1 going to being just a function of q1 and q2 respectively, ie this makes them orthongonal by defaulf (there seems to be a double decoherence happening here...). 
-
-
-
-Schmidt states converge to pointer states because. pointer states are the diagonal terms of the density matrix, and the matrix goes to being only diagonal by decoherence... something like that.
-====
-
-
-
+\subsection{To deal with....}
 
 
 We can, in general terms take our unitary evolution as,
@@ -1034,5 +1058,18 @@ This means for us that
     f_{total}(E)\leq \frac{2}{\pi R^2}\sqrt{R^2-(E-e)^2} + d_1 + E_I\sum^{d_1-1}_{j=1}\frac{2}{\pi j^2 R^2}\sqrt{j^2R^2-e^2} +\delta_{E,0}d_2
 \end{equation}
 
+\subsection{Overlap $|r(t)|^2$ for $H_I$ dominated but no conditions on energy spectrums}
+We again take a case where both blocks of $H_I$ in question are diagonalizable together but have different energy spectrum, we dont specify the spectrum shape this time. Note again that this not in the context of worlds that are not defined the same same eigenstate, in this one they are and we might show here that it is very difficult to achieve decoherence then... ie, is it a delicate balance to have orthogonality and sharing of eigenspaces? 
+\begin{align}
+    |w_1\rangle = \frac{1}{\sqrt{d_2}}\sum_ke^{-itE_k}|k\rangle\\
+    |w_2\rangle = \frac{1}{\sqrt{d_2}}\sum_ke^{-itE_k'}|k\rangle
+\end{align}
+and,
+\begin{align}
+    |r(t)|^2=|\langle w_2(t)|w_1(t)\rangle|^2 = \frac{1}{d_2^2}\sum_{kj}e^{-it((E_k-E_j)-(E_k'-E_j'))}\\
+    =\frac{1}{d_2^2}(\sum_{kj}e^{-itA_{kj}})\\
+    =\frac{1}{d_2^2}(d_2+2\sum^{d_2}_{k=1}\sum^{k-1}_{j=0}cos(tA_{kj}))
+\end{align}
+From this can we study how finely tunned the frequencies have to be to cause decoherence? Or is there always a decoherence like behavior here? 
 
 \end{document}
