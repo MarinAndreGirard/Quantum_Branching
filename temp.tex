@@ -57,7 +57,7 @@ To answer these questions, we consdier the adapted Caldeira-Leggett model, a sys
 \begin{equation}    
     H_{tot}=H_s+H_e+E_IH_I
 \end{equation}
-We choose no self interaction for the truncated SHO, so $H_s=\mathbbm{1}\otimes\mathbbm{1}$, and we choose a random hermitian matrix for the environment self interaction $\mathbbm{1}\otimes H_r$, with $H_r$ a random hermitian matrix. The interaction Hamiltonian is $H_I=H_q\otimes H_r'$, with $(H_q)_{ij}=q_i\delta_{ij}$ and $H_r'$ another random hermitian matrix. This makes it so that the environment acts on the system depending on its state. \\
+We choose no self interaction for the truncated SHO, so $H_s=\mathbbm{1}\otimes\mathbbm{1}$, and we choose a random hermitian matrix for the environment self interaction $H_e=\mathbbm{1}\otimes H_r$, with $H_r$ a random hermitian matrix. The interaction Hamiltonian is $H_I=H_q\otimes H_r'$, with $(H_q)_{ij}=q_i\delta_{ij}$ and $H_r'$ another random hermitian matrix. This makes it so that the environment acts on the system depending on its state. \\
 Taking the eigenstates of $H_q$ to be $\{|q_i\rangle\}\forall$, there is a basis like $\{|q_i\rangle|k_i\rangle\}$, such that $H_{tot}$, $H_e$ and $H_I$ take the a block diagonal form. $i\in[0,d_1-1],j\in [0,d_2-1]$, $d_1$ and $d_2$ the dimensions of the system and environment respectively, giving a total dimension $d=d_1*d_2$.
 \begin{figure}[h!]
   \centering
@@ -110,9 +110,23 @@ Block diagonal Hamiltonians always allow for certain pointer states (See "A Sear
 Thinking about it, that would be a state such that the off diagonal terms are non-zero and dont really vary in time.
 or a state that cant be written as a separable pure state (ie superposition of 2 such state for ex) but where the relative weights of the 2 separable states stay the same. I think we can essentially express entanglement as a function of the relative weight of the 2 Schmidt states. if one dominates, then low entanglement, if they share weights pretty well then high entrop.
 \end{comment}
-We find that $|q_i\rangle|E_i(t)\rangle = |p_i(t)\rangle$ are global pointer states since the time evolution leaves the state as a separable state. In the total energy eigenbasis, a pointer state is defined in a $d/d_1$ subspace at most (and would need to be fine tuned to be defined in a smaller state). Technically, pointer states would be defined on the system, but we consider here an extension to the full Hilbert space, since our system has no self interaction.\\
+
+We find that $|q_i\rangle|\mathcal{E}(t)\rangle = |p_i(t)\rangle$ are global pointer states since the time evolution leaves the state as a separable state. In the total energy eigenbasis, a pointer state is defined in a $d/d_1$ subspace at most (and would need to be fine tuned to be defined in a smaller state). Technically, pointer states would be defined on the system, but we consider here an extension to the full Hilbert space, since our system has no self interaction.\\
  %(Although, maybe the fact that we can look at H_I in different basis, raises more questions.)
 
+For all bipartide decomposition you can always find a unitary that makes the factorization produce a block diagonal Hamiltonian. Thus the way we make our Hamiltonian restricts that a little bit by making the blocks not independant from each other. The Hamiltonian is then such that the system density becomes diagonal in the pointer basis. The quantum measurement limit, ie the case where the interaction Hamiltonian is dominant corresponds to the case where the limit where the blocks of the block diagonal Hamiltonian are proportional to each other. The other limits to look at are the decoupling limit, and the intermediate limit.\\
+
+In either the intermediate or the measurement limit the density matrix of the system becomes diagonal in the pointer basis. We see later that the pointer states being defined in limited subsets of the energy eigenbasis of the total Hamiltonian it means that the worlds split the energy eigenspace with each other. (Note, When we are not in this limit a useful idea is that of a decoherence free subspace. )\\
+
+In the factorization of Hilbert space that makes the Hamiltonian block diagonal, the system state does not evolve in time and the environment state does but is confined to the subspace defined by the pointer state. This means that studying the pointer states, we will see the restriction to only parts of the total energy eigenspaces.
+
+\paragraph{From the subsystems paper:} For any Hamiltonian $H=\sum_kE_k|E_k\rangle\langle E_k|$, defining a factorization $|E_k\rangle=|i\rangle_s|j\rangle_e$, we get,
+\begin{align}
+    H=\sum_kE_k|E_k\rangle\langle E_k|=\sum_i|i\rangle_s\langle i|\otimes\sum_j|j\rangle_s\langle j|E_{ij}\\
+    =\sum_i|i\rangle_s\langle i|\otimes H^{(i)}_e = \sum_i|i\rangle_s\langle i|\otimes H_e+\sum_i|i\rangle_s\langle i|\otimes \Tilde{H}^{(i)}_e
+\end{align}
+With $\Tilde{H}^{(i)}_e = \sum_jE_{ij}|j\rangle_s\langle j|-H_e$. With this we recover a Hamiltonian in the form of the ACL model. If $H_e$ and $\Tilde{H}^{(i)}_e$ are such that decoherence happens, we have branching and the branches are defined on a reduced energy eigenspace.
+So we end up with having to define conditions on theses Hamiltonians. After that, the condition on theses 2 Hamiltonians can be seen as a condition on the total Hamiltonian spectrum for a certain factorization.
 
 \begin{comment}
     $H_{tot}$ is block diagonal. This affords it some nice properties. Notably that its eigenstates can be written as $\{|q_i\rangle|j\rangle\}=\{|i\rangle_w\}\forall i\leq d_1,j\leq d_2$. We then get to re-write it,
@@ -183,9 +197,49 @@ The term $(\sum_{k_1}e^{-itk_1}c_{k_1}a^{(k_1)}_k)=c^{\mathcal{E}_1}_k(t)$ has v
 
 Or density matrix is already in the pointer basis $|p_i\rangle=|q_i\rangle$ so decoherence would be diagonalization in this basis, ie $|\langle\mathcal{E}_1|\mathcal{E}_2\rangle|^2=|r(t)|^2\rightarrow0$. We get for the diagonal term,
 \begin{align}
-    \langle \mathcal{E}_1| \mathcal{E}_2\rangle(t) = \sum_k(c^{\mathcal{E}_1}_k)^{\dagger}(t)c^{\mathcal{E}_2}_k(t)
+    \langle \mathcal{E}_1| \mathcal{E}_2\rangle(t) = \sum_k(c^{\mathcal{E}_1}_k)^{\dagger}(t)c^{\mathcal{E}_2}_k(t)\\
+    |r(t)|^2=|\langle \mathcal{E}_1| \mathcal{E}_2\rangle(t)|^2
 \end{align}
 
+\subsubsection{A quick result on decoherence time}
+Using $|\mathcal{E}_i(t)\rangle = e^{-itH^{(i)}_e}|e\rangle$ and $H^{(i)}_e=H_r-E_Iq_iH_r'$, we have
+\begin{align}
+    r(t)&=\langle\mathcal{E}_1(t)|\mathcal{E}_2(t)\rangle=\langle e|e^{-it(H^{(2)}_e-H^{(1)}_e)}|e\rangle\\
+    &=\langle e|e^{-itE_IH_r'(q_2-q_1)} |e\rangle
+\end{align}
+Which means that the decoherence time can be expressed as $T_{dec} = \frac{T_{dec,0}}{E_I(q_2-q_1)}$.
+
+\subsubsection{When do we have decoherence?}
+We have decoherence when the matrix $E_IH_r'(q_2-q_1)$ generates a unitary such that the environment state can become orthogonal to its initial state. This depends on the state of the environemnt, as imagining the environment as starting in an eigenstate of $H_r'$, then $|r(t)|^2=1\forall t$. This means that we cannot get a condition on $H_r'$ that necessarly implies decoherence. We need to take into account both the state and Hamiltonian. 
+What about if the state is not an energy eigenstate of $H_r'$? For $|e\rangle=c_1|1\rangle+c_2|2\rangle$ with $|i\rangle$ an energy eigenstate of $H_r'$ and $c_i$ real and the eigenenergies are $E_1$ and $E_2$ (inclding inside the parameter dependance), we get (using normalization $c_1^2+c_2^2=1$ and $c_2=\sqrt{1-c_2^2}$),
+\begin{equation}
+    |r(t)|^2=1-2c_1\sqrt{1-c_1^2}\cos{t(E_1-E_2)}
+\end{equation}
+
+This is minimized for $T=\frac{\pi (2k+1)}{E_1-E_2}$ but only achieves a zero if $c_1=c_2=\frac{1}{\sqrt{2}}$ Fig.~(\ref{fig:eigen_minim}).
+\begin{figure}
+    \centering
+    \includegraphics{Figures/2_eigen_minimization.png}
+    \caption{plot of $1-2c_1\sqrt{1-c_1^2}$}
+    \label{fig:eigen_minim}
+\end{figure}
+
+We again see that not any state allows for full decoherence. (Maybe full decoherence is too strong to look at?)
+We do the same thing with 3 eigenstates (defining $E_i-E_j=e_{ij}$),
+\begin{equation}
+    |r(t)|^2=1+2c_1c_2cos(te_{12})+2c_1\sqrt{1-c_1^2-c_2^2}cos(te_{13})+2c_2\sqrt{1-c_1^2-c_2^2}cos(te_{23})
+\end{equation}
+It would be simpler to find the types of states that allow for full decoherence if there was a time for which all 3 cosines go to -1, so let us look for one. For a $T$ such that $Te_{12}=(2k_{12}+1)$, $Te_{13}=(2k_{13}+1)$, then using the fact that $Te_{23}=T(e_{13}-e_{12})$ we have,
+\begin{equation}
+    Te_{23}=2k_{13}+1-2k_{12}-1=2(k_{13}-k_{12})
+\end{equation}
+which is even. 
+
+===Continuing in this directions
+what is the goal. tell something about decoherence from the spectrum. ok. This might be a valide direction. The idea would be to get some measure of decoherence, maybe how low $|r(t)|^2$ can go to. this is dependant on the $c_k$'s and the $e_{ij}$'s which is exactly what I want, and also makes a tonn of sense. it is state dependant, and from it maybe I can defined a state that has the nice property of doing a double decoherence. Then fro this I may start figuring out if it is hard or not to "branch" n times. or if a typical Hamiltonian does it.
+
+\subsubsection{Simplifying the spectrum}
+We start by simplifying the problem, from our finite spectrum of reals $\{E_i\}$, we note that adding a constant to it does not change the physics and multiplying it all by a constant simply inversely scales the time. So from that we can set the first $E_0=0$. To make all terms rationals we redefine it $\{E_i\}\rightarrow\{(\Pi_{k \text{ s.t } E_k\text{ irrational}}E_k)E_i\}$. Now we can write $\{E_i=\frac{a_i}{b_i}\}$ and similarly we make it a spectrum of integers $\{E_i\}\rightarrow\{(\Pi_{k}b_k)\frac{a_i}{b_i}\}=\{(\Pi_{k\neq i}b_k)a_i\}$.
 
 
 \subsubsection{Decoherence by variance}
@@ -193,6 +247,23 @@ What do we know about $c^{\mathcal{E}_i}_k$? It is a complex number with norm va
 Then,\\
 FIND WAY TO BOUND VARIANCE EXPONENTIALLY IN $D_2$..\\
 Note, we neglected the independance of the $c^{\mathcal{E}_i}_k$ (leading to probabilities).\\
+
+\subsubsection{Decoherence by $\langle |r(t)|^2\rangle$}
+\begin{align}
+    |\langle \mathcal{E}_1|\mathcal{E}_2\rangle|^2&=|\langle e|e^{-itH_r'E_I(q_2-q_1)}|e\rangle|^2\\
+    &=\frac{1}{d_2^2}\sum_{ij} |c_k|^2|c_j|^2e^{-it(E_k-E_j)}\\
+    &=\frac{1}{d_2^2}[d_2+2\sum_{k\geq j}|c_k|^2|c_j|^2cos(t(E_k-E_j))]\\
+\end{align}
+We used the normalization $\sum_k|c_k|^2=1$ and used $E_k$ as the k'th eigenvalue of $H_r'E_I(q_2-q_1)$
+As in Zurek's seminal paper, we look at $\langle |r(t)|^2\rangle$,
+\begin{align}
+    \langle |r(t)|^2\rangle &= \lim_{T\rightarrow \infty}\frac{1}{T}\int^{T}_0|r(t)|^2\\
+    &=\lim_{T\rightarrow \infty}\frac{1}{T}\int^{T}_0\frac{1}{d_2^2}[d_2+2\sum_{k\geq j}|c_k|^2|c_j|^2cos(t(E_k-E_j))\\
+    &=\frac{1}{d_2}+\lim_{T\rightarrow \infty}\frac{2}{d_2^2}\sum_{k\geq j}|c_k|^2|c_j|^2\frac{sin(T(E_k-E_j))}{T(E_k-E_j)}]\\
+    &\propto \frac{1}{d_2}
+\end{align}
+Which supposing our environment is made up of qubits, we have that $d_2=2^N$, making $|r(t)|^2$ exponentially decreasing in number of qubits forming our environment. 
+
 
 \begin{comment}
     
@@ -221,39 +292,15 @@ Other way of explaining away decoherence, we give each term the same amplitude a
 
 
 \subsubsection{Decoherence other}
-If we had a bosonic heat bath then the issue is already solved by Zurek in "Coherent States via Decoherence". 
+\paragraph{Bosonis bath:} A la Zurek "Coherent States via Decoherence". 
 \begin{comment}
 We find pointer states $|q_1\rangle = (\hat{a}^{\dagger})^{q_1}|0\rangle$, not a coherent state/  Note that this goes against what Andreas is saying, which is that we have position eigenstaes as pointer states, which would be $b(\hat{a}^{\dagger}+\hat{a})$. ( Zurek's paper Coherent States via Decoherence) (does my paper go against this?). 
 \end{comment}
 
-
-
-a way to explain the decoherence is as a washing away of a delicate balance.
-keeping, particularly, $|\mathcal{E}_1(t)\rangle$ and $|\mathcal{E}_2(t)\rangle$ start defined by the same set of set of amplitudes and phases in the $|k\rangle$ basis, but then each starts essentially evolving independantly of each other.
-
-
-
-
-What is the delicate balance I am washing away here??
-
-A coherent state is the specific quantum state of the quantum harmonic oscillator, often described as a state that has dynamics most closely resembling the oscillatory behavior of a classical harmonic oscillator.Mathematically, a coherent state is defined to be the (unique) eigenstate of the annihilation operator â.
-This leads me to a confusion. I am starting my state in a superposition of 2 eigenstates of the SHO. The $|q_i\rangle$'s are not position states but coherent states, ie eigenstates of the SHO ie eigenstates of $\hat{a}\hat{a^{\dagger}}$. So as Zurek says, the ACL model leads in its non-trivial limit, to pointer states that are coherent states.
-
-
-
-
-What happens is that as interaction starts, the density matrix de-diagonalizes as it becomes non-classical (ie increaes entanglement). And then becomes diagonal again, from 1 to 2 non-zero eigenvalues. 
-
-Anyways to understand that the off diagonal terms become first highly non-zero, and then go to zero again?
-
-
-For an arbitrary initial pure state, the system density matrix becomes diagonal in the pointer basis.
-SEE MY INITIAL STATE
-then find the reduced density matrix
-note that it depends on $c_{ij}(t)=\langle \phi_i(t)|\phi_j(t) \rangle$, where, using the fact that the environment drives the environment states into approximately orthogonal states, we have $c_{ij}\approx \delta_{ij}$
-
-
-Decoherence induced pointer states for our particular block diagonal case are such that they are defined over a limited subspace of the hilbert space. it is usefull to think of the Hilert space in the total energy eigenbasis, since in it, we see that the pointer states are defined in $d_{tot}/d_1=d_2$ energy eigenbasis states. And importantly, 2 pointer states defined with different $|q_i\rangle$ have no energy eigenstate in common (supposing no degeneracy.)
+\begin{comment}
+    A coherent state is the specific quantum state of the quantum harmonic oscillator, often described as a state that has dynamics most closely resembling the oscillatory behavior of a classical harmonic oscillator.Mathematically, a coherent state is defined to be the (unique) eigenstate of the annihilation operator â.
+    This leads me to a confusion. I am starting my state in a superposition of 2 eigenstates of the SHO. The $|q_i\rangle$'s are not position states but coherent states, ie eigenstates of the SHO ie eigenstates of $\hat{a}\hat{a^{\dagger}}$. So as Zurek says, the ACL model leads in its non-trivial limit, to pointer states that are coherent states.
+\end{comment}
 
 \subsubsection{Decoherence time}
 
@@ -330,11 +377,11 @@ Note, we care about having to put less of the terms in the sum to 0, because the
 
 \subsection{Schmidt states in the ACL}
 
-\subsubsection{System Schmidt states and GLobal Schimdt states}
+\subsubsection{System Schmidt states and Global Schimdt states}
 
 Given a system and an environment $\mathcal{S} + \mathcal{E}$ and a pure state defined over both $|\psi(t)\rangle$. It can always be decomposed in its Schmidt basis,
 \begin{equation}
-    |\psi(t)\rangle = \sum_i \sqrt{p_i(t)}|a_i(t)\rangle|b_i(t)\rangle
+    |\psi(t)\rangle = \sum_i \sqrt{p_i(t)}|s_i(t)\rangle|s^{(e)}_i(t)\rangle
 \end{equation}
 The important points are that the sum is over one index, that the sum is over dimension of the smaller of both systems ($\mathcal{S}$ or $\mathcal{E}$) at most, and that the basis itself depends on the state, which implies that it varies in time.
 
@@ -366,6 +413,9 @@ We define the following objects as the Schmidt states of our system + environmen
 
 To find $|s^{(e)}_i(t)\rangle$, we consider $P_i|\psi(t)\rangle$, with $P_i(t)=|s_i(t)\rangle\langle s_i(t)|$ using the orthogonality $\langle s_1|s_2 \rangle=0$. And finding the first nonzero term in $|s_i(t)\rangle$ we isolate the vector $|s^{(e)}_i(t)\rangle$. \\ 
 
+$|s^{(e)}_i\rangle$ are also simply the eigenstates of $\rho_e$. Thus they are orthogonal as well.
+
+
 \subsubsection{Decoherence induces convergence of global Schmidt to global pointer states}
 
 \paragraph{The basic idea is the following:}
@@ -374,8 +424,8 @@ To find $|s^{(e)}_i(t)\rangle$, we consider $P_i|\psi(t)\rangle$, with $P_i(t)=|
     \item \textbf{Schmidt states} are the eigenstates of $\rho_s$
     \item \textbf{Pointer states} are states of the system such that entanglement between them and the environment does not grow with time.
     \item Decoherence causes $\rho_s$ to become diagonal in the pointer basis
+    \item $\implies$ Schmidt states converge to pointer states
 \end{itemize}
-Taking all 3 points together, it is obvious that the Schmidt states of the system converge to its pointer states. \\
 
 What about the global forms of the Schmidt and Pointer states? They are both extended to their global definition in the following way,
 \begin{align}
@@ -396,15 +446,14 @@ This is quite obvious, but it means that worlds (if they are our global pointer 
 The definition of being a global pointer state is to stay separable + have the system part be a system pointer state.
 Staying separable means having an evolution of the form, 
 \begin{equation}
-    |P(t)\rangle=|p\rangle|p^{(e)(t)}\rangle
+    |P(t)\rangle=|p\rangle|p^{(e)}(t)\rangle
 \end{equation}
-TODO What does this imply mathematically? condition on separability of basis? Condition on Hamiltonian?
 
-\paragraph{To see it more mathematically:} we explain how $|S_i\rangle\approx|p_i\rangle$ for post-decoherence times. Note that the pointer states are defined by their weights in the total energy eigenbasis, the phase associated to each weight is not important to their property of staying separable.
+A sufficient conditions for this, is that we can write our energy eigenstates $|p\rangle|k\rangle$ and that the $|k\rangle$'s here for an environment basis. This allows us to put all the evolution into $|p^{(e)}(t)\rangle$. It is also possible it using degeneracies of the total Hamiltonian, ie we need $|p\rangle=\sum_ib_i|b_i\rangle$ where $|b_i\rangle$ are a basis of the system such that $|b_i\rangle|e\rangle$ all form total basis states with the same energy. This allows us to absorbe the evolution of $|p\rangle$ into a single phase which we can pass on to $|p^{(e)}(t)\rangle$.
 
-\paragraph{Potential confusion:} Our global pointer states are states that are separable according to our bipartide system+environment separation, but this also seems to match out global Schmidt states, which are also separable by definition. The thing to keep in mind is that Pointer states are stable in their separability, while if we froze our Schmidt state at a certain time and evolved it in time, we would have that the separability doesn't last. (TODO add graphs showing that.)
+\paragraph{To see it more mathematically:} we explain how $|S_i\rangle\approx|p_i\rangle$ for post-decoherence times. Note that the pointer states are defined by their weights in the total energy eigenbasis, the phase associated to each weight is not important to their property of staying separable.\\
 
-
+A potential confusion is the following. Our global pointer states are states that are separable according to our bipartide system+environment separation, but this also seems to match out global Schmidt states, which are also separable by definition. The thing to keep in mind is that Pointer states are stable in their separability, while if we froze our Schmidt state at a certain time and evolved it in time, we would have that the separability doesn't last. (TODO add graphs showing that.)\\
 
 By the form of pointer states being $|q_j\rangle|\text{any environment state}\rangle$, we can show that the Schmidt states converge to pointer states simply by showing $|s_i\rangle\rightarrow a_i|q_j\rangle$. This mean that we dont actually care about the form of $|s^{(e)}_i\rangle$ of Eq.~(\ref{eq:se_exp}) and all we are asking is that either $|u_1(t)|$ or $|u_2(t)|$ tends to 0. And vice versa for $v$. This is equivalent to showing that the off
 
@@ -443,31 +492,9 @@ We thus conclude that the global Schmidt states converge to global pointer state
 This can be trivially summarized to: Schmidt states converge to pointer states because pointer states are the stable eigenstates of the density matrix post decoherence, meaning the Schmidt states (eigenstates of the density matrix) will naturally converge to pointer states by decoherence. The fact that our global Schmidt and pointer states follow the same rule comes from the way that the environment part of theses global states is found. 
 
 
-\subsection{To deal with....}
+\subsection{Seeing the convergence of Schmidt states into pointer states}
 
-
-We can, in general terms take our unitary evolution as,
-\begin{equation}
-    U(t)=\sum_j|a_j\rangle\langle a_j|\otimes U^{\mathcal{E}}_j(t)
-\end{equation}
-Starting the system in $|b\rangle$, then $U_j^{\mathcal{E}}|b>=|b_j(t)\rangle$. This means that the reduced density matrix of the system $\mathcal{S}$, evovlves as,
-\begin{equation}
-    \rho_{ij} = \langle b_i(t)|b_i(t)\rangle \rho_{ij}(0)
-\end{equation}
-This results in the evolution of the system density matrix to a diagonal form. This diagonal form, explains the apparent classicality of the unique measurement result. The 2 results, after some decoherence time, belong to 2 different orthogonal states. 
-
-
-Decoherence has it that $\langle b_j(t)|b_i(t)\rangle\rightarrow \delta_{ij}$ for $t\rightarrow \infty$. 
-
-
-
-Exaplain how A(t) goes from 1 to not 1. 
-
-
-
-
-
-In practice, the Hilbert space in which the pointer states are defined is $d_2$ dimensional and is $\{|q_1\rangle|v_k\rangle\}$ and $\{|q_2\rangle|v_k\rangle\}$ respectively. We can also individually look at the spectrum of $E_Iq_iH_r'$, which for $i=1$ corresponds to a thin distribution in the energy spectrum, like the blue spectrum in Fig.~(\ref{fig:dis_in_HI}). For $i=2$ it corresponds to one of the wide spectrums of Fig.~(\ref{fig:dis_in_HI}). So Schmidt states converging to pointer states should be visible in their distribution in the interaction energy eigenbasis.
+Each possible pointer states is non-zero on $d_2$ total energy eigenstates. Another way to see this is that the pointer states are defined in the spectrum of $E_Iq_iH_r'$, which for $i=1,2,...,10$ is shown in Fig.~(\ref{fig:wigner_sum}). For $i=1$, it corresponds to a thin distribution in the energy spectrum, like the spectrum represented by a blue line. For $i=2$ it corresponds to one of the wide spectra, like the orange one. So as the Schmdit states converge to the pointer states we expect to see them go from being defined in the spectrum of $E_Iq_1H_r'$ and $E_Iq_1H_r'$ together, to being defined in one each. This will be visible by the fact that the spectra have different width.
 
 \begin{figure}[h!]
   \centering
@@ -485,24 +512,12 @@ In practice, the Hilbert space in which the pointer states are defined is $d_2$ 
   \label{fig:dist_EI_dep}
   \caption{Freeze frame on the distribution of a Schmidt state in the energy eigenbasis of $H_I$ before and after decoherence. We see the distribution converge to that of a pointer state.}
 \end{figure}
+So we expect to see this very well in the total energy eigenbasis in the interaction dominated limit, but as shown in Fig.~(\ref{fig:dist_EI_dep}), we also see it in the intermediate regime when we look in the interaction basis.
 
+Note that this is only true in the interaction dominated picture and approximately true in the intermediate regime. 
+Still, in the intermediate regime, we have pointer states defined in the basis of $H^{(e)}_i$, and theses Hamiltonians by our definition are not degenerate with each other (all eigenstates are different), making the pointer states live in different energy subspace. 
 
-TODO explain convergence of Schmidt states to pointer states by some perturbation theory. 
-
-This also has deep ramifications. Our Schmidt states converge to living in totally orthogonal subspaces of the Hilbert space. This is visible by the fact that the Schmidt states converge to pointer states. And that theses pointer states can be looked at in the $H_I$ eigenbasis, and they do not share a no-zero term in this basis.
-
-The quantum states of 
-
-!!!!!
-this is a super particular case where the system states define the first term in the total energy eigenbasis. 
-!!!!
-
-
-
-=====
-We use Schmidt states as our object of study, since they are known to converge to Pointer states, which are an attempt at defining classical Branches of the wavefunction.
-
-
+TODO perturbation theory to justify that it is apprioximately true.
 
 
 \begin{figure}[h]
@@ -541,21 +556,16 @@ Note that the weight in from of both states are equal if,
 \end{comment}
 
 
+\subsection{Discussion}
 
-\subsection{Perturbation theory}
+\subsubsection{When do we have splitting of the energy eigenspaces between branches}
 
-Need to figure out what I am looking for...
+Taking the pointer states that our Schmidt states converge to as the classical worlds post measurement, we have that theses branches split the energy eigenspaces with each other if the pointer states split the energy eigenspace. And from the definition of our global pointer state, we get that when we have a separable energy eigenbasis, such that the system eigenstates are the system part of the total energy basis (equivelent to asking for no self interaction). (We also requier no “degeneracy” in the environment basis).
 
-perturbation theory to figure out the spectrum? Yes
-Perturbation theory to explain the convergence? No need
-Pertubration theory to find an effective Hamiltonian?
 
-The perturbation is as a function of EI.
-A little weird because q1*EI is not really at a smaller scale than the other hamiltonian.
+One thing with the global Schnmidt states is that they allow us to carry the whole state, ie dont leave anything behind
 
-The point of the Caldeira-Leggett model is to study the intermediate regime of measurement $H_s\approx H_I$. So i do not think I can do a perturbation theory on the interaction energy
-
-\subsection{Ramification of sharing the total energy eigenstate}
+\subsubsection{Ramification of splitting the total energy eigenstate}
 The branches of the wavefunction loose access to half of the energy eigenbasis. 
 Implication about loss of access to some dimension of the Hilbert space? 
 This is the very special case where the total energy basis states can be written a product states of the system energy basis states and some environment state, AND there being no self interaction of the system.
@@ -564,36 +574,31 @@ Note that post decoherence the branches have a different effective Hamiltonian, 
 
 $H_{tot,1}\rightarrow$ branching of state defined over $2*d_2$ energy eigenstates of $H_{tot}$ leads to 2 worlds $|p_1\rangle$ and $|p_2\rangle$  defined over $d_1$ eigenstates of $H_{tot}$ and evolving under 
 
+\subsection{Was energy splitting the only way?}
 
+Worlds need to be \textbf{orthogonal} and \textbf{classical}. Orthogonality is clear, classical here is simply having the system in a pointer state (ie a state selected as stably non-quantum). Do theses two conditions suffice to explain the splitting? Or is splitting one possible way only to respect theses conditions.
 
-\subsection{Worlds}
+We can get orthogonality with overlap. 
+Imposing pointer states as system state, then we can also make that work with overlap, but what we find is that the environemnt state converges to being defined in a limited energy subspace, BY DECOHERENCE 
+WHY ONLY LIVING IN A SUBSPACE!!!!??? WAS THAT NOT EXPLAINED? 
 
-Pointer states as worlds? Because for now I underdtand it as such, and use it as such in this paper.
-See paper saying no.
+TODO
+If you show equivalence between decoherence and "schmidts into pointer states" then you have that the pointer environmen states converge to liing in a subspace only.
 
-
-\subsection{Explaining the energy splitting}
-
-We need to explain why worlds do not share energy eigenstaes. ie, why the amplitudes of the state in an energy eigenstate is fully given to a world and not shared. Indeed, if we only ask that worlds be orthogonal states, we get that there are ways to do this without sharing the energy eigenstates.
-
-Very generally we can define worlds as, (TODO IS THAT REALLY APT? ARE WORLDS STATICALLY DEFINED AS A SUM OF CONSTANT TERMS IN THE TOTAL ENERGY EIGENBASIS?)
 \begin{equation}
     |w_i(t)\rangle=\sum_{k\in O_i}c_ke^{e^{-itE_k}}|k\rangle
 \end{equation}
 $O_i$ defines the set of total hamiltonian eigenstates in which world $i$ is defined. If we take that we have 2 worlds and that they share an energy eigenstate ($j$), then the overlap is constant and worth $\langle w_1|w_2\rangle(t)=|c_j|^2$. If we have that the overlap is in n eigenstates, it is still constant. Basically, the only way for our worlds to not have an overlap is that they do not share an energy eigenbasis. 
 
-\subsubsection{Note on the branching event and why we look at Schmidt states}
 
-For an global state,
-\begin{equation}
-    |\psi(t)\rangle\sum_ku_ke^{-itE_k}|k\rangle
-\end{equation}
-we can always extract from this orthogonal worlds 2 pointer states that do not mix, and stay orthogonal. ie there is not visible branching event to be found by just looking at the global state like this. 
+-Discuss the fact (and why) do worlds become orthogonal to each other by splitting the hilbert space. Make the latex discussion of it clear.
+(can I get a conclusion somehow that tells us that if they did not they would never stay orthogonal, or that it requires very strong fine tunning.) If I find that, i think we can conclude that our conclusion generalizes further than the model.
 
-Thus we look at SChmidt states. TODO detail more why Schmidt states are legitimate objects to look at to witness decoherence. other than being states the converge to objects with world like properties at the rate of decoherence (pointer states).
+So the “worlds” in this model are orthogonal in this energy eigenspace in this specific splitting manner because the specific pointer state of the problem are. Can you have pointer states that are also orthogonal (condition we want of worlds) but that are not orthogonal in this specific manner? Yes, but the overlap terms must annihilate with each other. Which puts conditions on the complex phases and amplitudes of their definition. 
 
-
-The explanation 
+In our specific case, to be a state that stays separable (pointer state) is equivalent to a state that has a “classical system”. 
+This is no longer true for a system with self interaction. In a system with self interaction, the eigenstates of the system will not be the classical ones…. Or maybe
+How does this relate to the question of living in different eigenspaces?
 
 
 \subsection{Characterizing the probability distribution of the global state}
@@ -617,6 +622,38 @@ The state, and Schmidts are define as non-zero on only part of the energy eigens
 \paragraph{Impact of $E_I$: }Varying $E_I$ changes the total energy eigenbasis. Taking $E_I=0$ we have as expected a delta, as the environment starts and stays as a total energy eigenstate. As we vary $E_I$, it takes a bell shape and its standard deviation rises. See Fig.~(\ref{fig:dist_EI_dep}), which shows us how an $H_e$ eigenstate is defined in the eigenbasis of $H_e+H_e'$. 
 
 \paragraph{Impact of $w$: }It is a factor in front of the 2 branches, so changes the relative importance of each branches when we vary it.
+
+\subsection{The preffered basis problem}
+Einselection solves it, but can there be multiple prefere basis together? Basically I need to learn better what einselction is.
+This is another formlulation of the question: "Q1: can a change of basis leave us seeing the our 2 branches as more than 2 branches? Less?"
+
+In the notebook, I have expressed it as a basis transformation problem without realizing I was just asking about the prefered basis problem. 
+
+\subsection{Locality from the spectrum}
+
+The question is, does looking at things in the einselected basis somehow also gives us locality? 
+Subsystems paper has a little paragraph on that.
+
+My first thought was that we could look at the ACL model as a SHO and look at the position basis there. But it turns out that different systems with different physics and local basis have the same spectrum. For one, the spectrum of the HO describes a quantum HO, or phonons in a lattice. 
+
+Since the interaction Hamiltonian is the one who's spectrum matches theses 2 systems, making its eigenstates the states that end up selected, we look at the physical interpretation of the energy eigenstates of a truncated HO and a phonon on a lattice.
+
+Maybe even a simpler third system could be considered. It is a simple lattice on which an electon can hope, and the lattice is also in an enlectric field that looks like a linear slope. There, each energy eigenstate is a position eigenstate.
+
+HO: energy eigenstates are excitation levels of a small mass on a spring. An energy eigenstate has a position spread out in the well, in a way that increases with energy. So position is best localized for lowest energy state. Generally the position is delocalized, but not maximally so I think. Why? Because basically the position function for an energy eigenstate is some sort of sine wave with higher frequency as energy increases. Fundamentally, if I change my energy eigenstate, where I can expect to find my mass changes.
+
+Phonon: A phonon is a massless scalar field with fixed momentum. I think it will be different from the HO because in the HO energy depends on position from center, while here there is no potential dependant on position to worry about. Here the energy eigenstates should all correspond to totally delocalized states. 
+Ok, phonon subtelty is that you can incerase energy by adding a phonon or incerasing the momentum of a phonon.
+
+
+
+\subsubsection{Are the pointer states local in the HO?}
+
+(about limit. the weak/intermediate/strong limit is a limit defined based on the ratio of energy scales for the interaction and self interaction Hamiltonian. Since we have not introduced a self interaction we are always in the strong interaction limit.)
+
+
+
+\subsubsection{Are the pointer states local for the phonon?}
 
 \section{Does Branching dynamics split the energy eigenspace between the branches in a particular way?}
 This question is motivated by the behavior of $Neff_{schmidt,i}/Neff_{total}=\delta_i$, with $Neff_{state}=\frac{1}{\sum_ip_i^2}$, $p_i$ the probability of finding the state we are considering in total energy eigenstate $i$. See Fig.~(\ref{fig:Neff_andy}). The idea of $Neff$ being to measure the spread of the Schmidts over the energy eigenspace. Neff is maximized by a uniform distribution and minimized by $p_i=1\text{ for }i=a$ for some integer $a$. $\delta_i$ is going to depend on how the distribution of Schmidt $i$ evolves in the energy eigenspace, which is what we want to study.
@@ -658,25 +695,30 @@ Looking at the difference between how things are a little after interaction star
     \caption{Zoomed view of the probability distribution of Schmidt 1 and 2 in the total energy eigenbasis at frame 89/100}
     \label{fig:2}
   \end{subfigure}
-  \caption{There is less large probability overlap at frame 89 than 11}
+  \caption{There is smaller probability overlap at frame 89 than 11}
   \label{fig:gif_compare}
 \end{figure}
 
 \subsection{Are probabilities not just shared following a conservation law?}
-Since we have unitary evolution, wont the probability of being in an energy eigenstate for both Schmidt states just sum up to what it is for the global state? They wont because of interferences.
 
-At some time t:
-$$|\psi\rangle=\sqrt{s_0}|q_1\rangle|E_1\rangle>+\sqrt{s1}|q_2\rangle|E_2\rangle$$
+Since we have unitary evolution, wont the probability of being in an energy eigenstate for both Schmidt states just sum up to what it is for the global state? \textbf{They wont during decoherence because of interference, but they will after decoherence.} \\
 
-Taking a total energy eigenstate $|Ai\rangle$
+"""This makes it weird that my total interference doesn't actually go to zero... this is equivalent to having my Schmidt states not exactly converging to pointer states...."""\\
 
-The probability that the state be in this energy eigenstate is 
-$$P(|\psi\rangle \text{ in } |A_i\rangle)=|\langle A_i|\psi\rangle|^2 = s_0|\langle A_i|q_1E_1\rangle|^2+s1|\langle A_i|q_2E_2\rangle|^2+\sqrt{s0s1}(\langle A_i|q_1E_1\rangle^*+\langle A_i|q_2E_2\rangle^*)$$
+We look at the state in its Schmidt decomposition, defining $|S_i'\rangle$ the normalized form of $|S_i\rangle$,
+\begin{equation}
+    |\psi(t)\rangle=\sqrt{p_1(t)}|S_1\rangle>+\sqrt{p_2(t)}|S_2\rangle
+\end{equation}
 
-This can also be written,
-$$P(|\psi\rangle \text{ in } |A_i\rangle)= s_0P(|Schmidt_1\rangle\text{ in }|A_i\rangle)+ s_1P(|Schmidt_2\rangle\text{ in }|A_i\rangle) +\sqrt{s0s1}(\langle A_i|q_1E_1\rangle^*+\langle A_i|q_2E_2\rangle^*)$$
-Where the leftover are quantum interference terms.
-Interestingly, $\sqrt{s_0s_1}$ is maximal for $s_0=s_1$ at maximal entanglement, which goes against at least my intuition that the  worlds are supposed to be at maximal non-interference then.
+Taking a total energy eigenstate $|q_i,k_i\rangle$, The probability that the state is in this energy eigenstate takes the form,
+\begin{flalign}
+    P(|\psi(t)\rangle \text{ in } |q_i,k_i\rangle)&=|\langle q_i,k_i|\psi(t)\rangle|^2 \\
+    &= p_1(t)|\langle q_i,k_i|S_1'(t)\rangle|^2+p_2(t)|\langle q_i,k_i|S_2'(t)\rangle|^2\\
+    &+\sqrt{p_1(t)p_2(t)}(\langle q_i,k_i|S_1'(t)\rangle\langle S_2'(t)|q_i,k_i\rangle^*+\langle q_i,k_i|S_2'(t)\rangle\langle S_1'(t)|q_i,k_i\rangle^*)
+\end{flalign}
+which we can see as, $$P(|\psi(t)\rangle \text{ in } |q_i,k_i\rangle)= p_1(t)P(|Schmidt_1\rangle\text{ in }|q_i,k_i\rangle)+ p_2(t)P(|Schmidt_2\rangle\text{ in }|q_i,k_i\rangle) +\sqrt{p_0(t)p_1(t)}(Interferences)$$
+Where the leftover are interference terms.
+Interestingly, $\sqrt{s_0s_1}$ is maximal for $s_0=s_1$ at maximal entanglement (post decoherence). But this is countered by the fact that post decoherence, since $|S_j(t)\rangle=|q_j\rangle|\mathcal(E)_j(t)\rangle$, we get that either both, or 1 of $\langle q_i,k_i|S_1'(t)\rangle\langle$ or $\langle q_i,k_i|S_2'(t)\rangle\langle$ are zero (depending on $|q_i\rangle$). This makes the interference terms go to zero by decoherence. 
 
 We can visualize this interference in Fig.~(\ref{fig:interf1002}) and Fig.~(\ref{fig:total_interference}).
 \begin{figure}[h]
@@ -878,6 +920,9 @@ The spectrum of $H_e^{(1)}$ and $H_e^{(2)}$ are simply different by a factor of 
 
 \section{Other}
 
+\subsection{Why the ACL model?}
+The point of the Caldeira-Leggett model is to study the intermediate regime of measurement $H_s\approx H_I$. So i do not think I can do a perturbation theory on the interaction energy
+
 \subsubsection{Condition on there being an energy splitting}
 
 Bsically, if we have a Hamiltonian that can be split as the tensor product of a diagonal matrix and a complex Hamiltonian, and that in the same bassi have the state of the universe be a superposition product some random state, we will get this splitting happening. TODO specify better the conditions for the splitting happening, and look into if that is a common condition? if we go from a hamiltonian that has that, do the world afterwards and the effective hamltonians they live in also have that?
@@ -901,6 +946,20 @@ This imposes a condition on $|\psi\rangle$ and $H_{tot}$. What is that condition
 What has been discussed here is true for local subdivisions (pieces of table I can hold in my hands), but what if we consider $\mathcal{H}=\mathcal{H}_{1''}\otimes ...\otimes \mathcal{H}_{n''}$ a non-local decomposition of the Hilbert space.     
 
 the simple idea being that a table can be cut down in many "classical" pieces in many ways. The basic question is: What happens when I consider global pointer states defined by being product state of pointer states of many subsystems. And do I get anything else from asking for a variable decomposition (setting maybe the size of the subsytems to be classical). 
+
+NOTE, THIS MIGHT VERY MUCH BE RELATED TO THE QUANTUM ZENO PARADOX.
+
+\subsubsection{Pointer states are worlds}
+
+Our research question mentions worlds, yet we can only say things about pointer states and Schmidt states. Are pointert states worlds? or are worlds made of LC of poionter states? 
+
+Pointer states as definition of worlds
+https://journals.aps.org/prd/abstract/10.1103/PhysRevD.40.1071
+
+Our global Schmidt states have the great property of being orthogonal, evolving to states with determined measurement results (pointer states) in the time it takes the state to decohere. And the global pointer states, to which the global schmidt states converge have the nice property of being separable (and constantly so).  This makes it so that post decoherence we do not recover quantumness (in the form of uncertainty about the state of the system). Finally our global definition of theses terms leaves no quantum state behind
+
+In "A search for classical subsytems in quantum worlds" they are looking for classical subsystems (ie pointer states). I expand this definition and call my worlds whatever environment state is connected to a classical subsystem. (In truth we would "make classical" every subsytems of the environment of sufficient size and make that into a definition of a classical world.)
+
 
 \subsection{Why do we get no overlape?}
 World overlape in the total energy eigenbasis. We defien our 2 worlds as $|w_1\rangle(t)=\sum_kc_ke^{-ite_k}|k\rangle$ and $|w_1\rangle=\sum_kc_k'e^{-ite_k}|k\rangle$. 
@@ -974,8 +1033,7 @@ we have always orthogonal schmidt basis in our ACL case due to orthogonal system
 https://journals.aps.org/prd/abstract/10.1103/PhysRevD.46.5504
 https://journals.aps.org/prd/abstract/10.1103/PhysRevD.48.3768)
 
-\subsubsection{Distinction between Schmidt and Pointers}
-https://journals.aps.org/prd/abstract/10.1103/PhysRevD.40.1071
+
 
 
 
@@ -991,6 +1049,22 @@ issue, isn't einselection only defined for S+M+E? while we are working here with
 looking at the schmidt states has the nice property of always looking at 2 orthogonal states.
 
 Are pointer states worlds? https://arxiv.org/abs/gr-qc/9610028 says that no
+
+\subsection{Decoherence and Schmidt state}
+
+
+We can, in general terms take our unitary evolution as,
+\begin{equation}
+    U(t)=\sum_j|a_j\rangle\langle a_j|\otimes U^{\mathcal{E}}_j(t)
+\end{equation}
+Starting the system in $|b\rangle$, then $U_j^{\mathcal{E}}|b>=|b_j(t)\rangle$. This means that the reduced density matrix of the system $\mathcal{S}$, evovlves as,
+\begin{equation}
+    \rho_{ij} = \langle b_i(t)|b_i(t)\rangle \rho_{ij}(0)
+\end{equation}
+This results in the evolution of the system density matrix to a diagonal form. This diagonal form, explains the apparent classicality of the unique measurement result. The 2 results, after some decoherence time, belong to 2 different orthogonal states. 
+
+
+Decoherence has it that $\langle b_j(t)|b_i(t)\rangle\rightarrow \delta_{ij}$ for $t\rightarrow \infty$. 
 
 \appendix
 

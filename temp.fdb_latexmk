@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1712231188 "/Users/maringirard/Dev/Quantum_Branching/temp.tex" "temp.pdf" "temp" 1712231190 2
-  "/Users/maringirard/Dev/Quantum_Branching/temp.tex" 1712231186 73023 afe1b71a01061dd1807e9541ec5d51a8 ""
+["pdflatex"] 1712482240 "/Users/maringirard/Dev/Quantum_Branching/temp.tex" "temp.pdf" "temp" 1712482242 2
+  "/Users/maringirard/Dev/Quantum_Branching/temp.tex" 1712482237 75323 800b8c46ad26d35ffcd55ec02c95a36d ""
   "/Users/maringirard/Library/texlive/2023/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk" 1709759331 6964 763ca39fd04c19927dffe682f215b726 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -151,9 +151,9 @@
   "Figures/r_plot.png" 0 -1 0 ""
   "Figures/time_simi.png" 0 -1 0 ""
   "Figures/total_interf.png" 0 -1 0 ""
-  "temp.aux" 1712231189 22708 bd5a6ba3849d74886c676feb95a1ce6f "pdflatex"
-  "temp.out" 1712231189 11865 c3bd82440aa414b3f215e7bd23714c7f "pdflatex"
-  "temp.tex" 1712231186 73023 afe1b71a01061dd1807e9541ec5d51a8 ""
+  "temp.aux" 1712482241 22693 bdc9b780720da974acba36f8d95fd041 "pdflatex"
+  "temp.out" 1712482241 11792 4e16138b2e2250d03fe9378523eb3b20 "pdflatex"
+  "temp.tex" 1712482237 75323 800b8c46ad26d35ffcd55ec02c95a36d ""
   (generated)
   "temp.aux"
   "temp.log"
