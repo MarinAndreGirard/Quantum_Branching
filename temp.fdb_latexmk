@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1712482240 "/Users/maringirard/Dev/Quantum_Branching/temp.tex" "temp.pdf" "temp" 1712482242 2
-  "/Users/maringirard/Dev/Quantum_Branching/temp.tex" 1712482237 75323 800b8c46ad26d35ffcd55ec02c95a36d ""
+["pdflatex"] 1713377822 "/Users/maringirard/Dev/Quantum_Branching/temp.tex" "temp.pdf" "temp" 1713377823 2
+  "/Users/maringirard/Dev/Quantum_Branching/temp.tex" 1713377817 84965 6a846ad0d112526ae1522ae275c69a2f ""
   "/Users/maringirard/Library/texlive/2023/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk" 1709759331 6964 763ca39fd04c19927dffe682f215b726 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -128,6 +128,7 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1709404631 4623355 b8cad38412faebe1ce5b780a45db67bd ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1709404453 7883447 9a663140eda5e9d08d5a0a1b8200eb12 ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
+  "Figures/2_eigen_minimization.png" 0 -1 0 ""
   "Figures/HI_distrib_early.png" 0 -1 0 ""
   "Figures/HI_distrib_late.png" 0 -1 0 ""
   "Figures/Heat_He.png" 0 -1 0 ""
@@ -151,9 +152,9 @@
   "Figures/r_plot.png" 0 -1 0 ""
   "Figures/time_simi.png" 0 -1 0 ""
   "Figures/total_interf.png" 0 -1 0 ""
-  "temp.aux" 1712482241 22693 bdc9b780720da974acba36f8d95fd041 "pdflatex"
-  "temp.out" 1712482241 11792 4e16138b2e2250d03fe9378523eb3b20 "pdflatex"
-  "temp.tex" 1712482237 75323 800b8c46ad26d35ffcd55ec02c95a36d ""
+  "temp.aux" 1713377823 24643 a569b64706eff8c59058a880a9ba735f "pdflatex"
+  "temp.out" 1713377823 14185 e338dca89998e7ea21da23622ebc20f4 "pdflatex"
+  "temp.tex" 1713377817 84965 6a846ad0d112526ae1522ae275c69a2f ""
   (generated)
   "temp.aux"
   "temp.log"
